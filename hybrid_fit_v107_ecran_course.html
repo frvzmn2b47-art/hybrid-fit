@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1221"><title>HYBRID FIT — v0.9.2</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1221;--card:#172338;--line:#31425e;--text:#f5f8ff;--muted:#a7b6ce;--mint:#84efb4;--blue:#86baff;--amber:#ffd08c;--red:#ff9d9d;font:15px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif}*{box-sizing:border-box}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 25% -15%,#1a3b40,transparent 50%),var(--bg)}.shell{max-width:1190px;margin:0 auto;padding:22px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:23px;font-weight:900;letter-spacing:.08em}.brand span,.accent{color:var(--mint)}.tag{border:1px solid #41647a;border-radius:30px;padding:5px 10px;color:var(--muted);font-size:12px}.hero{padding:26px 0 12px}.hero h1{font-size:clamp(27px,4vw,44px);margin:7px 0}.muted,small{color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}.tab,button{border:1px solid var(--line);background:#1c2b43;color:var(--text);font:inherit;font-weight:650;cursor:pointer;padding:10px 15px;border-radius:11px;transition:background .15s}.tab.active,.primary{background:var(--mint);color:#071d17;border-color:var(--mint)}button:hover{filter:brightness(1.12)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.panel{display:none}.panel.active{display:block}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}.card h2{margin:7px 0}.card p{color:var(--muted)}.card button{margin-top:9px}.section{margin:22px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px;margin:0 0 14px}.field>label,.label{font-size:14px;color:#d6dfec;font-weight:620}input,select,textarea{width:100%;font:inherit;background:#0c182a;border:1px solid #52617a;color:white;border-radius:10px;padding:11px}input[type=checkbox]{width:auto;accent-color:var(--mint)}.day-picks{display:flex;flex-wrap:wrap;gap:7px}.day-picks label{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:9px;background:#101d30;padding:8px 9px;cursor:pointer;font-size:13px}.day-picks label:has(input:checked){border-color:var(--mint);background:#214539}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.spaced{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.hint{padding:14px;border:1px solid #4b6077;background:#1b2c43;border-radius:12px;margin:13px 0;line-height:1.5}.hint.ok{border-color:#488566}.hint.warn{border-color:#b48a53}.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.day{min-height:120px;background:#132138;border:1px solid var(--line);border-radius:12px;padding:9px;min-width:0}.day h3{margin:1px 0 11px;font-size:13px}.session{padding:9px;margin-bottom:7px;background:#263c57;border-left:3px solid var(--mint);border-radius:9px;overflow-wrap:anywhere}.session.run{border-color:var(--blue)}.session strong{display:block;font-size:12px}.session small{display:block;font-size:11px;margin:4px 0}.session.done{opacity:.64}.session button{padding:6px;font-size:11px;width:100%;margin-top:5px}.mini{font-size:12px}.empty{color:var(--muted);font-size:12px}.statrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}.stat{background:#101d30;border:1px solid var(--line);border-radius:12px;padding:11px}.stat strong{display:block;font-size:25px}.stat small{display:block}.progress-list{display:grid;gap:9px}.progress-line{display:flex;justify-content:space-between;gap:10px;padding:12px;background:#101d30;border-radius:10px}dialog{border:1px solid #58708b;background:#142338;color:#fff;border-radius:19px;max-width:min(620px,95vw);width:100%;max-height:90vh;overflow:auto;padding:22px;box-shadow:0 25px 100px #000a}dialog::backdrop{background:#030914bf}dialog h2{margin-top:0}.notice{font-size:13px;color:var(--muted)}.sets{width:100%;border-collapse:collapse;margin:10px 0}.sets td,.sets th{padding:5px;text-align:left}.sets input{padding:9px;min-width:0}.sets th{font-size:12px;color:var(--muted)}.set-entry{margin:16px 0;padding:13px;border-radius:12px;border:1px solid var(--line)}.pill{font-size:11px;border:1px solid var(--line);padding:4px 8px;border-radius:15px;color:var(--muted)}.foot{margin:32px 0;color:var(--muted);font-size:12px}.hidden{display:none!important}.text-error{color:var(--red)}.text-good{color:var(--mint)}.danger{border-color:#99555a;color:#ffc3c4}.subtle{background:#0d1c2d}fieldset{border:none;padding:0;margin:0}fieldset legend{margin-bottom:8px;font-weight:700}.check{display:flex;gap:8px;align-items:center}.up{font-weight:800;color:var(--mint)}@media(max-width:920px){.week{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:720px){.shell{padding:14px}.cards,.grid{grid-template-columns:1fr}.week{grid-template-columns:repeat(2,minmax(0,1fr))}.statrow{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:20px}}@media(max-width:420px){.week{grid-template-columns:1fr}.statrow{grid-template-columns:1fr}}
+ .objective-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}.goal-box{display:flex;flex-direction:column;gap:7px;background:linear-gradient(140deg,#142e34,#16243a);padding:19px;border:1px solid #3d6475;border-radius:14px}.goal-box small{font-size:11px;font-weight:750;letter-spacing:.04em;color:var(--mint)}.goal-box strong{font-size:clamp(20px,2.3vw,29px)}.goal-box span{color:var(--muted);font-size:13px}.trail-header{display:flex;align-items:center;justify-content:space-between;gap:8px}.trail-header h4{margin:8px 0}.trail-header .pill{color:var(--mint);border-color:#427560}@media(max-width:720px){.objective-grid{grid-template-columns:1fr}}
+
+.workout-intro{background:linear-gradient(120deg,#153a35,#182844);border:1px solid #426d70;border-radius:14px;padding:16px;margin:14px 0 18px}.workout-intro strong{display:block;color:#a8ffd1;font-size:17px}.workout-intro p{margin:7px 0;color:var(--muted)}.workout-step{border:1px solid #3b4f6c;border-radius:12px;padding:13px 14px;margin:11px 0;background:#111d30}.workout-step .spaced{align-items:center}.workout-step input,.workout-step textarea{margin:5px 0}.step-num{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.07em}.step-grid{display:grid;grid-template-columns:120px 1fr;gap:10px}.step-grid label{color:var(--muted);font-size:12px}.superset-tag{color:var(--mint);font-size:14px;border-bottom:1px solid var(--line);padding:9px 0;margin:17px 0 9px}.set-entry .exercise-name{font-weight:700;font-size:16px}.target-box{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 12px}.target-box input{max-width:120px}.target-box label{font-size:13px;color:var(--muted)}.workout-hint{border-left:3px solid #64bba7;padding:8px 10px;color:var(--muted);background:#112c33;margin:12px 0;border-radius:5px}.import-label{border:1px solid var(--line);border-radius:11px;padding:11px 14px;font-weight:650;background:#1c2b43;cursor:pointer}.sr-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.exercise-link{color:#9bdfff;text-decoration:underline;font-size:12px}.plan-callout{background:#192c31;border:1px solid #355d53;border-radius:13px;padding:13px;margin:13px 0}.progress-detail{color:var(--muted);font-size:13px}
+@media(max-width:580px){.step-grid{grid-template-columns:1fr}.target-box input{width:100px}dialog{max-width:96vw;padding:14px}.sets input,.sets select{min-width:55px;padding:7px}}
+
+.cyclebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:14px 0;padding:12px 14px;background:#132b35;border:1px solid #426271;border-radius:14px}.cyclebar strong{font-size:15px}.cyclebar button{padding:8px 14px}.phase-note{background:linear-gradient(90deg,#14372f,#162338);border-left:3px solid #7de8af;margin:12px 0 16px;padding:12px 14px;border-radius:7px}.phase-note strong{color:#b9f7d0}.session small{display:block}.session .pill{font-size:11px}.cyclebar .dim{opacity:.35;pointer-events:none}.run-principle{font-size:13px;color:var(--muted);background:#121d30;border:1px solid var(--line);padding:10px;border-radius:10px}
+
+.cycle-actions{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin:12px 0 20px}.cycle-actions .notice{margin:0}.summary-stat{background:#101d30;border:1px solid #334b5d;border-radius:13px;padding:14px}.summary-stat strong{font-size:24px;display:block;color:#baf2d2}.summary-stat small{font-size:12px}.archive-item{background:#0f2132;padding:15px;border-radius:13px;border:1px solid #385468;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.archive-week{margin:14px 0;border-bottom:1px solid #3c5268;padding-bottom:9px}.archive-week p{margin:4px 0}.archive-week strong{color:#a7f4c7}
+
+/* V0.7: private physical progression */
+.body-stats{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}.body-stat{border:1px solid #3b5168;border-radius:12px;background:#102238;padding:12px}.body-stat strong{font-size:22px;display:block;margin:3px 0;color:#a5f1c4}.body-stat small{font-size:12px}.body-trend{margin:16px 0;display:flex;gap:5px;align-items:flex-end;height:128px;border-bottom:1px solid #5c7082}.trend-bar{flex:1;min-width:5px;max-width:43px;border:0;background:linear-gradient(#97f3c0,#4c9e8e);border-radius:5px 5px 0 0}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.compare-photo{border:1px solid var(--line);background:#0c1828;border-radius:13px;padding:11px;min-height:160px}.compare-photo img{width:100%;display:block;object-fit:contain;max-height:460px;border-radius:9px;background:#050d18}.compare-photo h4{margin:4px 0 10px}.body-history{display:grid;gap:12px}.body-entry{background:#101e31;border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;gap:15px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}.body-entry img{width:90px;height:90px;object-fit:cover;border-radius:9px}.body-entry p{white-space:pre-wrap;overflow-wrap:anywhere;max-width:580px}.body-entry .toolbar{align-self:center}@media(max-width:540px){.compare-grid{grid-template-columns:1fr}.body-stats{grid-template-columns:1fr}}
+
+/* V0.8 Nutrition */
+.big-value{font-size:27px;font-weight:850;color:var(--mint);margin:11px 0}.watertrack{height:13px;border-radius:99px;overflow:hidden;background:#0b1728;border:1px solid #35506a;margin-bottom:15px}.watertrack>div{background:linear-gradient(90deg,#549cce,#8af2c6);width:0;height:100%;transition:width .2s}.meal-item{padding:16px;border:1px solid #416077;background:#102437;border-radius:12px}.meal-item h4{margin:0 0 7px;color:#b6fbd2}.meal-item p{margin:0}.nut-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:19px 0}.nut-figure{padding:14px 9px;background:#102436;border:1px solid #385b6b;border-radius:12px}.nut-figure strong{display:block;color:#baf8d6;font-size:21px}.nut-figure small{font-size:11px}.hr{border:0;border-top:1px solid var(--line);margin:25px 0}.food-entry{border:1px solid #345166;border-radius:10px;padding:12px;background:#0f2031;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.food-entry span{display:block;color:var(--muted);font-size:12px}.food-entry button{font-size:12px;padding:7px 12px}@media(max-width:600px){.nut-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V0.8.1 - repère IMC en demi-cercle */
+.bmi-meter{margin:14px 0 18px;padding:15px 13px 10px;border:1px solid #365569;border-radius:15px;background:linear-gradient(140deg,#112238,#0d1e2f)}
+.bmi-meter-title{font-weight:750;font-size:15px;color:#e5f6ef;text-align:center}
+#bmiGauge{display:block;width:min(100%,380px);height:auto;margin:3px auto -4px;overflow:visible}
+.bmi-status{text-align:center;min-height:28px;font-weight:700;font-size:14px}
+.bmi-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin:13px 3px}
+.bmi-legend span{display:flex;align-items:center;gap:8px;font-size:12px;color:#dee8f4}
+.bmi-legend i{width:12px;height:12px;border-radius:4px;flex-shrink:0}
+.bmi-caution{margin:13px 0 0;font-size:12px;line-height:1.45}
+@media(max-width:520px){.bmi-legend{grid-template-columns:1fr}.bmi-meter{padding:13px 10px}}
+
+/* V0.8.2 — Journal de repas vivant, commun aux modes Simple et Complet */
+.mealjournal{background:linear-gradient(155deg,#162d3a,#142235);border:1px solid #456576}
+.meal-hero{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.meal-counter{background:#0b322c;color:#b3ffdb;border:1px solid #43846e;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:750}
+.meal-completion{margin:13px 0 17px;height:8px;background:#0b1b2a;border-radius:20px;overflow:hidden}
+.meal-completion>div{height:100%;width:0;background:linear-gradient(90deg,#77adfd,#8df0b7);transition:width .2s}
+.meal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:16px 0}
+.meal-slot{border:1px solid #365668;border-radius:14px;padding:14px;background:#0f2233;min-height:131px;display:flex;flex-direction:column;gap:10px}
+.meal-slot.has-meal{border-color:#52816f;background:#112b32}
+.meal-slot-header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.meal-slot-header strong{font-size:15px}
+.meal-slot-count{font-size:12px;color:#b4dccd}
+.meal-slot-items{display:flex;flex-direction:column;gap:8px;flex:1}
+.meal-log{padding:10px;border-radius:9px;background:#172e3d;border:1px solid #3e5c6d}
+.meal-log-title{font-size:13px;font-weight:750;overflow-wrap:anywhere}
+.meal-log-detail{font-size:12px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.meal-log-actions{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.meal-log-actions button{font-size:11px;padding:5px 10px}
+.meal-slot-empty{font-size:12px;color:var(--muted);flex:1}
+.meal-slot-new{align-self:flex-start;margin-top:auto;padding:7px 12px;font-size:12px}
+.meal-form{margin:18px 0 6px;padding:15px;background:#0d2131;border:1px solid #42657a;border-radius:13px}
+.meal-form h4{margin:0 0 12px;color:#b5f8ce}
+.meal-repeat-status{font-size:12px;color:var(--muted);margin:8px 0 0}
+.meal-coach{background:#102c34;border-left:3px solid #75c6b4;padding:12px;border-radius:8px;margin:14px 0;font-size:13px;color:#cceade}
+@media(max-width:650px){.meal-grid{grid-template-columns:1fr}.meal-hero{align-items:flex-start}}
+
+/* V0.9 — GPS imports */
+#gps a{color:#a6e7ff}#gpsPreview{background:#102a36;border:1px solid #487c85;padding:15px;border-radius:14px;margin-top:15px}#gpsPreview h3{margin-top:0}#gpsActivities .gps-item{background:#112238;border:1px solid var(--line);border-radius:11px;padding:12px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}#gpsActivities .gps-item small{display:block;margin-top:4px}#gpsActivities .gps-item .danger{font-size:12px;padding:7px 9px}#gpsPreview.hidden{display:none}
+
+/* V0.9.1 — Detailed GPS activity cards */
+#gpsActivities .gps-item{align-items:stretch;flex-direction:column;gap:12px}
+.gps-activity-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.gps-activity-top strong{font-size:16px}.gps-activity-top small{line-height:1.6}
+.gps-activity-actions{display:flex;gap:7px;flex-wrap:wrap}
+#gpsActivities .gps-item button{margin:0}
+.gps-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gps-metric{padding:10px;background:#0c1c2f;border:1px solid #2b4659;border-radius:10px;min-width:0}
+.gps-metric small{font-size:11px;color:var(--muted);display:block}
+.gps-metric strong{display:block;font-size:15px;color:#b6f5d4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gps-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.gps-detail-card{background:#0c1c2f;border:1px solid var(--line);border-radius:12px;padding:14px}
+.gps-detail-card small{display:block;color:var(--muted);margin-bottom:4px}
+.gps-detail-card strong{font-size:23px;color:#b7f4d3}
+#gpsDetailDialog{max-width:min(680px,96vw)}
+.gps-live{background:#0c2530;border-radius:11px;padding:12px;margin:10px 0;color:#b7f4d3}
+@media(max-width:780px){.gps-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:440px){.gps-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.gps-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V0.9.2 — offline data-driven charts */
+.gps-charts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:14px}
+.chart-panel{background:#101e31;border:1px solid #344c66;border-radius:14px;padding:14px;min-width:0}
+.chart-panel h4{margin:0 0 4px;color:#edf5ff;font-size:14px}
+.chart-panel p{margin:4px 0 10px;font-size:12px;color:var(--muted)}
+.chart-panel svg{width:100%;height:auto;min-height:135px;display:block}
+.chart-empty{border:1px dashed #405671;border-radius:10px;color:#afc3d8;font-size:13px;padding:16px;line-height:1.5;margin:10px 0}
+.chart-key{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:12px}
+.chart-key span:before{content:' ';width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;background:var(--mint)}
+.chart-key span:nth-child(2):before{background:var(--blue)}
+.chart-summary{background:#113039;border:1px solid #386477;border-radius:12px;padding:12px;margin:12px 0;font-size:13px}
+.chart-wide{grid-column:1/-1}
+.chart-panel text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+#gpsDetailDialog{max-width:min(940px,96vw)}
+#gpsDetailCharts{margin:14px 0}
+@media(max-width:670px){.gps-charts-grid{grid-template-columns:1fr}.chart-wide{grid-column:auto}.chart-panel{padding:10px}}
+.hp-mode{display:grid;grid-template-columns:20px minmax(0,1fr);align-items:start;gap:10px;margin:9px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#101d30;cursor:pointer}.hp-mode input[type="radio"]{width:18px;height:18px;margin:2px 0 0;accent-color:var(--mint)}.hp-mode span{min-width:0;line-height:1.5}.hp-mode:has(input:checked){border-color:var(--mint);background:#17392f}
+/* V1.0.7 — tableau de bord lisible pendant la course */
+.hp-dash{background:linear-gradient(160deg,#102f34,#101c30);border:1px solid #508477;border-radius:17px;padding:19px 15px;margin:14px 0;text-align:center}
+.hp-dash .hp-dash-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a6e5d1;font-weight:800}
+.hp-dash .hp-dash-time{font-size:clamp(56px,13vw,90px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.05em;color:#fff;margin:6px 0 12px}
+.hp-dash .hp-dash-phase{font-size:clamp(18px,5vw,26px);font-weight:850;color:#a4f1cc;margin:8px 0;overflow-wrap:anywhere}
+.hp-dash .hp-dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.hp-dash .hp-dash-tile{background:#14283a;border:1px solid #36596b;border-radius:12px;padding:12px 6px}
+.hp-dash .hp-dash-tile strong{display:block;font-size:clamp(24px,7vw,36px);font-variant-numeric:tabular-nums;color:white}
+.hp-dash .hp-dash-tile small{font-size:12px;color:#b6cbd6}
+.hp-dash .hp-dash-hint{font-size:13px;color:#c2d5dd;margin-top:12px;line-height:1.5}
+</style></head><body><main class="shell">
+<header><div class="brand">HYBRID <span>FIT</span></div><div class="tag">Prototype v1.0.4 · Coach optionnel + CAP prudente · 0 €</div></header>
+<section class="hero"><div class="muted">MUSCULATION · RUNNING · HYBRIDE</div><h1>Ton entraînement s'adapte <span class="accent">à ta vraie vie.</span></h1><p class="muted">Des cycles progressifs de 8 semaines, un agenda souple et une progression qui se conserve.</p></section>
+<nav class="tabs" aria-label="Navigation"><button class="tab active" data-tab="home">Accueil</button><button class="tab" data-tab="profile">Mon profil</button><button class="tab" data-tab="planning">Mon planning</button><button class="tab" data-tab="progress">Progression</button><button class="tab" data-tab="evolution">📸 Évolution physique</button><button class="tab" data-tab="nutrition">🥗 Alimentation & Hydratation</button><button class="tab" data-tab="gps">⌚ Mes activités GPS</button><button class="tab" data-tab="routes">🗺️ Mon parcours</button></nav>
+<section class="panel active" id="home"><div class="cards">
+<article class="card"><div style="font-size:29px">💪</div><h2>Musculation</h2><p>Sèche, prise de masse, supersets et suivi des charges et répétitions.</p><button data-mode="muscu">Configurer Muscu →</button></article>
+<article class="card"><div style="font-size:29px">🏃</div><h2>Running</h2><p>Route ou Trail : objectifs, dénivelé, chronos et séances adaptables à ton agenda.</p><button data-mode="running">Configurer Running →</button></article>
+<article class="card"><div style="font-size:29px">🔥</div><h2>Hybride</h2><p>Musculation et course à pied dans un seul planning, sans empiler les efforts.</p><button class="primary" data-mode="hybride">Configurer Hybride →</button></article></div>
+<div class="section card" id="objectivesCard"><div class="spaced"><div><h2>🎯 Mes objectifs</h2><p class="muted" id="objectivesIntro">Ton cap, tes progrès, ta motivation.</p></div><button id="editGoals">Modifier mes objectifs →</button></div><div class="objective-grid" id="objectivesContent"><div class="goal-box"><small>À personnaliser</small><strong>Ton prochain défi commence ici.</strong><span>Renseigne ton profil pour voir tes objectifs.</span></div></div></div>
+<div class="section card"><div class="spaced"><div><h2>📅 Ma semaine en un coup d'œil</h2><p class="muted" id="homeCaption">Ton planning sera généré après configuration du profil.</p></div><button id="goPlanning">Voir mon planning →</button></div><div id="homeCycle" class="cyclebar hidden"></div><div class="week" id="homeWeek"></div><div id="homeAdvice" class="hint hidden"></div></div>
+</section>
+<section class="panel" id="profile"><div class="card"><h2>🎯 Construisons ton programme</h2><p class="muted">Ces données sont enregistrées uniquement dans ce navigateur. Aucune connexion Garmin ou compte en ligne dans cette version.</p>
+<form id="form"><div class="grid"><div class="field"><label for="mode">Univers sportif</label><select id="mode"><option value="hybride">Hybride</option><option value="muscu">Musculation</option><option value="running">Running</option></select></div><div class="field"><label for="level">Ton niveau</label><select id="level"><option>Débutant</option><option selected>Intermédiaire</option><option>Confirmé</option></select></div></div>
+<div id="muscuPrefs" class="section"><h3>💪 Musculation</h3><div class="grid"><div class="field"><label for="goalMuscu">Objectif musculation</label><select id="goalMuscu"><option>Sèche</option><option>Prise de masse</option><option>Maintien</option></select></div><div class="field"><label for="duration">Durée habituelle d'une séance</label><input id="duration" type="number" inputmode="numeric" min="15" max="180" step="1" value="45" placeholder="Ex. 45"><small>Durée souhaitée, de 15 à 180 minutes.</small></div></div><fieldset><legend>Quels jours souhaites-tu faire de la musculation ?</legend><div id="muscuPicker" class="day-picks"></div></fieldset><p id="muscuCount" class="notice"></p></div>
+<div id="runPrefs" class="section"><h3>🏃 Running</h3><div class="grid">
+<div class="field"><label for="runPurpose">Pourquoi cours-tu ?</label><select id="runPurpose"><option value="performance">Améliorer un chrono / préparer une course</option><option value="endurance">Gagner en endurance / courir pour le plaisir</option><option value="forme">Reprise / remise en forme</option><option value="poids">Perte de poids (sans objectif chrono obligatoire)</option></select></div><div class="field"><label for="runTerrain">Discipline de course</label><select id="runTerrain"><option value="route">Course sur route</option><option value="trail">Trail</option></select></div>
+<div class="field"><label for="runGoalNote">Nom de ton objectif (facultatif)</label><input id="runGoalNote" maxlength="80" placeholder="Ex. Mon prochain 10 km ou Trail des Crêtes"></div><div class="field"><label for="runDistance">Distance objectif</label><select id="runDistance"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="21.0975">Semi-marathon (21,1 km)</option><option value="42.195">Marathon (42,195 km)</option><option value="other">Autre distance…</option></select></div><div class="field hidden" id="customDistanceWrap"><label for="customDistance">Distance personnalisée (km)</label><input type="number" id="customDistance" min="0.1" max="500" step="0.1" placeholder="Ex. 15"></div><div class="field" id="runTimeWrap"><label for="runTime">Chrono objectif sur route (hh:mm:ss ou mm:ss)</label><input id="runTime" placeholder="Ex. 37:00 pour 10 km" inputmode="numeric"><small>Facultatif, même en course sur route.</small></div><div class="field"><label for="source">Niveau running actuel</label><select id="source"><option>Aucun chrono récent</option><option>Chrono récent connu</option><option>Reprise progressive</option><option>Données Garmin à importer plus tard</option></select></div></div>
+<div class="grid section"><div class="field"><label for="runWeeklyKm">Volume moyen récent (km/semaine, facultatif)</label><input id="runWeeklyKm" type="number" min="0" max="250" step="1" placeholder="Ex. 25"><small>Moyenne des 4 dernières semaines, pas ton record historique.</small></div><div class="field"><label for="recentLongMin">Durée de ta dernière sortie longue (minutes, facultatif)</label><input id="recentLongMin" type="number" min="0" max="300" step="1" placeholder="Ex. 55"><small>Dernière sortie longue effectuée au cours des 4 dernières semaines, si tu en as fait une.</small></div></div><div id="recentRunWrap" class="hidden"><h4>⏱️ Ta dernière référence</h4><p class="notice">Indique un chrono réellement couru récemment, pas ton ancien record. Tu peux laisser ce choix désactivé si tu n'en as pas.</p><div class="grid"><div class="field"><label for="recentDistance">Distance de la référence (km)</label><input id="recentDistance" type="number" min="0.1" max="500" step="0.01" placeholder="Ex. 5"></div><div class="field"><label for="recentTime">Chrono réalisé (mm:ss ou hh:mm:ss)</label><input id="recentTime" inputmode="numeric" placeholder="Ex. 22:30"></div></div><p id="recentPreview" class="notice"></p></div>
+<div id="trailWrap" class="hidden"><div class="trail-header"><h4>🏔️ Mon objectif Trail</h4><span class="pill">Inclus dans Running</span></div><div class="grid"><div class="field"><label for="trailDplus">Dénivelé positif de l'objectif, D+ (m)</label><input id="trailDplus" type="number" min="0" step="10" placeholder="Ex. 850"></div><div class="field"><label for="trailTerrain">Technicité dominante</label><select id="trailTerrain"><option value="facile">Chemins faciles</option><option value="vallonne">Sentiers vallonnés</option><option value="technique">Terrain technique / montagne</option></select></div></div><p id="trailPreview" class="notice"></p><p class="notice">Aucun chrono cible exigé en trail : priorité à la distance, au D+, au terrain et à la gestion de l’effort. Nutrition et hydratation détaillées : version ultérieure.</p></div>
+<fieldset><legend>Quels jours souhaites-tu courir ?</legend><div id="runPicker" class="day-picks"></div></fieldset><p id="runCount" class="notice"></p><p id="pacePreview" class="notice"></p></div>
+<div id="profileMessage" aria-live="polite" class="hint hidden"></div><div class="toolbar"><button type="submit" class="primary">Générer un cycle de 8 semaines</button><button type="button" id="saveProfileOnly">Enregistrer sans régénérer</button></div><p class="notice">Générer un nouveau planning remplace les séances prévues, mais conserve tes performances déjà enregistrées. Aucun programme ici ne remplace un avis médical ou l'évaluation d'un entraîneur.</p></form></div></section>
+<section class="panel" id="planning"><div class="spaced"><div><h2>📅 Mon planning</h2><p id="planSubtitle" class="muted">Commence par créer ton profil.</p></div><div class="toolbar"><button id="editProfile">Modifier le profil</button><button id="resetPlan" class="danger">Effacer le planning</button></div></div><div id="planCycle" class="cyclebar hidden"></div><div class="cycle-actions"><button id="nextCycle" class="primary hidden">🏁 Clôturer ce cycle et préparer le suivant</button><p class="notice">Le cycle précédent sera archivé et ton historique de performances restera disponible. Tu peux consulter les anciens cycles dans Progression.</p></div><div id="weekPhase" class="phase-note hidden"></div><div class="week" id="week"></div><div id="advice" class="hint hidden"></div>
+<div class="card section"><h2>➕ Ajouter une séance</h2><div class="grid"><div class="field"><label for="newType">Sport</label><select id="newType"><option value="muscu">Musculation</option><option value="run">Running</option></select></div><div class="field"><label for="newDay">Jour</label><select id="newDay"></select></div><div class="field"><label for="newName">Nom de la séance</label><input id="newName" placeholder="Ex. Dos + biceps"></div></div><button id="add" class="primary">Ajouter</button><p class="notice" id="addMessage"></p></div></section>
+<section class="panel" id="progress"><div class="spaced"><div><h2>📈 Ma progression</h2><p class="muted">Tes performances enregistrées, et pas seulement celles prévues.</p></div><button id="export" title="Export local JSON">Exporter mes données (photos incluses)</button><label class="import-label" for="importFile">Importer une sauvegarde JSON</label><input type="file" id="importFile" accept=".json,application/json" class="sr-file"></div><div class="statrow"><div class="stat"><strong id="statTrainings">0</strong><small>Séances terminées</small></div><div class="stat"><strong id="statLogs">0</strong><small>Exercices suivis</small></div><div class="stat"><strong id="statVolume">0 kg</strong><small>Volume muscu enregistré</small></div></div><div class="card section"><div class="spaced"><h2>📊 Mon bilan — 30 derniers jours</h2><small>Données réellement enregistrées</small></div><div id="monthlySummary" class="statrow"></div><div id="monthlyComment" class="hint"></div></div><div class="card section"><div class="spaced"><h2>📚 Mes cycles archivés</h2><span id="cycleBadge" class="pill"></span></div><p class="notice">La clôture conserve le programme tel qu'il était et ses séances réalisées. Les anciennes performances restent consultables indépendamment de l'abonnement.</p><div id="cycleArchiveList" class="progress-list"></div></div><div class="card"><h2>Historique sportif</h2><div id="history" class="progress-list"><p class="muted">Aucune performance pour l'instant.</p></div></div></section>
+
+<section class="panel" id="gps">
+ <div class="spaced"><div><h2>⌚ Mes activités GPS</h2><p class="muted">Exporte tes séances Garmin Connect ou Strava, puis importe-les ici. Aucun compte connecté automatiquement.</p></div><span class="pill">100 % local</span></div>
+ <div class="hint ok"><strong>Garmin Fenix 7 / Strava — sans abonnement supplémentaire :</strong> sur <a href="https://connect.garmin.com/" target="_blank" rel="noopener noreferrer">Garmin Connect</a>, ouvre une activité → roue dentée → Exporter au format original (FIT), TCX ou GPX. Sur <a href="https://www.strava.com/athlete/training" target="_blank" rel="noopener noreferrer">Strava Web</a>, ouvre une activité → menu ⋯ → Exporter l’original ou GPX. Décompresse un éventuel ZIP avant l'import.</div>
+ <div class="grid section">
+  <div class="card"><h3>📥 Importer une sortie</h3><p class="notice">Formats FIT, TCX et GPX · fichier de 25 Mo maximum · lecture dans ton navigateur, sans transfert. La position GPS n’est pas conservée : seules les statistiques et jusqu’à 160 mesures simplifiées sans coordonnées sont sauvegardées pour les graphiques.</p>
+   <div class="field"><label for="gpsSource">Provenance du fichier</label><select id="gpsSource"><option value="Garmin Connect">Garmin Connect / Fenix 7</option><option value="Strava">Strava</option><option value="Autre fichier GPS">Autre export GPS</option></select></div>
+   <div class="field"><label for="gpsFile">Fichier d’activité (.fit, .tcx, .gpx)</label><input type="file" id="gpsFile" accept=".fit,.tcx,.gpx,application/gpx+xml,application/xml,text/xml"></div>
+   <div id="gpsMessage" class="hint hidden" role="status" aria-live="polite"></div>
+   <div id="gpsPreview" class="hidden">
+    <h3>🔍 Vérifie avant d’enregistrer</h3><p class="notice">Les distances, le dénivelé et la fréquence cardiaque dépendent du fichier. Tu peux les corriger.</p>
+    <div class="grid"><div class="field"><label for="gpsTitle">Nom de la séance</label><input id="gpsTitle" maxlength="100"></div><div class="field"><label for="gpsDate">Date et heure de départ</label><input type="datetime-local" id="gpsDate"></div>
+    <div class="field"><label for="gpsKm">Distance (km)</label><input type="number" id="gpsKm" min="0.01" max="1000" step="0.01"></div><div class="field"><label for="gpsMinutes">Durée (minutes)</label><input type="number" id="gpsMinutes" min="0.1" max="20000" step="0.1"></div>
+    <div class="field"><label for="gpsDplus">D+ (m, facultatif)</label><input type="number" id="gpsDplus" min="0" max="50000" step="1"></div><div class="field"><label for="gpsHR">Fréquence cardiaque moyenne (bpm, facultatif)</label><input type="number" id="gpsHR" min="35" max="240" step="1"></div></div>
+    <div id="gpsLive" class="gps-live" aria-live="polite">Allure et vitesse calculées dès que la distance et la durée sont indiquées.</div>
+    <div class="field"><label for="gpsLink">Associer au programme en cours (facultatif)</label><select id="gpsLink"><option value="">Aucune — ajouter à mon historique seulement</option></select><small>Seules les séances Running non terminées de la semaine sélectionnée sont proposées.</small></div>
+    <div class="toolbar"><button class="primary" id="gpsConfirm">✓ Valider l’import</button><button id="gpsCancel">Annuler</button></div>
+   </div>
+  </div>
+  <div class="card"><h3>📊 Mes sorties importées</h3><div class="statrow"><div class="stat"><strong id="gpsCount">0</strong><small>Sorties</small></div><div class="stat"><strong id="gpsTotalKm">0</strong><small>Kilomètres</small></div><div class="stat"><strong id="gpsTotalDplus">0</strong><small>Mètres D+</small></div></div><div id="gpsActivities" class="progress-list"></div><p class="notice">Clique sur « Voir la fiche » pour retrouver l’allure, la vitesse et toutes les mesures disponibles. Supprimer un import retire également sa performance liée. Sauvegarde exportable depuis Progression.</p></div>
+ </div>
+ <div class="card section"><div class="spaced"><div><h3>📈 Tendances & coach HYBRID FIT</h3><p class="muted">Tes sorties réellement enregistrées et tes séances Muscu — pas de chiffres inventés.</p></div><div class="field" style="min-width:175px;margin:0"><label for="gpsChartRange">Période</label><select id="gpsChartRange"><option value="8">8 dernières semaines</option><option value="12">12 dernières semaines</option><option value="all">Tout l'historique</option></select></div></div><div id="gpsCoachCharts" class="gps-charts-grid"></div><p class="notice">Ces graphiques servent à suivre tes habitudes, pas à diagnostiquer une fatigue, une condition médicale ou à prédire tes performances.</p></div>
+ <dialog id="gpsDetailDialog" aria-labelledby="gpsDetailTitle"><div class="spaced"><h2 id="gpsDetailTitle">🏃 Détail de ma sortie</h2><button id="gpsCloseDetail" type="button">Fermer ✕</button></div><p id="gpsDetailSub" class="muted"></p><div id="gpsDetailMetrics" class="gps-detail-grid"></div><div id="gpsDetailMeta" class="hint"></div><section id="gpsDetailCharts" aria-label="Courbes de la sortie"></section><p class="notice">L’allure et la vitesse sont calculées à partir de la distance et de la durée enregistrées. Selon le fichier, cette durée peut inclure les pauses ; ce n’est pas forcément le temps de déplacement Garmin.</p></dialog>
+ <div class="hint">🔒 HYBRID FIT n'accède pas à ton compte Garmin ou Strava. Pour la synchronisation automatique, il faudra plus tard un serveur sécurisé et des autorisations officielles. Le FIT est analysé localement ; les champs disponibles peuvent varier selon la montre ou l’export.</div>
+</section>
+<section class="panel" id="evolution">
+  <div class="spaced"><div><h2>📸 Mon évolution physique</h2><p class="muted">Photos comparatives, mensurations et notes personnelles. Aucun jugement automatique sur ton apparence.</p></div><span class="pill">Privé sur cet appareil</span></div>
+  <div class="hint warn" id="photoPrivacy">🔒 Les photos restent sur cet appareil dans le stockage du navigateur. Elles ne sont pas envoyées vers un serveur. <strong>Exporte régulièrement ta sauvegarde complète (photos incluses)</strong> : vider les données du navigateur peut les effacer. Évite un ordinateur partagé.</div>
+  <div class="hint hidden" id="evolutionModeInfo"></div>
+  <div class="grid section">
+    <form id="bodyForm" class="card" novalidate>
+      <h3>➕ Nouveau point de suivi</h3><p class="notice">Tout est facultatif, sauf la date et au moins une photo, une mensuration ou une note. Fais les photos dans des conditions similaires pour comparer.</p>
+      <div class="field"><label for="bodyDate">Date</label><input id="bodyDate" type="date" required></div>
+      <div class="grid">
+        <div class="field"><label for="bodyWeight">Poids (kg)</label><input id="bodyWeight" type="number" inputmode="decimal" min="20" max="350" step="0.1" placeholder="Ex. 73,0"></div>
+        <div class="field"><label for="bodyWaist">Tour de taille (cm)</label><input id="bodyWaist" type="number" min="30" max="250" step="0.1" placeholder="Ex. 78"></div>
+        <div class="field"><label for="bodyChest">Tour de poitrine (cm)</label><input id="bodyChest" type="number" min="30" max="250" step="0.1" placeholder="Ex. 101"></div>
+        <div class="field"><label for="bodyArms">Tour de bras (cm)</label><input id="bodyArms" type="number" min="10" max="100" step="0.1" placeholder="Ex. 35"></div>
+      </div>
+      <div class="field"><label for="bodyNotes">Notes personnelles</label><textarea id="bodyNotes" rows="3" maxlength="700" placeholder="Énergie, régularité, ressenti…"></textarea></div>
+      <div class="field"><label for="bodyPhoto">Photo (facultatif, JPG/PNG/WEBP)</label><input id="bodyPhoto" type="file" accept="image/jpeg,image/png,image/webp"><small>Image réduite sur ton appareil (jusqu’à 8 Mo en entrée). Ne photographie que toi-même et évite les éléments identifiants.</small></div>
+      <div class="toolbar"><button class="primary" type="submit">Enregistrer mon suivi</button><button type="reset">Effacer le formulaire</button></div>
+      <div id="bodyMessage" class="hint hidden" aria-live="polite"></div>
+    </form>
+    <div class="card"><h3>📊 Mes mensurations</h3><p class="notice">Évolution factuelle entre les relevés disponibles, sans estimation de masse grasse à partir des photos.</p><div id="bodyStats" class="body-stats"></div><div id="bodyTrend" class="body-trend"></div><p class="notice" id="bodyTrendNote"></p></div>
+  </div>
+  <div class="card section"><div class="spaced"><div><h3>🪞 Comparateur avant / après</h3><p class="notice">Choisis deux relevés avec photo pour les placer côte à côte.</p></div></div>
+  <div class="grid"><div class="field"><label for="photoBefore">Photo avant</label><select id="photoBefore"></select></div><div class="field"><label for="photoAfter">Photo après</label><select id="photoAfter"></select></div></div>
+  <div id="photoCompare" class="compare-grid"><div class="compare-photo empty">Ajoute deux photos pour commencer.</div></div>
+  <p class="notice">La lumière, la posture et l'angle peuvent modifier fortement l'apparence. Les photos ne permettent pas de diagnostiquer ni de mesurer précisément une composition corporelle.</p>
+  </div>
+  <div class="card section"><div class="spaced"><h3>🗓️ Mes relevés</h3><small>Supprimables à tout moment</small></div><div id="bodyHistory" class="body-history"></div></div>
+</section>
+<section class="panel" id="nutrition">
+  <div class="spaced"><div><h2>🥗 Alimentation & hydratation</h2><p class="muted">Ton alimentation, à ton rythme. Aucun comptage obligatoire.</p></div><span class="pill">Données privées sur cet appareil</span></div>
+  <div class="hint">Mode Simple et mode Complet partagent le même historique : tu peux changer d’avis à tout moment. Les calories et compositions d’aliments sont indicatives et peuvent varier selon les marques et la préparation.</div>
+  <div class="card section">
+    <div class="spaced"><h3>Choisis ton mode</h3><div class="toolbar"><button type="button" id="nutSimple" class="primary">🌱 Simple</button><button type="button" id="nutComplete">📊 Complet</button></div></div>
+    <div class="field"><label for="nutDate">Journée consultée</label><input type="date" id="nutDate"></div>
+    <div class="hint ok" id="nutGoalCaption"></div>
+  </div>
+  <div class="grid section">
+    <div class="card">
+      <h3>💧 Hydratation</h3><p class="notice">Enregistre ce que tu bois. Tes besoins varient selon la chaleur, la transpiration et l’effort ; ne te force pas à atteindre un chiffre fixe.</p>
+      <div class="big-value" id="waterToday">0 ml</div><div class="watertrack"><div id="waterFill"></div></div>
+      <div class="toolbar"><button id="water250" type="button">+ 250 ml</button><button id="water500" type="button">+ 500 ml</button><button id="waterUndo" type="button">Annuler le dernier ajout</button></div>
+      <div class="grid section"><div class="field"><label for="waterCustom">Autre volume (ml)</label><input id="waterCustom" type="number" min="10" max="2000" step="10" placeholder="Ex. 330"></div><div class="field" style="justify-content:end"><button id="waterAddCustom" type="button">Ajouter ce volume</button></div></div>
+      <small id="waterMessage" aria-live="polite"></small>
+    </div>
+    <div class="card"><h3>⚖️ Poids & IMC facultatif</h3><p class="notice">Disponible en Muscu, Running et Hybride. L’IMC chez l’adulte est un indicateur imparfait : il ne distingue pas muscle et graisse.</p>
+      <div class="grid"><div class="field"><label for="nutHeight">Taille (cm)</label><input type="number" min="100" max="240" step="0.1" id="nutHeight" placeholder="Ex. 183"></div><div class="field"><label for="nutWeight">Poids du jour (kg)</label><input type="number" min="20" max="350" step="0.1" id="nutWeight" placeholder="Ex. 73"></div></div>
+      <div class="bmi-meter" aria-label="Jauge de l'indice de masse corporelle pour adulte">
+        <div class="bmi-meter-title">Où se situe mon IMC ?</div>
+        <svg id="bmiGauge" viewBox="0 0 300 183" role="img" aria-label="Jauge IMC : aucune mesure renseignée" xmlns="http://www.w3.org/2000/svg">
+          <g id="bmiGaugeBands"></g>
+          <g id="bmiNeedle" visibility="hidden"><line id="bmiNeedleLine" x1="150" y1="135" x2="150" y2="54" stroke="#f9fcff" stroke-width="3.5" stroke-linecap="round"/><circle id="bmiNeedleTip" cx="150" cy="23" r="6" fill="#fff" stroke="#122035" stroke-width="2"/><circle cx="150" cy="135" r="6" fill="#fff"/></g>
+          <text id="bmiGaugeValue" x="150" y="105" fill="#f5f8ff" text-anchor="middle" font-size="30" font-weight="800">—</text>
+          <text x="150" y="120" fill="#a7b6ce" text-anchor="middle" font-size="10">IMC</text>
+          <text x="27" y="156" fill="#a7b6ce" font-size="10">15</text><text x="273" y="156" fill="#a7b6ce" text-anchor="end" font-size="10">40+</text>
+        </svg>
+        <div id="bmiStatus" class="bmi-status" aria-live="polite">Saisis ta taille et ton poids pour voir ta position.</div>
+        <div class="bmi-legend" aria-label="Catégories indicatives de l'IMC chez l'adulte">
+          <span><i style="background:#65b6ef"></i>En dessous de 18,5</span>
+          <span><i style="background:#70d6a0"></i>18,5 à 24,9</span>
+          <span><i style="background:#f0ba68"></i>25 à 29,9</span>
+          <span><i style="background:#ec817d"></i>30 et plus</span>
+        </div>
+        <p class="notice bmi-caution">Repères d'IMC pour adultes uniquement. L'IMC ne mesure pas la masse grasse ni la forme physique, notamment chez les personnes musclées. Les valeurs sous 15 ou au-dessus de 40 sont affichées aux extrémités de la jauge.</p>
+      </div>
+      <div class="spaced"><button id="saveNutWeight" type="button">Enregistrer mon poids</button><div id="bmiOutput" class="big-value">IMC : —</div></div><p id="weightMessage" class="notice" aria-live="polite"></p><div id="weightMiniHistory" class="notice"></div>
+    </div>
+  </div>
+
+  <div class="card section mealjournal" id="mealJournal">
+    <div class="meal-hero"><div><h3>🍽️ Mon journal des repas</h3><p class="muted">Ce que tu as réellement mangé, repas par repas. Pas besoin de compter les calories.</p></div><div class="meal-counter" id="mealDayCount" aria-live="polite">0 moment enregistré</div></div>
+    <div class="meal-completion" aria-hidden="true"><div id="mealDayProgress"></div></div>
+    <div class="meal-grid" id="mealDayCards"></div>
+    <div class="meal-coach" id="mealTip">Note tes repas à ton rythme ; les données servent à repérer tes habitudes, pas à te juger.</div>
+    <div class="meal-form" id="quickMealForm">
+      <h4 id="quickMealTitle">➕ Ajouter un repas</h4>
+      <div class="grid"><div class="field"><label for="quickMealSlot">Moment de la journée</label><select id="quickMealSlot"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Collation</option><option>Dîner</option><option>Autre</option></select></div><div class="field"><label for="quickMealName">Ce que j'ai mangé</label><input id="quickMealName" maxlength="180" placeholder="Ex. Poulet, riz et légumes"></div></div>
+      <div class="field"><label for="quickMealDetail">Précisions / portions (facultatif)</label><textarea id="quickMealDetail" maxlength="300" rows="2" placeholder="Ex. Une assiette, 150 g de riz ; faim et satiété si utile…"></textarea></div>
+      <div class="toolbar"><button id="saveQuickMeal" type="button" class="primary">✓ Enregistrer ce repas</button><button id="repeatQuickMeal" type="button">↺ Reprendre un repas précédent</button><button id="cancelQuickMeal" type="button" class="hidden">Annuler la modification</button></div>
+      <p id="repeatQuickMealHint" class="meal-repeat-status"></p><p id="quickMealMessage" class="notice" aria-live="polite"></p>
+    </div>
+    <p class="notice">Le mode Complet peut aussi détailler chaque aliment et ses macros. Les deux modes alimentent la même journée sans effacer les données.</p>
+  </div>
+  <div class="card section" id="simpleNutrition"><h3>🥙 Des repas adaptés à ton objectif</h3><p class="notice">Idées pratiques, à adapter à tes préférences et à tes éventuelles allergies. Aucune quantité imposée.</p>
+    <div class="grid" id="mealIdeas"></div><div class="field section"><label for="simpleFoodNote">Note du jour (facultatif)</label><textarea id="simpleFoodNote" maxlength="600" rows="2" placeholder="Ex. Bonne énergie, repas pris après l’entraînement…"></textarea></div><button id="saveFoodNote" type="button">Conserver ma note</button>
+  </div>
+  <div id="fullNutrition" class="hidden">
+    <div class="card section"><h3>📊 Mon journal alimentaire</h3><p class="notice">Renseigne tes objectifs uniquement si tu en as ; l’application ne t’impose aucun déficit calorique.</p>
+      <div class="grid macro-grid" id="nutTargetsFields">
+        <div class="field"><label for="goalKcal">Objectif kcal / jour (facultatif)</label><input id="goalKcal" type="number" min="500" max="8000" step="25" placeholder="Libre"></div>
+        <div class="field"><label for="goalProtein">Protéines cible (g, facultatif)</label><input id="goalProtein" type="number" min="0" max="500" step="1" placeholder="Libre"></div>
+        <div class="field"><label for="goalCarbs">Glucides cible (g, facultatif)</label><input id="goalCarbs" type="number" min="0" max="1200" step="1" placeholder="Libre"></div>
+        <div class="field"><label for="goalFat">Lipides cible (g, facultatif)</label><input id="goalFat" type="number" min="0" max="350" step="1" placeholder="Libre"></div>
+      </div>
+      <button id="saveNutGoals" type="button">Enregistrer mes repères personnels</button>
+      <div class="nut-kpi" id="macroStats"></div>
+      <hr class="hr"><h3>➕ Enregistrer un aliment</h3>
+      <div class="grid"><div class="field"><label for="foodSelect">Aliment de départ</label><select id="foodSelect"><option value="custom">Personnalisé / nouvelle recette</option></select><small>Valeurs moyennes indicatives, vérifie l’étiquette du produit.</small></div><div class="field"><label for="foodMeal">Repas</label><select id="foodMeal"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Collation</option><option>Dîner</option><option>Autre</option></select></div></div>
+      <div class="grid"><div class="field"><label for="foodName">Nom de l’aliment ou de la recette</label><input id="foodName" maxlength="90" placeholder="Ex. Riz cuit"></div><div class="field"><label for="foodGrams">Quantité consommée (g)</label><input id="foodGrams" type="number" min="1" max="5000" step="1" value="100"></div></div>
+      <p class="notice">Composition <strong>pour 100 g</strong> (modifiable, y compris pour les aliments proposés).</p>
+      <div class="grid macro-grid"><div class="field"><label for="foodKcal">kcal / 100 g</label><input id="foodKcal" type="number" min="0" max="1000" step="0.1"></div><div class="field"><label for="foodP">Protéines / 100 g</label><input id="foodP" type="number" min="0" max="100" step="0.1"></div><div class="field"><label for="foodC">Glucides / 100 g</label><input id="foodC" type="number" min="0" max="100" step="0.1"></div><div class="field"><label for="foodF">Lipides / 100 g</label><input id="foodF" type="number" min="0" max="100" step="0.1"></div></div>
+      <div class="toolbar"><button id="addFood" type="button" class="primary">Ajouter au journal</button><button id="clearFoodForm" type="button">Vider les champs</button></div><p id="foodMessage" class="notice" aria-live="polite"></p>
+      <h3>Mes aliments détaillés</h3><p class="notice">Ils apparaissent aussi dans le journal commun, regroupés par repas.</p><div id="foodHistory" class="progress-list"></div>
+    </div>
+  </div>
+  <div class="hint warn">ℹ️ Prototype d’organisation, pas un diagnostic ni un accompagnement diététique individualisé. Les besoins varient notamment avec l’âge, l’activité et l’état de santé. En cas de trouble alimentaire, de maladie ou de symptômes, demande conseil à un professionnel de santé.</div>
+</section>
+
+<section class="panel" id="routes">
+ <div class="card section"><h2>🗺️ Mon parcours du jour · HYBRID PACE</h2><p class="muted">Durée + allure → distance cible, puis boucle réelle avec un service d’itinéraires configuré. Le GPX exporte le tracé, pas les alertes Garmin.</p>
+ <div class="grid"><div class="field"><label for="hpDuration">Durée (minutes)</label><input id="hpDuration" type="number" min="5" max="300" value="75"></div><div class="field"><label for="hpPace">Allure cible (mm:ss/km)</label><input id="hpPace" value="5:00" placeholder="5:00"></div><div class="field"><label for="hpTolerance">Tolérance (secondes/km)</label><input id="hpTolerance" type="number" min="5" max="90" value="10"></div><div class="field"><label for="hpType">Type de parcours</label><select id="hpType"><option value="foot-walking">Chemins / marche-course</option><option value="foot-hiking">Trail / randonnée</option><option value="cycling-regular">Pistes cyclables (repérage uniquement)</option></select></div></div>
+ <div class="hint ok" id="hpEstimate" aria-live="polite"></div>
+ <h3>📍 Générer une vraie boucle</h3><p class="muted">Choisis ton point de départ : une adresse ou ta position (avec ton autorisation). La génération de boucle nécessite ensuite une clé gratuite openrouteservice et Internet.</p>
+ <div class="grid"><div class="field"><label for="hpAddress">Ville, adresse ou lieu de départ</label><input id="hpAddress" type="text" placeholder="Ex. mairie d’Isbergues"><div class="toolbar"><button id="hpFindAddress" type="button">🔎 Rechercher</button><button id="hpLocate" type="button">📍 Ma position</button></div><small id="hpStartStatus" class="muted" role="status">Aucun départ sélectionné</small><input id="hpLat" type="hidden"><input id="hpLon" type="hidden"></div><div class="field"><label for="hpKey">Clé API openrouteservice</label><input id="hpKey" type="password" autocomplete="off" placeholder="Coller la clé ici (non sauvegardée)"></div><div class="field"><label for="hpSeed">Variante du parcours</label><select id="hpSeed"><option value="3">Boucle A</option><option value="9">Boucle B</option><option value="17">Boucle C</option></select></div></div>
+ <div class="toolbar"><button class="primary" id="hpGenerate">🗺️ Calculer la boucle</button><button id="hpExport" disabled>⬇️ Exporter GPX</button></div><div id="hpMessage" class="hint hidden" role="status"></div><div id="hpRouteDetails"></div>
+ <h3>⌚ HYBRID PACE</h3>
+ <fieldset><legend>Comment veux-tu courir ?</legend>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="session" checked><span>🎯 <strong>Suivre ma séance</strong> — respecter l’allure prévue, sans partir trop vite.</span></label>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="chrono"><span>🏁 <strong>Battre le chrono</strong> — suivre mon avance ou retard sur une distance.</span></label>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="free"><span>🏃 <strong>Course libre</strong> — aucune consigne d’allure.</span></label>
+ </fieldset>
+ <div id="hpPlannedBox" class="card section" style="border-color:#477b69"><h3>📅 Séance de mon planning</h3><p class="notice">Séances Running non terminées de la semaine affichée. Pendant le GPS, la phase active et son compte à rebours s'affichent automatiquement. Les intervalles internes ne sont pas encore découpés individuellement ; les allures restent guidées par le ressenti.</p><div class="field"><label for="hpPlannedSelect">Séance à suivre</label><select id="hpPlannedSelect"></select></div><div id="hpPlannedSteps" class="hint" aria-live="polite"></div></div>
+ <div class="grid" id="hpChronoFields"><div class="field"><label for="hpRaceKm">Distance de course (km)</label><input id="hpRaceKm" type="number" min="0.5" max="200" step="0.1" value="10"></div><div class="field"><label for="hpRaceTime">Chrono visé (hh:mm:ss ou mm:ss)</label><input id="hpRaceTime" value="37:00" placeholder="37:00"></div></div>
+ <div class="field" id="hpActualWrap"><label for="hpActual">Allure simulée (secondes/km) — test du mode séance</label><input id="hpActual" type="range" min="210" max="390" step="5" value="270"></div><div class="hint" id="hpCoach" aria-live="polite"></div>
+ <div class="card section" id="hpLiveBox" style="border-color:#477b69">
+ <h3>📡 Sortie GPS en direct <span class="pill">Bêta V1.0.7</span></h3>
+ <p class="notice">Sur téléphone, en HTTPS, autorise la localisation. Garde cette page ouverte pendant la sortie : le suivi en arrière-plan n’est pas garanti. Le GPS peut être imprécis, surtout au départ.</p>
+ <div class="hp-dash" aria-label="Tableau de bord de course">
+  <div class="hp-dash-label">⏱️ Chronomètre</div><div class="hp-dash-time" id="hpDashTime">00:00</div>
+  <div class="hp-dash-phase" id="hpDashPhase">🎯 Prêt pour la séance</div>
+  <div class="hp-dash-grid"><div class="hp-dash-tile"><strong id="hpDashTarget">—</strong><small id="hpDashTargetLabel">Consigne de séance</small></div><div class="hp-dash-tile"><strong id="hpDashRemaining">—</strong><small id="hpDashRemainingLabel">Temps restant dans la phase</small></div></div>
+  <div class="hp-dash-hint" id="hpDashHint">Sélectionne ta séance, puis démarre la sortie GPS.</div>
+ </div>
+ <div class="statrow"><div class="stat"><strong id="hpLiveTime">00:00</strong><small>Temps</small></div><div class="stat"><strong id="hpLiveKm">0,00 km</strong><small>Distance GPS</small></div><div class="stat"><strong id="hpLivePace">—</strong><small>Allure moyenne</small></div></div>
+ <div class="toolbar"><button type="button" class="primary" id="hpLiveStart">▶ Démarrer</button><button type="button" id="hpLivePause" disabled>⏸ Pause</button><button type="button" id="hpLiveStop" disabled>■ Terminer</button></div>
+ <div id="hpLiveStatus" class="hint" aria-live="polite">Prêt à démarrer une sortie GPS.</div>
+ <p class="notice">Les coordonnées restent en mémoire temporaire pendant la sortie et ne sont pas enregistrées dans l’historique. Ce module ne remplace pas une montre GPS dédiée.</p>
+ </div>
+ <p class="muted">Pour la Fenix 7 : transférer le GPX via Garmin Connect, puis régler séparément une alerte de plage d’allure ou un entraînement structuré. En endurance facile, privilégier aussi le ressenti et la fréquence cardiaque.</p>
+ </div>
+</section>
+<footer class="foot">HYBRID FIT v1.0.7 · Écran de course · Prototype local, sans serveur, sans compte, sans collecte de données · Running et récupération : recommandations indicatives, à ajuster au niveau et au ressenti.</footer></main>
+<dialog id="archiveDialog"><h2 id="archiveTitle">Cycle archivé</h2><div id="archiveDetails"></div><div class="toolbar"><button id="closeArchive">Fermer</button></div></dialog><dialog id="moveDialog"><h2>📅 Déplacer une séance</h2><p id="moveInfo" class="muted"></p><div class="field"><label for="moveDay">Nouveau jour</label><select id="moveDay"></select></div><fieldset><legend>Que souhaites-tu faire ?</legend><label class="check"><input type="radio" name="moveKind" value="simple" checked> Déplacer uniquement cette séance</label><label class="check"><input type="radio" name="moveKind" value="optimize"> Optimiser le reste de la semaine</label></fieldset><div class="hint" id="movePreview" aria-live="polite"></div><div class="toolbar"><button class="primary" id="applyMove">Valider le déplacement</button><button id="cancelMove">Annuler</button></div></dialog>
+<dialog id="sessionDialog"><h2 id="sessionTitle">Séance</h2><p id="sessionSummary" class="muted"></p><div id="sessionContent"></div><div class="toolbar"><button id="savePlannedWorkout">💾 Garder mes changements (sans terminer)</button><button class="primary" id="saveWorkout">✓ Terminer et enregistrer</button><button id="cancelWorkout">Fermer</button></div><div class="hint hidden" id="workoutMessage"></div></dialog>
+<script>
+'use strict';
+const DAYS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+const STORE='hybrid_fit_v03';const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function fromStore(){try{const v03=localStorage.getItem(STORE);const v02=localStorage.getItem('hybrid_fit_v02');const d=JSON.parse(v03||v02);return d&&Array.isArray(d.sessions)&&Array.isArray(d.history)?d:null}catch{return null}}
+let data=fromStore()||{profile:null,sessions:[],history:[],generated:false};
+// Old V0.4 sessions have no week; keep them in week 1 until the user elects to regenerate.
+data.sessions.forEach(s=>{if(!Number.isInteger(s.week)||s.week<1||s.week>8)s.week=1});
+data.weekCount=(Number.isInteger(data.weekCount)&&data.weekCount>=1&&data.weekCount<=8)?data.weekCount:Math.max(1,...data.sessions.map(s=>s.week||1));
+// Legacy V0.5 compatible: archives are opt-in, existing planning and results untouched.
+if(!Array.isArray(data.archives))data.archives=[];
+if(!Number.isInteger(data.cycleNumber)||data.cycleNumber<1)data.cycleNumber=1;
+if(!data.cycleStartedAt)data.cycleStartedAt=new Date().toISOString();
+if(!Array.isArray(data.gpsActivities))data.gpsActivities=[];
+if(!Array.isArray(data.bodyProgress))data.bodyProgress=[]; // Physical progress, independent of training cycles
+if(!data.nutrition||typeof data.nutrition!=='object')data.nutrition={};
+normalizeNutrition();
+let currentWeek=1,activeMove=null,workoutId=null,moveDraft=null;
+function visibleSessions(){return data.sessions.filter(s=>(s.week||1)===currentWeek)}
+function navigateWeek(n){currentWeek=Math.max(1,Math.min(data.weekCount||1,n));renderAll()}
+function cycleMarkup(){const count=data.weekCount||1;if(!data.sessions.length||count<2){$('homeCycle').classList.add('hidden');$('planCycle').classList.add('hidden');$('weekPhase').classList.add('hidden');return}
+ const label=`Cycle ${data.cycleNumber} · Semaine ${currentWeek} / ${count}`;
+ for(const k of ['homeCycle','planCycle']){
+  const el=$(k);el.classList.remove('hidden');el.replaceChildren();
+  const prev=document.createElement('button');prev.textContent='← Précédente';prev.disabled=currentWeek<=1;prev.onclick=()=>navigateWeek(currentWeek-1);
+  const title=document.createElement('strong');title.textContent=label;
+  const next=document.createElement('button');next.textContent='Suivante →';next.disabled=currentWeek>=count;next.onclick=()=>navigateWeek(currentWeek+1);
+  el.append(prev,title,next);
+ }
+ const weekPhase=$('weekPhase');weekPhase.classList.remove('hidden');weekPhase.innerHTML=`<strong>${esc(cyclePhase(currentWeek))}</strong><p class="mini">${esc(cycleMessage(currentWeek))}</p>`;
+}
+function cyclePhase(w){return w===4?'Semaine 4 · Allègement':w===8?'Semaine 8 · Bilan et récupération':w<=2?'Semaines 1–2 · Mise en route':w<=3?'Semaine 3 · Consolidation':w<=6?'Semaines 5–6 · Développement':'Semaine 7 · Consolidation'}
+function cycleMessage(w){return w===4?'Charge volontairement réduite : assimiler le travail plutôt que tout accumuler.':w===8?'Une évaluation reste facultative. Adapter si fatigue ou absence de référence récente.':'Les volumes et intensités restent indicatifs. Ajuster aux habitudes récentes et à la récupération, particulièrement en mode hybride.'}
+
+const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(data));return true}catch{alert('Enregistrement impossible : stockage local indisponible ou plein. Exporte tes données.');return false}};
+const id=()=>String(Date.now())+'-'+Math.random().toString(36).slice(2,8);
+function show(tab){document.querySelectorAll('.panel').forEach(el=>el.classList.toggle('active',el.id===tab));document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.dataset.tab===tab));window.scrollTo({top:0,behavior:'smooth'});if(tab==='progress')renderProgress();if(tab==='evolution')renderBodyProgress();if(tab==='nutrition')renderNutrition();if(tab==='gps')renderGps()}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{$('mode').value=b.dataset.mode;toggleMode();show('profile')}));$('goPlanning').onclick=()=>show('planning');$('editProfile').onclick=()=>show('profile');$('editGoals').onclick=()=>show('profile');
+function picker(elId,type){const host=$(elId);host.innerHTML='';DAYS.forEach((day,i)=>{const label=document.createElement('label');label.innerHTML=`<input type="checkbox" data-pick="${type}" value="${i}" aria-label="${day}"> ${day}`;host.append(label)});host.addEventListener('change',updateCounts)}
+picker('muscuPicker','muscu');picker('runPicker','run');
+function selected(type){return [...document.querySelectorAll(`[data-pick="${type}"]:checked`)].map(x=>+x.value).sort((a,b)=>a-b)}
+function setSelected(type,days){document.querySelectorAll(`[data-pick="${type}"]`).forEach(el=>el.checked=days.includes(+el.value))}
+function updateCounts(){$('muscuCount').textContent=selected('muscu').length+' jour(s) sélectionné(s)';$('runCount').textContent=selected('run').length+' jour(s) sélectionné(s)'}
+function toggleMode(){const m=$('mode').value;$('muscuPrefs').classList.toggle('hidden',m==='running');$('runPrefs').classList.toggle('hidden',m==='muscu');toggleRunPurpose()}
+$('mode').onchange=toggleMode;
+$('runDistance').onchange=()=>{$('customDistanceWrap').classList.toggle('hidden',$('runDistance').value!=='other');pacePreview()};
+$('runTime').addEventListener('input',pacePreview);$('customDistance').addEventListener('input',pacePreview);
+$('runTerrain').onchange=toggleTrail;$('runPurpose').onchange=toggleRunPurpose;$('source').onchange=toggleRecent;
+$('trailDplus').oninput=trailPreview;$('trailTerrain').onchange=trailPreview;
+$('recentDistance').oninput=recentPreview;$('recentTime').oninput=recentPreview;
+function toggleTrail(){const trail=$('runTerrain').value==='trail';$('trailWrap').classList.toggle('hidden',!trail);$('runTimeWrap').classList.toggle('hidden',trail);$('pacePreview').classList.toggle('hidden',trail);trailPreview();pacePreview();toggleRunPurpose()}
+function toggleRunPurpose(){const perf=$('runPurpose').value==='performance';const trail=$('runTerrain').value==='trail';$('runTimeWrap').classList.toggle('hidden',!perf||trail);$('pacePreview').classList.toggle('hidden',!perf||trail);const note=$('runGoalNote');if(!note.value&&$('runPurpose').value==='poids')note.placeholder='Ex. Reprendre en douceur et rester régulier';else if(!note.value&&$('runPurpose').value==='forme')note.placeholder='Ex. Courir 30 min tranquillement'}
+function toggleRecent(){$('recentRunWrap').classList.toggle('hidden',$('source').value!=='Chrono récent connu');recentPreview()}
+function fmtPace(sec,km){const secs=Math.round(sec/km);return Math.floor(secs/60)+"'"+String(secs%60).padStart(2,'0')+' /km'}
+function recentPreview(){const seconds=chronoSec($('recentTime').value),km=Number($('recentDistance').value);$('recentPreview').textContent=Number.isNaN(seconds)?'⚠️ Format de chrono incorrect.':seconds&&km>0?'Allure moyenne de référence : '+fmtPace(seconds,km):''}
+function trailPreview(){const km=distanceVal(),dplus=Number($('trailDplus').value);$('trailPreview').textContent=$('runTerrain').value==='trail'&&km>0&&Number.isFinite(dplus)&&dplus>=0?'Indicateur km-effort : '+(km+dplus/100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' (distance en km + D+ / 100). Ce n’est pas une estimation de chrono.':''}
+function chronoSec(s){s=s.trim();if(!s)return null;if(!/^\d{1,3}:[0-5]\d(?::[0-5]\d)?$/.test(s))return NaN;const parts=s.split(':').map(Number);return parts.length===2?parts[0]*60+parts[1]:parts[0]*3600+parts[1]*60+parts[2]}
+function distanceVal(){return $('runDistance').value==='other'?Number($('customDistance').value):Number($('runDistance').value)}
+function pacePreview(){if($('runTerrain').value==='trail'){$('pacePreview').textContent='';trailPreview();return}let sec=chronoSec($('runTime').value),d=distanceVal();$('pacePreview').textContent=Number.isNaN(sec)?'⚠️ Format attendu : mm:ss ou hh:mm:ss':sec&&d>0?`🎯 Allure cible théorique : ${fmtPace(sec,d)} (objectif, pas allure actuelle).`:'';trailPreview()}
+function readProfile(){const mode=$('mode').value,m=selected('muscu'),r=selected('run');const val=$('runTerrain').value==='trail'||$('runPurpose').value!=='performance'?null:chronoSec($('runTime').value),dist=distanceVal();if(mode!=='running'&&!m.length)throw Error('Sélectionne au moins un jour de musculation.');if(mode!=='muscu'&&!r.length)throw Error('Sélectionne au moins un jour de running.');if(mode!=='muscu'&&(!Number.isFinite(dist)||dist<=0))throw Error('Renseigne une distance de course positive.');if(mode!=='muscu'&&(Number.isNaN(val)||(val!==null&&val<=0)))throw Error('Le chrono objectif doit être au format mm:ss ou hh:mm:ss.');const recentTime=chronoSec($('recentTime').value),recentDist=Number($('recentDistance').value);if(mode!=='muscu'&&$('source').value==='Chrono récent connu'&&(recentTime===null||Number.isNaN(recentTime)||recentTime<=0||!Number.isFinite(recentDist)||recentDist<=0))throw Error('Pour un chrono récent connu, renseigne une distance et un temps valides.');const dplus=Number($('trailDplus').value);if(mode!=='muscu'&&$('runTerrain').value==='trail'&&($('trailDplus').value===''||!Number.isFinite(dplus)||dplus<0))throw Error('Renseigne le D+ du trail (0 si aucun).');const weeklyKm=$('runWeeklyKm').value===''?null:Number($('runWeeklyKm').value),longMin=$('recentLongMin').value===''?null:Number($('recentLongMin').value);if(mode!=='muscu'&&((weeklyKm!==null&&(!Number.isFinite(weeklyKm)||weeklyKm<0||weeklyKm>250))||(longMin!==null&&(!Number.isFinite(longMin)||longMin<0||longMin>300))))throw Error('Vérifie les volumes récents : km/semaine et sortie longue.');const durationMinutes=Number($('duration').value);if(mode!=='running'&&(!Number.isFinite(durationMinutes)||durationMinutes<15||durationMinutes>180))throw Error('Indique une durée de musculation de 15 à 180 minutes.');return {mode,level:$('level').value,goalMuscu:$('goalMuscu').value,duration:durationMinutes,runWeeklyKm:weeklyKm,recentLongMin:longMin,runDistance:$('runDistance').value,customDistance:$('customDistance').value,runTime:$('runTerrain').value==='trail'||$('runPurpose').value!=='performance'?'':$('runTime').value,runPurpose:$('runPurpose').value,source:$('source').value,recentDistance:$('recentDistance').value,recentTime:$('recentTime').value,runTerrain:$('runTerrain').value,trailDplus:$('trailDplus').value,trailTerrain:$('trailTerrain').value,runGoalNote:$('runGoalNote').value.trim(),muscuDays:m,runDays:r}}
+
+function formNotice(message,good){$('profileMessage').className='hint '+(good?'ok':'warn');$('profileMessage').textContent=message}
+function storeProfile(generate){try{const p=readProfile();if(generate&&data.sessions.length&&!confirm('Générer un nouveau cycle ? Le planning actuel sera archivé et tes performances conservées.'))return;if(generate&&data.sessions.length){archiveCurrentCycle('Remplacé par un nouveau programme');data.cycleNumber+=1;data.cycleStartedAt=new Date().toISOString()}
+ data.profile=p;if(generate){data.sessions=generateSessions(p);data.weekCount=8;currentWeek=1;data.generated=true}save();renderAll();formNotice(generate?'✓ Cycle créé. Tu peux ouvrir les séances et consulter les cycles passés dans Progression.':'✓ Profil enregistré sans modifier le planning.',true);if(generate)show('planning')}catch(e){formNotice(e.message,false)}}
+$('form').onsubmit=e=>{e.preventDefault();storeProfile(true)};$('saveProfileOnly').onclick=()=>storeProfile(false);
+function templateMuscu(n,goal){if(n===1)return['Full body'];if(n===2)return['Haut du corps','Bas du corps'];if(n===3)return['Haut du corps','Bas du corps','Full body'];if(n===4)return['Pectoraux + épaules','Dos + biceps','Jambes','Full body léger'];return ['Pectoraux + triceps','Dos + biceps','Jambes','Épaules + bras','Full body léger',...Array.from({length:2},(_,i)=>'Séance complémentaire '+(i+1))]}
+function templateRun(n,terrain){const trail=terrain==='trail';const base=trail?['Trail · Endurance vallonnée','Trail · Côtes (intensité à adapter)','Trail · Footing facile','Trail · Sortie longue avec D+','Trail · Technique de descente','Trail · Rando-course légère','Trail · Endurance courte']:['Endurance fondamentale · footing facile','Fractionné / séance rythmée (à calibrer)','Footing récupération · facile','Sortie longue · endurance','Footing facile · aisance respiratoire','Endurance douce','Footing libre'];const indices=n===1?[0]:n===2?[0,3]:n===3?[0,1,3]:n===4?[0,1,2,3]:Array.from({length:Math.min(7,n)},(_,i)=>i);return indices.map(i=>base[i]);}
+
+function makeSession(type,day,name,p,week=1){let exercises=[];if(type==='muscu')exercises=exercisesFor(name,p.goalMuscu,p.duration);return {id:id(),type,day,week,name,done:false,exercises,runPlan:type==='run'?runPlanFor(name,p):null,created:Date.now()}}
+function cycleRunWorkout(slot,count,week,p){
+ const trail=p.runTerrain==='trail',gentle=['poids','forme'].includes(p.runPurpose),beginner=gentle||p.level==='Débutant'||p.source==='Reprise progressive';
+ const weekly=Number(p.runWeeklyKm)||0;const recentLong=Number(p.recentLongMin)||0;const baseEasy=weekly>0?(weekly<12?20:weekly<25?26:weekly<45?32:38):(beginner?22:32);const baseLong=recentLong>0?Math.max(25,Math.min(95,recentLong)):weekly>0?(weekly<12?30:weekly<25?40:weekly<45?55:65):(beginner?38:55);
+ const scale=week===4?.77:week===8?.83:1;
+ const grow=(week===1?0:week===2?3:week===3?5:week===4?2:week===5?5:week===6?8:week===7?9:3);
+ const easy=Math.max(18,Math.round((baseEasy+grow)*scale));
+ const long=Math.max(25,Math.round(Math.min(baseLong+Math.min(grow*1.5,12),baseLong*1.18)*scale));
+ const available=count===1?['easy']:count===2?['easy','long']:count===3?['easy','quality','long']:count===4?['easy','quality','recovery','long']:['easy','quality','recovery','easy2','long','recovery2','easy3'].slice(0,count);
+ const role=(beginner||week===4||week===8)&&available[slot]==='quality'?'easy2':available[slot]||'easy';
+ const cap=beginner?'Reprise prudente · marche-course autorisée':'Effort selon le ressenti, sans allure de course imposée';
+ const step=(title,minutes,details)=>({title,minutes,details});
+ const pack=(name,goal,rpe,steps,notes)=>({name,plan:{kind:trail?'Trail':'Route',goal,rpe,steps,notes}});
+ const easyName=trail?'Trail · Endurance vallonnée':'Endurance fondamentale';
+ const intro=trail?'Chemins accessibles, surveiller les appuis et marcher dans les côtes.':'Allure conversationnelle : pouvoir parler en phrases.';
+ const regular=(total,title=easyName)=>pack(title+' · '+total+' min','Développer la base aérobie','3–4/10',[
+  step('Mise en route',8,'Démarrer progressivement, respiration facile'),step('Endurance facile',Math.max(10,total-13),intro),step('Retour au calme',5,'Trot très lent ou marche')],cap);
+ if(role==='easy'||role==='easy2'||role==='easy3')return regular(role==='easy3'?Math.max(20,easy-6):easy);
+ if(role==='recovery'||role==='recovery2')return pack((trail?'Trail · Footing très facile':'Récupération · Footing facile')+' · '+Math.round(easy*.65)+' min','Récupérer sans ajouter de fatigue','2–3/10',[
+  step('Départ souple',5,'Sans regarder la vitesse'),step('Très facile',Math.max(12,Math.round(easy*.65)-10),'Pouvoir converser sans effort, alterner marche et course si besoin'),step('Retour au calme',5,'Marche')], 'Séance facultative si fatigue élevée : le repos est une option normale.');
+ if(role==='long')return pack((trail?'Trail · Sortie longue avec D+':'Sortie longue · Endurance')+' · '+long+' min','Développer la durée sans forcer','3–4/10',[
+  step('Échauffement',10,'Départ très progressif'),step(trail?'Sortie vallonnée':'Sortie en endurance',Math.max(20,long-15),trail?'Monter en aisance respiratoire ; marcher au besoin et éviter les descentes rapides.':'Garder une allure aisée ; ne pas transformer la sortie en compétition.'),step('Retour au calme',5,'Trot facile ou marche')],trail?'D+ à adapter à l’expérience récente ; anticiper eau, météo et ravitaillement selon la durée.':'Réduire la durée si le niveau actuel ne permet pas ce volume.');
+ const isLight=week===4||week===8;
+ const reps=isLight?4:week<=2?5:week<=3?6:week<=5?5:6;
+ const work=beginner?1:(week>=5&&!isLight?2:1);
+ const rest=work===1?1.5:2;
+ const item=trail?'Montées progressives':'Intervalles au temps';
+ const main=Math.ceil(reps*(work+rest));
+ const detail=trail?`${reps} × ${work} min en montée modérée, redescendre sans précipitation en récupérant. RPE 6–7/10, jamais sprint.`:`${reps} × ${work} min soutenues (RPE 6–7/10), récupération ${rest} min en trottinant. Ne pas cibler directement le chrono rêvé.`;
+ return pack(trail?`Trail · Côtes ${reps} × ${work} min`:`Fractionné · ${reps} × ${work} min`,'Améliorer le rythme en restant maîtrisé',isLight?'5–6/10':'6–7/10',[
+ step('Échauffement',12,'Footing facile + quelques accélérations progressives'),step(item,main,detail),step('Retour au calme',10,'Footing facile ou marche')],`Semaine ${week}/8. ${cap}. Éviter le lendemain d’une grosse séance jambes ; si fatigue, remplacer par une endurance facile.`);
+}
+function generateSessions(p){const result=[];
+ for(let week=1;week<=8;week++){
+  if(p.mode!=='running'){const templates=templateMuscu(p.muscuDays.length,p.goalMuscu);p.muscuDays.forEach((day,i)=>result.push(makeSession('muscu',day,templates[i]||'Musculation',p,week)))}
+  if(p.mode!=='muscu'){p.runDays.forEach((day,i)=>{const workout=cycleRunWorkout(i,p.runDays.length,week,p);const s=makeSession('run',day,workout.name,p,week);s.runPlan=workout.plan;result.push(s)})}
+ }
+ return result;
+}
+
+function exercisesFor(name,goal,duration='40–45 min'){
+ const n=String(name||'').toLowerCase();let pairs;
+ if(/pector|haut du corps/.test(n))pairs=[
+  [['Développé couché','8–12','Pectoraux / contrôle de la descente'],['Rowing poulie','10–12','Dos / omoplates serrées']],
+  [['Développé incliné haltères','8–12','Pectoraux hauts'],['Tirage vertical','10–12','Dos / sans élan']],
+  [['Écartés poulie','12–15','Amplitude contrôlée'],['Élévations latérales','12–15','Épaules / sans hausser les trapèzes']],
+  [['Extension triceps poulie','10–15','Coudes près du corps'],['Face pull léger','12–15','Arrêter si douleur aux épaules']]];
+ else if(/dos|biceps/.test(n))pairs=[
+  [['Tirage vertical','8–12','Descente contrôlée'],['Curl haltères','10–12','Sans balancer le buste']],
+  [['Rowing machine','8–12','Tronc stable'],['Curl marteau','10–12','Bras le long du corps']],
+  [['Rowing poulie basse','10–12','Omoplates mobiles'],['Curl incliné','10–12','Amplitude confortable']],
+  [['Pullover poulie','12–15','Sans cambrer'],['Crunch poulie','12–15','Respiration régulière']]];
+ else if(/jambes|bas du corps/.test(n))pairs=[
+  [['Presse à cuisses','8–12','Amplitude contrôlée'],['Leg curl','10–12','Ischio-jambiers']],
+  [['Squat goblet','10–12','Technique prioritaire'],['Soulevé de terre roumain haltères','8–12','Charnière de hanche']],
+  [['Fentes arrière','8–10 / jambe','Stabilité'],['Mollets debout','12–15','Pause en haut']],
+  [['Leg extension léger','12–15','Sans douleur aux genoux'],['Anti-rotation à la poulie','10–12 / côté','Contrôle du tronc']]];
+ else if(/épaule|bras/.test(n))pairs=[
+  [['Développé épaules haltères','8–12','Amplitude sans douleur'],['Curl biceps','10–12','Sans élan']],
+  [['Élévations latérales','12–15','Léger et contrôlé'],['Extension triceps corde','10–12','Coudes fixes']],
+  [['Oiseau haltères léger','12–15','Respecter les épaules'],['Curl marteau','10–12','Contrôle']],
+  [['Pompes inclinées','8–15','Réduire amplitude si besoin'],['Extensions triceps unilatérales','10–12','Sans douleur']]];
+ else pairs=[
+  [['Développé couché','8–12','Pectoraux'],['Tirage vertical','10–12','Dos']],
+  [['Presse à cuisses','10–12','Jambes'],['Rowing poulie','10–12','Dos']],
+  [['Développé incliné haltères','8–12','Haut du corps'],['Leg curl','10–12','Ischios']],
+  [['Curl marteau','10–12','Biceps'],['Extension triceps poulie','10–12','Triceps']]];
+ const dur=Number(duration)||Number.parseInt(String(duration))||45;
+ const count=dur<30?2:dur<40?3:4;
+ const series=dur>=65?4:3;
+ return pairs.slice(0,count).flatMap((pair,k)=>pair.map((v,i)=>({name:v[0],target:v[1],cue:v[2],superset:k+1,sets:Array.from({length:series},()=>({reps:goal==='Prise de masse'?10:12,weight:'',feel:''}))})));
+}
+function runPlanFor(name,profile){
+ const n=String(name||'').toLowerCase();const trail=profile?.runTerrain==='trail'||/trail/.test(n);
+ const novice=profile?.level==='Débutant'||profile?.source==='Reprise progressive';
+ const feel='Parle en phrases complètes, effort confortable (3–4/10).';
+ const base={kind:trail?'Trail':'Route',goal:'Rester à l’écoute de l’effort',rpe:'3–4/10',steps:[],notes:''};
+ const plan=(goal,rpe,steps,notes='')=>({...base,goal,rpe,steps:steps.map(([title,minutes,details])=>({title,minutes,details})),notes});
+ if(/récup|recu|douce|léger|footing facile|endurance courte/.test(n))return plan('Récupération active', '2–3/10', [['Départ très doux',5,'Partir sans objectif d’allure'],['Footing facile',novice?20:25,feel],['Retour au calme',5,'Marche ou trot très facile']], 'Si fatigue importante : repos ou marche à la place.');
+ if(/fractionn|rythm|tempo|qualit|côtes/.test(n)){
+  if(trail)return plan('Technique et côtes sans épuisement','6–7/10',[['Échauffement facile',12,'Terrain facile, mobilité douce'],['Montées',novice?12:20,novice?'6 × 30 s en côte modérée, récupération en redescendant lentement':'6 × 1 min en montée soutenue, redescendre tranquillement entre chaque'],['Retour au calme',10,'Retour très facile sur terrain stable']], 'Éviter les descentes rapides ; séance qualitative à moduler en fonction de la musculation jambes.');
+  return plan('Travail de rythme maîtrisé','6–7/10',[['Échauffement',12,'Footing doux puis 3 accélérations progressives'],['Intervalles',novice?12:20,novice?'6 × 1 min un peu plus vite / 1 min facile':'6 × 2 min soutenues / 2 min en trottinant (allures à calibrer)'],['Retour au calme',10,'Footing facile, marche si besoin']], 'Ne pas courir les fractions à l’allure du chrono objectif sans référence récente.');
+ }
+ if(/longue|sortie endurance/.test(n))return trail?
+  plan('Endurance sur terrain vallonné','3–5/10',[['Mise en route',10,'Démarrer très progressivement'],['Sortie longue Trail',novice?45:70,'Marcher dans les côtes si besoin. Éviter de forcer en descente.'],['Retour au calme',5,'Marche et récupération']], 'Prévoir un parcours adapté au niveau, de l’eau selon conditions et tester le ravitaillement lors des sorties longues.'):
+  plan('Développer l’endurance','3–4/10',[['Départ facile',10,'Allure conversationnelle'],['Sortie longue',novice?35:55,'Allure stable, sans chercher le chrono'],['Retour au calme',5,'Footing très lent puis marche']], 'Augmenter progressivement la durée au fil des semaines ; ne pas compenser les séances ratées.');
+ if(/descente/.test(n))return plan('Technique en descente prudente','3–5/10',[['Échauffement',10,'Terrain régulier'],['Technique trail',25,'Petites descentes faciles, pas courts, contrôle et stabilité'],['Retour au calme',8,'Trot lent ou marche']], 'Choisir un terrain sûr, arrêter en cas de douleur.');
+ if(/rando-course/.test(n))return plan('Sortie facile avec alternance marche-course','2–4/10',[['Démarrage en marche',8,'Progressif'],['Alternance marche-course',novice?25:40,'Marcher dans les montées, courir si confortable'],['Retour au calme',7,'Marche tranquille']], 'Adaptée en cas de fatigue ou de forte charge hebdomadaire.');
+ if(trail)return plan('Endurance vallonnée à l’effort','3–4/10',[['Mise en route',10,'Chemin facile'],['Terrain varié',novice?25:35,'Monter en aisance respiratoire, marcher au besoin'],['Retour au calme',5,'Retour tranquille']], 'L’allure/km n’est pas une référence suffisante en Trail.');
+ return plan('Endurance fondamentale','3–4/10',[['Mise en route',8,'Départ progressif'],['Footing facile',novice?20:35,feel],['Retour au calme',5,'Trot puis marche']], 'Programme indicatif : ajuster durée et effort selon la forme du jour. Éviter de compenser les séances manquées.');
+}
+
+function recommendations(ses=data.sessions){if(!data.profile)return 'Configure ton profil pour commencer.';ses=ses.filter(s=>(s.week||1)===currentWeek);const counts=DAYS.map((_,i)=>ses.filter(s=>s.day===i&&!s.done).length);const three=counts.map((n,i)=>n>2?DAYS[i]:null).filter(Boolean),double=counts.filter(n=>n>=2).length;const hardRun=ses.filter(s=>s.type==='run'&&/rythm|fractionn|tempo|qualit/i.test(s.name));let issues=[];if(three.length)issues.push('⚠️ Plus de deux séances '+(three.length===1?'le '+three[0]:'les '+three.join(', '))+'.');if(double>=4)issues.push('⚠️ '+double+' journées doubles : surveille la fatigue et la récupération.');if(hardRun.some(s=>ses.some(m=>m.type==='muscu'&&m.day===s.day&&/jambes|bas du corps/i.test(m.name))))issues.push('⚠️ Course intensive et musculation jambes le même jour.');if(ses.some(s=>data.profile&&!(s.type==='muscu'?data.profile.muscuDays:data.profile.runDays).includes(s.day)))issues.push('⚠️ Certaines séances sont placées en dehors des disponibilités renseignées.');return issues.join(' ')||'✅ Planning cohérent avec les jours choisis. Vérifie tout de même ta récupération et adapte l’intensité à ton ressenti.'}
+function sessionDisplayName(s){
+ if(s.type!=='run')return s.name;
+ const trail=data.profile?.runTerrain==='trail';
+ const name=String(s.name||'').trim();
+ const legacy={
+  'Running':trail?'Trail · Endurance vallonnée':'Endurance fondamentale · footing facile',
+  'Course à pied':trail?'Trail · Endurance vallonnée':'Endurance fondamentale · footing facile',
+  'Footing facile':trail?'Trail · Footing facile':'Endurance fondamentale · footing facile',
+  'Séance rythmée (à calibrer)':trail?'Trail · Côtes (intensité à adapter)':'Fractionné / séance rythmée (à calibrer)',
+  'Footing récupération':trail?'Trail · Footing facile':'Footing récupération · facile',
+  'Sortie endurance':trail?'Trail · Sortie longue avec D+':'Sortie longue · endurance',
+  'Footing léger':trail?'Trail · Footing facile':'Footing facile · aisance respiratoire',
+  'Footing additionnel 1':trail?'Trail · Rando-course légère':'Endurance douce',
+  'Footing additionnel 2':trail?'Trail · Endurance courte':'Footing libre'
+ };
+ return legacy[name]||name;
+}
+function makeWeek(elId,interactive){const root=$(elId);root.replaceChildren();for(let i=0;i<7;i++){const day=document.createElement('div');day.className='day';day.innerHTML='<h3>'+DAYS[i]+'</h3>';const today=visibleSessions().filter(s=>s.day===i);if(!today.length){day.insertAdjacentHTML('beforeend','<div class="empty">—</div>')}today.forEach(s=>{const card=document.createElement('div');card.className='session '+s.type+(s.done?' done':'');card.innerHTML=`<strong>${s.type==='run'?'🏃 ':''}${esc(sessionDisplayName(s))}</strong><small>${s.type==='muscu'?'💪 Muscu':(data.profile?.runTerrain==='trail'?'🏔️ Trail':'🏃 Route')} · ${s.done?'✓ Réalisée':'Prévue'}</small>`;if(interactive){const detail=document.createElement('button');detail.textContent=s.type==='muscu'?'Voir la séance / noter':'Voir le programme / noter';detail.onclick=()=>openSession(s.id);const move=document.createElement('button');move.textContent='Déplacer';move.onclick=()=>openMove(s.id);const del=document.createElement('button');del.textContent='Retirer';del.onclick=()=>{if(confirm('Retirer « '+s.name+' » du planning ?')){data.sessions=data.sessions.filter(x=>x.id!==s.id);save();renderAll()}};card.append(detail,move,del)}day.append(card)});root.append(day)}}
+function renderObjectives(){const p=data.profile,root=$('objectivesContent');if(!p){root.innerHTML='<div class="goal-box"><small>TON PROCHAIN DÉFI</small><strong>Tout commence par un objectif.</strong><span>Choisis Muscu, Running ou Hybride pour le personnaliser.</span></div>';return}let blocks=[];if(p.mode!=='running')blocks.push('<div class="goal-box"><small>💪 OBJECTIF MUSCULATION</small><strong>'+esc(p.goalMuscu||'Progression')+'</strong><span>'+esc((p.muscuDays||[]).length)+' jour(s) prévus par semaine · '+esc(p.duration||'Durée libre')+'</span></div>');if(p.mode!=='muscu'){const km=p.runDistance==='other'?p.customDistance:p.runDistance,trail=p.runTerrain==='trail';const name=p.runGoalNote|| (trail?'Trail':'Course sur route');const detail=(p.runPurpose==='performance'||trail?(km?km+' km':'Distance au choix'):'Selon tes envies')+(trail?' · D+ '+esc(p.trailDplus||'0')+' m':'');blocks.push('<div class="goal-box"><small>'+(trail?'🏔️ OBJECTIF TRAIL':'🏃 OBJECTIF RUNNING')+'</small><strong>'+esc(trail?'Terminer mon trail':(p.runPurpose==='poids'?'Bouger régulièrement':p.runPurpose==='forme'?'Retrouver la forme':p.runPurpose==='endurance'?'Courir plus longtemps':p.runTime||'Finir la distance'))+'</strong><span>'+esc(name)+' · '+esc(detail)+'</span></div>')}root.innerHTML=blocks.join('')}
+function renderAll(){cycleMarkup();$('nextCycle').classList.toggle('hidden',!data.profile||!data.sessions.length);renderObjectives();makeWeek('homeWeek',false);makeWeek('week',true);$('homeCaption').textContent=data.sessions.length?`Programme ${data.profile?.mode||'personnalisé'} · semaine ${currentWeek}/${data.weekCount||1} · ${visibleSessions().length} séance(s).`:'Ton planning reste vide jusqu’à la génération de ton programme.';$('planSubtitle').textContent=data.sessions.length?'Ouvre une séance pour voir le contenu détaillé, l’adapter et enregistrer tes résultats.':'Ton planning est vide : configure ton profil pour le générer.';const note=data.sessions.length?recommendations():'';['homeAdvice','advice'].forEach(k=>{const el=$(k);el.className='hint '+(note.includes('⚠️')?'warn':'ok')+(note?'':' hidden');el.textContent=note});renderProgress()}
+DAYS.forEach((d,i)=>{['newDay','moveDay'].forEach(k=>$(k).add(new Option(d,i)))});
+$('add').onclick=()=>{const name=$('newName').value.trim();if(!name){$('addMessage').textContent='Donne un nom à la séance.';return}const type=$('newType').value,day=+$('newDay').value;const p=data.profile||{goalMuscu:'Maintien'};data.sessions.push(makeSession(type,day,name,p,currentWeek));data.generated=true;save();$('newName').value='';$('addMessage').textContent='✓ Séance ajoutée.';renderAll()};
+$('resetPlan').onclick=()=>{if(confirm('Retirer le planning actif ? Il sera archivé et ton profil ainsi que tes performances seront conservés.')){archiveCurrentCycle('Planning retiré');data.cycleNumber+=1;data.cycleStartedAt=new Date().toISOString();data.sessions=[];data.weekCount=1;currentWeek=1;data.generated=false;save();renderAll()}};
+function openMove(sessionId){const s=data.sessions.find(x=>x.id===sessionId);if(!s)return;activeMove=sessionId;$('moveInfo').textContent=s.name+' · '+DAYS[s.day];$('moveDay').value=String(s.day);document.querySelector('input[name="moveKind"][value="simple"]').checked=true;$('moveDialog').showModal();previewMove()}
+function dayAllowed(s,day){if(!data.profile)return true;const opts=s.type==='muscu'?data.profile.muscuDays:data.profile.runDays;return opts.includes(day)}
+function optimization(chosen,requested){let draft=data.sessions.map(s=>({...s}));const moved=draft.find(s=>s.id===chosen);if(!moved)return {draft,changes:[],warnings:[]};const start=moved.day;moved.day=requested;const changes=[`${moved.name} : ${DAYS[start]} → ${DAYS[requested]}`],warnings=[];const originalSameDay=data.sessions.filter(s=>s.id!==chosen&&s.day===requested&&!s.done&&(s.week||1)===currentWeek);
+// Réorganisation déterministe : priorité au déplacement d'une autre séance du même sport et limitation à deux séances par jour.
+let queue=originalSameDay.filter(s=>s.type===moved.type);const tooMany=()=>draft.filter(s=>s.day===requested&&!s.done&&(s.week||1)===currentWeek).length>2;
+if(tooMany()||queue.length){if(!queue.length)queue=originalSameDay.slice();for(const other of queue){const target=draft.find(x=>x.id===other.id);if(!target||target.done)continue;const opts=[];for(let day=0;day<7;day++){if(day===requested||!dayAllowed(target,day))continue;const existing=draft.filter(s=>s.id!==target.id&&s.day===day&&!s.done&&(s.week||1)===currentWeek);if(existing.some(s=>s.type===target.type)||existing.length>=2)continue;const adjacentIntense=target.type==='run'&&/rythm|fractionn|tempo|qualit/i.test(target.name)&&existing.some(s=>/jambes|bas du corps/i.test(s.name));const score=(day>=requested?(day-requested):7+day-requested)*2+existing.length*5+(adjacentIntense?20:0);opts.push({day,score})}opts.sort((a,b)=>a.score-b.score);if(opts.length){const old=target.day;target.day=opts[0].day;changes.push(`${target.name} : ${DAYS[old]} → ${DAYS[target.day]}`)}else warnings.push(`Impossible de reprogrammer automatiquement « ${target.name} » dans les jours autorisés.`);if(!tooMany()&&!draft.some(s=>s.id!==moved.id&&s.type===moved.type&&s.day===requested&&!s.done&&(s.week||1)===currentWeek))break}}
+if(draft.filter(s=>s.day===requested&&!s.done&&(s.week||1)===currentWeek).length>2)warnings.push('Plus de deux séances restent le jour de destination.');if(!dayAllowed(moved,requested))warnings.push('Le jour de destination est hors de tes disponibilités.');return {draft,changes,warnings}}
+function previewMove(){if(!activeMove)return;const target=+$('moveDay').value,kind=document.querySelector('input[name="moveKind"]:checked').value;const current=data.sessions.find(s=>s.id===activeMove);if(!current)return;moveDraft=kind==='optimize'?optimization(activeMove,target):{draft:data.sessions.map(s=>({...s,day:s.id===activeMove?target:s.day})),changes:[`${current.name} : ${DAYS[current.day]} → ${DAYS[target]}`],warnings:[]};if(kind==='simple'){const count=moveDraft.draft.filter(s=>s.day===target&&!s.done&&(s.week||1)===currentWeek).length;if(count>2)moveDraft.warnings.push(`${count} séances le ${DAYS[target]} : attention à la surcharge.`);if(!dayAllowed(current,target))moveDraft.warnings.push('Jour non prévu dans tes disponibilités.')}const note=recommendations(moveDraft.draft);$('movePreview').innerHTML='<strong>Prévisualisation (rien n’est encore enregistré)</strong><ul>'+moveDraft.changes.map(c=>'<li>'+esc(c)+'</li>').join('')+'</ul>'+(moveDraft.warnings.length?'<p class="text-error">'+moveDraft.warnings.map(esc).join(' ')+'</p>':'')+'<p class="mini">'+esc(note)+'</p>'}
+$('moveDay').onchange=previewMove;document.querySelectorAll('input[name="moveKind"]').forEach(r=>r.onchange=previewMove);$('cancelMove').onclick=()=>$('moveDialog').close();$('applyMove').onclick=()=>{if(!moveDraft)return;if(moveDraft.warnings.length&&!confirm('Certaines contraintes restent non résolues. Confirmer malgré tout ?'))return;data.sessions=moveDraft.draft;save();$('moveDialog').close();renderAll()};
+function ensureTrainingPlan(s){
+ if(s.type==='run'){if(!s.runPlan||!Array.isArray(s.runPlan.steps))s.runPlan=runPlanFor(sessionDisplayName(s),data.profile);return}
+ const reference=exercisesFor(s.name,data.profile?.goalMuscu||'Maintien',data.profile?.duration||45);
+ if(!Array.isArray(s.exercises)||!s.exercises.length){s.exercises=reference;return}
+ // Existing 0.3 workouts used 2 supersets; enrich upcoming sessions without deleting the tracked weights.
+ if(s.exercises.length===4&&!s.done){const known=new Set(s.exercises.map(e=>e.name));for(const ex of reference){if(!known.has(ex.name)&&s.exercises.length<8){s.exercises.push(ex);known.add(ex.name)}}}
+ s.exercises.forEach((e,i)=>{e.superset??=Math.floor(i/2)+1;e.target??=reference.find(x=>x.name===e.name)?.target||'8–12';e.cue??='Exécution contrôlée';e.sets??=[]})
+}
+function readPlanChanges(s,showAlerts=true){
+ const host=$('sessionContent');
+ if(s.type==='run'){
+  const steps=[...host.querySelectorAll('.workout-step')].map(block=>({title:block.querySelector('.step-title').value.trim(),minutes:Number(block.querySelector('.step-min').value),details:block.querySelector('.step-details').value.trim()}));
+  if(steps.some(x=>!x.title||!Number.isFinite(x.minutes)||x.minutes<0||x.minutes>240)){
+   if(showAlerts)alert('Vérifie le nom et la durée de chaque étape.');return false;
+  }
+  s.runPlan={...s.runPlan,steps,notes:$('runPlanNotes').value.trim()};return true;
+ }
+ const blocks=[...host.querySelectorAll('.set-entry')];let exercises=[];
+ for(let i=0;i<blocks.length;i++){
+  const b=blocks[i],name=b.querySelector('.exercise-name').value.trim(),target=b.querySelector('.target-reps').value.trim();
+  if(!name){if(showAlerts)alert('Chaque exercice doit avoir un nom.');return false}
+  let sets=[];
+  for(const row of b.querySelectorAll('tbody tr')){
+   const repText=row.querySelector('.rep').value,weightText=row.querySelector('.kg').value;
+   const reps=repText===''?0:Number(repText),weight=weightText===''?'':Number(weightText);
+   if(!Number.isFinite(reps)||reps<0||!Number.isInteger(reps)||(weight!==''&&(!Number.isFinite(weight)||weight<0))){if(showAlerts)alert('Vérifie les répétitions et les charges.');return false}
+   sets.push({reps,weight,feel:row.querySelector('.feel').value});
+  }
+  exercises.push({name,target,cue:s.exercises[i]?.cue||'',superset:Math.floor(i/2)+1,sets});
+ }
+ s.exercises=exercises;return true;
+}
+function openSession(sessionId){
+ const s=data.sessions.find(x=>x.id===sessionId);if(!s)return;workoutId=sessionId;
+ ensureTrainingPlan(s);
+ $('sessionTitle').textContent=(s.type==='muscu'?'💪 ':'🏃 ')+sessionDisplayName(s);
+ $('sessionSummary').textContent=DAYS[s.day]+' · '+(s.done?'Déjà réalisée (modifiable)':'Séance prévue')+' · Semaine '+(s.week||1)+' · Programme indicatif';
+ $('workoutMessage').classList.add('hidden');
+ const root=$('sessionContent');root.replaceChildren();
+ if(s.type==='run'){
+  const p=s.runPlan;
+  const duration=p.steps.reduce((x,st)=>x+(Number(st.minutes)||0),0);
+  root.innerHTML=`<div class="workout-intro"><strong>🎯 ${esc(p.goal)}</strong><p>Effort indicatif : <b>${esc(p.rpe)}</b> · Durée proposée : <b>${duration} min</b></p><span class="muted">Programme sur 8 semaines, à ajuster à ton niveau actuel et à ton ressenti. Les séances ne sont pas une prescription médicale.</span></div>
+   <h3>📋 Déroulé de la séance</h3>
+   ${p.steps.map((step,i)=>`<div class="workout-step"><div class="step-num">ÉTAPE ${i+1}</div><div class="field"><label for="stepTitle${i}">Nom de l’étape</label><input class="step-title" id="stepTitle${i}" maxlength="90" value="${esc(step.title)}"></div><div class="step-grid"><div><label for="stepMin${i}">Durée (min)</label><input class="step-min" id="stepMin${i}" type="number" min="0" max="240" step="1" value="${esc(step.minutes)}"></div><div><label for="stepDetails${i}">Consignes / intervalles</label><textarea class="step-details" rows="2" id="stepDetails${i}" maxlength="500">${esc(step.details)}</textarea></div></div></div>`).join('')}
+   <div class="field"><label for="runPlanNotes">Notes et sécurité</label><textarea rows="2" id="runPlanNotes" maxlength="600">${esc(p.notes||'')}</textarea></div>
+   <div class="plan-callout"><strong>🏁 Après la séance, renseigne ton réalisé :</strong><div class="grid"><div class="field"><label for="runKm">Distance réalisée (km)</label><input type="number" min="0" step="0.01" id="runKm" placeholder="Ex. 8.5"></div><div class="field"><label for="runMinutes">Durée totale (minutes)</label><input type="number" min="0" step="0.1" id="runMinutes" placeholder="Ex. 45"></div></div><div class="grid"><div class="field"><label for="runDplus">D+ réalisé (m, facultatif)</label><input type="number" min="0" step="1" id="runDplus" placeholder="Ex. 320"></div><div class="field"><label for="runFeel">Ressenti global</label><select id="runFeel"><option value="">Choisir…</option><option>Facile</option><option>Modéré</option><option>Difficile</option></select></div></div></div>`;
+ }else{
+  const lastFor=name=>{for(let i=data.history.length-1;i>=0;i--){const h=data.history[i];if(h.type==='muscu'){const ex=(h.exercises||[]).find(x=>x.name===name);if(ex)return ex}}return null};
+  const nSupersets=Math.ceil(s.exercises.length/2);
+  root.innerHTML=`<div class="workout-intro"><strong>💪 ${nSupersets} supersets pour ${esc(data.profile?.goalMuscu||'progresser')}</strong><p>Échauffement progressif 5–8 min, puis exercices A et B en alternance. Repos environ 45–90 s selon l’effort. Charges à adapter.</p><span class="muted">Tu peux modifier le nom des exercices, les répétitions cibles, les charges et le ressenti. Les dernières performances s’affichent sous les exercices.</span></div>`;
+  s.exercises.forEach((ex,i)=>{
+   if(i%2===0){const h=document.createElement('h3');h.className='superset-tag';h.textContent='SUPERSET '+(Math.floor(i/2)+1)+' · A + B';root.append(h)}
+   const box=document.createElement('div');box.className='set-entry';const previous=lastFor(ex.name);
+   const youtube='https://www.youtube.com/results?search_query='+encodeURIComponent('exécution exercice '+ex.name+' musculation');
+   box.innerHTML=`<div class="spaced"><span class="pill">${i%2?'Exercice B':'Exercice A'}</span><a class="exercise-link" href="${youtube}" target="_blank" rel="noopener noreferrer">Voir des démonstrations ↗</a></div><div class="field"><label for="ex${i}">Exercice</label><input id="ex${i}" class="exercise-name" value="${esc(ex.name)}" maxlength="90"></div><div class="target-box"><label for="repT${i}">Cible :</label><input id="repT${i}" class="target-reps" maxlength="30" value="${esc(ex.target||'8–12')}"><small>${esc(ex.cue||'')}</small></div>
+   <div class="notice">${previous?'Précédente séance : '+previous.sets.map(x=>esc(x.reps)+' rép. à '+esc(x.weight||'—')+' kg').join(' · '):'Première performance à enregistrer'}</div>
+   <table class="sets"><thead><tr><th>Série</th><th>Rép.</th><th>Kg</th><th>Ressenti</th></tr></thead><tbody>${ex.sets.map((set,j)=>`<tr><td>${j+1}</td><td><input class="rep" aria-label="Répétitions série ${j+1} de ${esc(ex.name)}" type="number" min="0" max="200" value="${esc(set.reps)}"></td><td><input class="kg" aria-label="Charge série ${j+1} de ${esc(ex.name)}" type="number" min="0" max="1000" step="0.5" placeholder="kg" value="${esc(set.weight)}"></td><td><select class="feel" aria-label="Ressenti série ${j+1} de ${esc(ex.name)}"><option value="">—</option><option ${set.feel==='Facile'?'selected':''}>Facile</option><option ${set.feel==='Modéré'?'selected':''}>Modéré</option><option ${set.feel==='Difficile'?'selected':''}>Difficile</option></select></td></tr>`).join('')}</tbody></table>`;
+   root.append(box)
+  });
+ }
+ $('sessionDialog').showModal();
+}
+$('cancelWorkout').onclick=()=>$('sessionDialog').close();
+$('savePlannedWorkout').onclick=()=>{
+ const s=data.sessions.find(x=>x.id===workoutId);if(!s)return;
+ if(!readPlanChanges(s))return;
+ save();$('workoutMessage').className='hint ok';$('workoutMessage').textContent='✓ Contenu sauvegardé sans marquer la séance comme réalisée.';
+};
+$('saveWorkout').onclick=()=>{
+ const s=data.sessions.find(x=>x.id===workoutId);if(!s)return;
+ if(!readPlanChanges(s))return;
+ const when=new Date().toISOString();
+ if(s.type==='muscu'){
+  let volume=0;const exercises=s.exercises.map(x=>({...x,sets:x.sets.map(set=>({...set}))}));
+  if(exercises.every(x=>x.sets.every(y=>y.weight===''||y.reps===0))){if(!confirm('Aucune charge ou série complète n’a été renseignée. Enregistrer quand même ?'))return}
+  for(const x of exercises)for(const set of x.sets)volume+=set.reps*(Number(set.weight)||0);
+  data.history.push({id:id(),sessionId:s.id,type:'muscu',name:s.name,day:s.day,when,exercises,volume});
+ }else{
+  const km=$('runKm').value,min=$('runMinutes').value,dist=Number(km),duration=Number(min);
+  if(km===''||min===''||dist<=0||duration<=0||!Number.isFinite(dist)||!Number.isFinite(duration)){alert('Renseigne une distance et une durée positives pour enregistrer la course.');return}
+  const dplusText=$('runDplus').value, dplus=Number(dplusText);
+  if(dplusText!==''&&(!Number.isFinite(dplus)||dplus<0)){alert('Vérifie le dénivelé réalisé.');return}
+  data.history.push({id:id(),sessionId:s.id,type:'run',name:s.name,day:s.day,when,km:dist,minutes:duration,dplus:dplusText!==''?dplus:null,feel:$('runFeel').value,plan:s.runPlan});
+ }
+ s.done=true;save();$('sessionDialog').close();renderAll();
+};
+function completedFor(sessions){return sessions.filter(s=>s.done).length}
+function archiveCurrentCycle(reason){
+ if(!data.sessions.length)return null;
+ const snapshot={id:id(),number:data.cycleNumber,startedAt:data.cycleStartedAt,endedAt:new Date().toISOString(),reason,profile:JSON.parse(JSON.stringify(data.profile||{})),sessions:JSON.parse(JSON.stringify(data.sessions)),total:data.sessions.length,done:completedFor(data.sessions)};
+ data.archives.push(snapshot);return snapshot;
+}
+function safeDate(v){const d=new Date(v);return Number.isFinite(d.getTime())?d.toLocaleDateString('fr-FR'):'Date indisponible'}
+function perfFor(sessions){const ids=new Set(sessions.map(s=>s.id));return data.history.filter(h=>ids.has(h.sessionId))}
+function renderArchives(){
+ const root=$('cycleArchiveList');root.replaceChildren();$('cycleBadge').textContent='Cycle en cours : '+data.cycleNumber;
+ if(!data.archives.length){root.innerHTML='<p class="muted">Aucun cycle archivé pour le moment. Le premier apparaîtra ici à la clôture.</p>';return}
+ for(const cycle of data.archives.slice().reverse()){
+  if(!cycle||!Array.isArray(cycle.sessions))continue;
+  const item=document.createElement('div');item.className='archive-item';const summary=document.createElement('div');
+  const hist=perfFor(cycle.sessions),km=hist.filter(h=>h.type==='run').reduce((a,h)=>a+(Number(h.km)||0),0);
+  summary.innerHTML=`<strong>Cycle ${Number(cycle.number)||'?'} · ${esc(cycle.profile?.mode||'Sport')}</strong><br><small>${safeDate(cycle.startedAt)} → ${safeDate(cycle.endedAt)} · ${cycle.done??completedFor(cycle.sessions)}/${cycle.total??cycle.sessions.length} séances · ${hist.filter(h=>h.type==='run').length} sorties · ${km.toLocaleString('fr-FR',{maximumFractionDigits:1})} km enregistrés</small>`;
+  const b=document.createElement('button');b.textContent='Voir le cycle';b.onclick=()=>openArchive(cycle.id);item.append(summary,b);root.append(item);
+ }
+}
+function openArchive(cycleId){const cycle=data.archives.find(c=>c.id===cycleId);if(!cycle)return;
+ $('archiveTitle').textContent=`📚 Cycle ${cycle.number} — programme archivé`;
+ const node=$('archiveDetails');node.replaceChildren();const intro=document.createElement('p');intro.className='muted';intro.textContent=`${safeDate(cycle.startedAt)} → ${safeDate(cycle.endedAt)} · ${cycle.reason||'Clôturé'} · ${cycle.done??completedFor(cycle.sessions)}/${cycle.total??cycle.sessions.length} séances terminées`;
+ node.append(intro);
+ const sessions=Array.isArray(cycle.sessions)?cycle.sessions:[];const results=new Set(perfFor(sessions).map(h=>h.sessionId));
+ for(let w=1;w<=8;w++){
+  const weekly=sessions.filter(s=>(s.week||1)===w);if(!weekly.length)continue;
+  const box=document.createElement('div');box.className='archive-week';const title=document.createElement('strong');title.textContent='Semaine '+w;box.append(title);
+  for(const s of weekly){const p=document.createElement('p');p.className='mini';p.textContent=`${DAYS[s.day]||'Jour'} · ${s.type==='run'?'🏃':'💪'} ${s.name} · ${s.done||results.has(s.id)?'✓ Réalisée':'Non réalisée'}`;box.append(p)}node.append(box);
+ }
+ $('archiveDialog').showModal();
+}
+$('closeArchive').onclick=()=>$('archiveDialog').close();
+$('nextCycle').onclick=()=>{
+ if(!data.profile||!data.sessions.length)return;
+ const total=data.sessions.length,done=completedFor(data.sessions);
+ if(!confirm(`Clôturer le cycle ${data.cycleNumber} (${done}/${total} séances terminées) ? Le programme sera archivé et un nouveau cycle de 8 semaines sera généré. Les charges et les chronos restent conservés. Tu pourras vérifier tes objectifs ensuite.`))return;
+ archiveCurrentCycle('Cycle clôturé');data.cycleNumber+=1;data.cycleStartedAt=new Date().toISOString();
+ // Do not infer current running fitness from an old personal best or sparsely recorded workouts.
+ data.sessions=generateSessions(data.profile);data.weekCount=8;data.generated=true;currentWeek=1;save();renderAll();show('planning');alert('Nouveau cycle créé ! Vérifie les objectifs, le volume récent et les disponibilités dans Mon profil avant de poursuivre.');
+};
+function monthStats(history){let train=0,km=0,volume=0,run=0;for(const h of history){train++;if(h.type==='run'){run++;km+=(Number(h.km)||0)}if(h.type==='muscu')volume+=(Number(h.volume)||0)}return {train,km,volume,run}}
+function renderMonthly(){
+ const now=Date.now(),day=86400000;
+ const latest=data.history.filter(h=>{const d=new Date(h.when).getTime();return Number.isFinite(d)&&d<=now&&d>=now-30*day});
+ const previous=data.history.filter(h=>{const d=new Date(h.when).getTime();return Number.isFinite(d)&&d<now-30*day&&d>=now-60*day});
+ const a=monthStats(latest),b=monthStats(previous);const panel=$('monthlySummary');panel.replaceChildren();
+ const entries=[['Séances réalisées',a.train],['Distance running',a.km.toLocaleString('fr-FR',{maximumFractionDigits:1})+' km'],['Volume musculation',Math.round(a.volume).toLocaleString('fr-FR')+' kg']];
+ for(const [label,value] of entries){const e=document.createElement('div');e.className='summary-stat';const strong=document.createElement('strong');strong.textContent=value;const small=document.createElement('small');small.textContent=label;e.append(strong,small);panel.append(e)}
+ const msg=$('monthlyComment');msg.className='hint '+(a.train?'ok':'');
+ if(!a.train)msg.textContent='Pas encore de séance enregistrée sur les 30 derniers jours. Commence par noter tes résultats pour obtenir un vrai bilan.';
+ else if(!b.train)msg.textContent=`${a.train} séance(s) enregistrée(s). Le comparatif apparaîtra lorsque tu auras aussi des données sur la période précédente.`;
+ else msg.textContent=`Comparaison avec les 30 jours précédents : ${a.train-b.train>=0?'+':''}${a.train-b.train} séance(s), ${(a.km-b.km)>=0?'+':''}${(a.km-b.km).toLocaleString('fr-FR',{maximumFractionDigits:1})} km de course. Ces variations ne suffisent pas à conclure à une meilleure condition physique.`;
+}
+function renderProgress(){renderArchives();renderMonthly();const hist=data.history, muscu=hist.filter(h=>h.type==='muscu');$('statTrainings').textContent=hist.length;$('statLogs').textContent=muscu.reduce((n,h)=>n+h.exercises.length,0);$('statVolume').textContent=Math.round(muscu.reduce((n,h)=>n+(h.volume||0),0)).toLocaleString('fr-FR')+' kg';const host=$('history');if(!hist.length){host.innerHTML='<p class="muted">Aucune performance enregistrée. Ouvre une séance depuis le planning pour commencer.</p>';return}host.replaceChildren();for(const h of hist.slice().reverse().slice(0,35)){const d=document.createElement('div');d.className='progress-line';let description=h.type==='muscu'?`${(h.exercises||[]).length} exercices · ${Math.round(h.volume||0).toLocaleString('fr-FR')} kg de volume`:`${h.km} km · ${h.minutes} min${h.dplus!==null&&h.dplus!==undefined?` · D+ ${h.dplus} m`:``}`;d.innerHTML=`<div><strong>${h.type==='muscu'?'💪':'🏃'} ${esc(h.name)}</strong><br><small>${new Date(h.when).toLocaleDateString('fr-FR')} · ${esc(description)}</small></div>`;host.append(d)}const best=new Map();for(const h of muscu){for(const e of h.exercises){const strength=Math.max(0,...e.sets.map(s=>Number(s.weight)||0));best.set(e.name,Math.max(strength,best.get(e.name)||0))}}if(best.size){const title=document.createElement('h3');title.textContent='🏆 Meilleures charges enregistrées';host.append(title);for(const [name,weight] of best){const div=document.createElement('div');div.className='progress-line';div.innerHTML=`<span>${esc(name)}</span><strong class="up">${weight} kg</strong>`;host.append(div)}}}
+$('export').onclick=exportFullBackup;
+$('importFile').onchange=async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{
+  if(file.size>40*1024*1024)throw Error('Fichier trop volumineux (40 Mo maximum).');
+  const obj=JSON.parse(await file.text());
+  if(!obj||!Array.isArray(obj.sessions)||!Array.isArray(obj.history)||obj.sessions.length>2000||obj.history.length>20000)throw Error('Sauvegarde invalide.');
+  if(!obj.sessions.every(s=>s&&['muscu','run'].includes(s.type)&&Number.isInteger(s.day)&&s.day>=0&&s.day<=6))throw Error('Séances invalides dans la sauvegarde.');
+  if(!confirm('Importer cette sauvegarde ? Elle remplacera le profil, le planning et l’historique actuellement enregistrés dans ce navigateur.'))return;
+  const importedProgress=Array.isArray(obj.bodyProgress)?obj.bodyProgress.filter(validBodyEntry).slice(-500):[];
+  // Restore photos before replacing the reference list; the old photos are not erased.
+  const restored=await restoreBackupPhotos(obj.photoBackup, importedProgress);
+  const photoIds=new Set(restored);
+  data={profile:obj.profile||null,sessions:obj.sessions.map(s=>({...s,week:s.week||1})),history:obj.history,generated:!!obj.generated,weekCount:Number.isInteger(obj.weekCount)&&obj.weekCount>=1&&obj.weekCount<=8?obj.weekCount:Math.max(1,...obj.sessions.map(s=>s.week||1)),archives:Array.isArray(obj.archives)?obj.archives.filter(c=>c&&Array.isArray(c.sessions)).slice(-60):[],cycleNumber:Number.isInteger(obj.cycleNumber)&&obj.cycleNumber>0?obj.cycleNumber:1,cycleStartedAt:obj.cycleStartedAt||new Date().toISOString(),bodyProgress:importedProgress.map(entry=>({...entry,hasPhoto:photoIds.has(entry.id)})),nutrition:cleanNutritionImport(obj.nutrition),gpsActivities:cleanGpsImport(obj.gpsActivities)};normalizeNutrition();currentWeek=1;
+  save();hydrate();toggleMode();toggleRecent();toggleTrail();toggleRunPurpose();updateCounts();pacePreview();renderAll();renderBodyProgress();alert('Sauvegarde importée. Vérifie les photos dans Évolution physique.');
+ }catch(err){alert('Import impossible : '+err.message)}finally{e.target.value=''}
+};
+function hydrate(){const p=data.profile;if(!p)return;for(const key of ['runPurpose','runWeeklyKm','recentLongMin','mode','level','goalMuscu','duration','runDistance','customDistance','runTime','source','recentDistance','recentTime','runTerrain','trailDplus','trailTerrain','runGoalNote'])if(p[key]!==undefined&&$(key))$(key).value=key==='duration'?(Number(p[key])||Number.parseInt(String(p[key]))||45):p[key];setSelected('muscu',p.muscuDays||[]);setSelected('run',p.runDays||[])}
+
+// V0.7 — Mensurations are stored in the existing local JSON; photos are stored in IndexedDB.
+const PHOTO_DB='hybrid_fit_private_photos',PHOTO_TABLE='photos';
+let displayedPhotoUrls=[];
+function clearPhotoUrls(){for(const u of displayedPhotoUrls)URL.revokeObjectURL(u);displayedPhotoUrls=[]}
+function openPhotoDb(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(Error('Stockage photo indisponible dans ce navigateur.'));const req=indexedDB.open(PHOTO_DB,1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(PHOTO_TABLE))req.result.createObjectStore(PHOTO_TABLE)};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('Impossible d’accéder au stockage des photos.'))})}
+async function photoOp(key,action,value){const db=await openPhotoDb();return new Promise((resolve,reject)=>{const tx=db.transaction(PHOTO_TABLE,action==='get'?'readonly':'readwrite'),store=tx.objectStore(PHOTO_TABLE);const req=action==='put'?store.put(value,key):action==='delete'?store.delete(key):store.get(key);let result;req.onsuccess=()=>{result=req.result};tx.oncomplete=()=>{db.close();resolve(result)};tx.onerror=()=>{db.close();reject(tx.error||Error('Stockage photo impossible'))}})}
+const getPhoto=id=>photoOp(id,'get');const putPhoto=(id,blob)=>photoOp(id,'put',blob);const deletePhoto=id=>photoOp(id,'delete');
+function makePhotoUrl(blob){const u=URL.createObjectURL(blob);displayedPhotoUrls.push(u);return u}
+function safeBodyNumber(v,minimum,maximum,name){if(v.trim()==='')return null;const n=Number(v.replace(',','.'));if(!Number.isFinite(n)||n<minimum||n>maximum)throw Error(name+' : valeur attendue entre '+minimum+' et '+maximum+'.');return Math.round(n*10)/10}
+function validBodyEntry(x){return !!x&&typeof x.id==='string'&&x.id.length<=100&&/^\d{4}-\d{2}-\d{2}$/.test(x.date||'')&&typeof x.notes==='string'&&x.notes.length<=700&&['weight','waist','chest','arms'].every(k=>x[k]===null||x[k]===undefined||(typeof x[k]==='number'&&Number.isFinite(x[k])&&x[k]>=0&&x[k]<=400))}
+function displayDate(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s))return 'Date inconnue';return s.split('-').reverse().join('/')}
+function localToday(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function setBodyMessage(msg,ok){const el=$('bodyMessage');el.className='hint '+(ok?'ok':'warn');el.textContent=msg}
+function bodyAllowed(){return data.profile&&data.profile.mode!=='running'}
+function updateBodyMode(){const allowed=bodyAllowed();$('bodyForm').querySelectorAll('input,textarea,button').forEach(el=>{el.disabled=!allowed});const el=$('evolutionModeInfo');if(allowed){el.className='hint hidden';el.textContent=''}else{el.className='hint';el.textContent=data.profile?'Ton profil est en mode Running. L’ajout de photos et mensurations est disponible avec les modes Muscu ou Hybride. Ton historique reste visible.':'Configure ton profil Muscu ou Hybride pour ajouter des photos et des mensurations. Tu peux déjà consulter un éventuel historique.'}}
+function resizePhoto(file){return new Promise((resolve,reject)=>{if(!['image/jpeg','image/png','image/webp'].includes(file.type))return reject(Error('Format photo non pris en charge : JPG, PNG ou WEBP.'));if(file.size>8*1024*1024)return reject(Error('Photo trop volumineuse (8 Mo maximum).'));const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{try{const max=1280,scale=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);canvas.toBlob(blob=>blob?resolve(blob):reject(Error('Impossible de réduire la photo.')),'image/jpeg',.78)}catch(e){reject(e)}finally{URL.revokeObjectURL(url)}};img.onerror=()=>{URL.revokeObjectURL(url);reject(Error('Impossible d’ouvrir cette photo.'))};img.src=url})}
+$('bodyForm').onsubmit=async e=>{e.preventDefault();if(!bodyAllowed())return setBodyMessage('Choisis d’abord Muscu ou Hybride dans ton profil.',false);const b=$('bodyForm').querySelector('button[type=submit]');b.disabled=true;try{const file=$('bodyPhoto').files[0];const item={id:id(),date:$('bodyDate').value,weight:safeBodyNumber($('bodyWeight').value,20,350,'Poids'),waist:safeBodyNumber($('bodyWaist').value,30,250,'Tour de taille'),chest:safeBodyNumber($('bodyChest').value,30,250,'Tour de poitrine'),arms:safeBodyNumber($('bodyArms').value,10,100,'Tour de bras'),notes:$('bodyNotes').value.trim(),hasPhoto:!!file};if(!/^\d{4}-\d{2}-\d{2}$/.test(item.date))throw Error('Indique une date valide.');if(item.date>localToday())throw Error('La date ne peut pas être dans le futur.');if(!file&&!item.notes&&['weight','waist','chest','arms'].every(k=>item[k]===null))throw Error('Ajoute une photo, une mensuration ou une note.');if(data.bodyProgress.length>=500)throw Error('Nombre maximum de relevés atteint dans ce prototype (500).');if(file)await putPhoto(item.id,await resizePhoto(file));data.bodyProgress.push(item);if(!save()){data.bodyProgress.pop();if(file)await deletePhoto(item.id);throw Error('Impossible de conserver le relevé.')}$('bodyForm').reset();$('bodyDate').value=localToday();setBodyMessage('✓ Relevé ajouté, sans transmission à un serveur. Pense à exporter ta sauvegarde complète.',true);await renderBodyProgress()}catch(err){setBodyMessage(err.message||'Enregistrement impossible.',false)}finally{b.disabled=false;updateBodyMode()}};
+$('bodyForm').onreset=()=>{setTimeout(()=>{$('bodyDate').value=localToday()},0)};
+async function renderBodyProgress(){updateBodyMode();clearPhotoUrls();const all=[...data.bodyProgress].filter(validBodyEntry).sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));const stats=$('bodyStats');stats.replaceChildren();const measures=[['weight','Poids','kg'],['waist','Tour de taille','cm'],['chest','Tour de poitrine','cm'],['arms','Tour de bras','cm']];for(const [key,label,unit] of measures){const vals=all.filter(x=>x[key]!==null&&x[key]!==undefined);const div=document.createElement('div');div.className='body-stat';const current=vals.at(-1);const previous=vals[0];const diff=vals.length>1?Math.round((current[key]-previous[key])*10)/10:null;div.innerHTML=`<small>${esc(label)}</small><strong>${current?esc(current[key].toLocaleString('fr-FR'))+' '+unit:'—'}</strong><small>${diff===null?'Ajoute deux mesures pour comparer':(diff>0?'+':'')+diff.toLocaleString('fr-FR')+' '+unit+' depuis le premier relevé'}</small>`;stats.append(div)}
+const weightPoints=all.filter(x=>x.weight!==null&&x.weight!==undefined);const trend=$('bodyTrend');trend.replaceChildren();if(weightPoints.length){const arr=weightPoints.slice(-24).map(x=>x.weight),mi=Math.min(...arr),ma=Math.max(...arr);for(let i=0;i<arr.length;i++){const bar=document.createElement('div');bar.className='trend-bar';bar.style.height=(20+80*(ma===mi?.5:(arr[i]-mi)/(ma-mi)))+'%';bar.title=displayDate(weightPoints.slice(-24)[i].date)+' : '+arr[i]+' kg';trend.append(bar)}}$('bodyTrendNote').textContent=weightPoints.length?'Poids : '+weightPoints.length+' relevé(s). Les changements peuvent refléter eau, glycogène ou d’autres variations.':'Ajoute des poids datés pour afficher ton évolution.';
+const photos=all.filter(x=>x.hasPhoto);const before=$('photoBefore'),after=$('photoAfter');const oldBefore=before.value,oldAfter=after.value;const prevSame=oldBefore===oldAfter;before.replaceChildren();after.replaceChildren();for(const [select,defaultId] of [[before,photos[0]?.id],[after,photos.at(-1)?.id]]){select.add(new Option('Choisir une photo',''));for(const entry of photos)select.add(new Option(displayDate(entry.date),entry.id));select.value=(!prevSame||photos.length<2)&&photos.some(e=>e.id===(select===before?oldBefore:oldAfter))?(select===before?oldBefore:oldAfter):(defaultId||'')}
+const host=$('bodyHistory');host.replaceChildren();if(!all.length)host.innerHTML='<p class="muted">Aucun relevé pour le moment. Tes premières comparaisons apparaîtront ici.</p>';for(const item of all.slice().reverse()){const node=document.createElement('article');node.className='body-entry';const detail=document.createElement('div');const measurements=[['weight','Poids','kg'],['waist','Taille','cm'],['chest','Poitrine','cm'],['arms','Bras','cm']].filter(([k])=>item[k]!==null&&item[k]!==undefined).map(([k,l,u])=>`${l}: ${item[k]} ${u}`);detail.innerHTML='<strong>'+esc(displayDate(item.date))+'</strong><br><small>'+esc(measurements.join(' · ')||'Relevé photo/notes')+'</small>';if(item.notes){const note=document.createElement('p');note.className='notice';note.textContent=item.notes;detail.append(note)}node.append(detail);if(item.hasPhoto){try{const blob=await getPhoto(item.id);if(blob){const thumb=document.createElement('img');thumb.alt='Photo privée du '+displayDate(item.date);thumb.src=makePhotoUrl(blob);node.prepend(thumb)}}catch{}}const b=document.createElement('button');b.className='danger';b.textContent='Supprimer';b.onclick=async()=>{if(!confirm('Supprimer ce relevé et sa photo éventuelle ? Cette action ne peut pas être annulée.'))return;try{if(item.hasPhoto)await deletePhoto(item.id);data.bodyProgress=data.bodyProgress.filter(x=>x.id!==item.id);save();await renderBodyProgress()}catch(err){setBodyMessage('Suppression impossible : '+err.message,false)}};node.append(b);host.append(node)}await renderPhotoCompare()}
+async function renderPhotoCompare(){// Re-render only comparison image URLs, keep history thumbnails visible.
+const host=$('photoCompare');host.replaceChildren();const ids=[$('photoBefore').value,$('photoAfter').value];for(let i=0;i<2;i++){const entry=data.bodyProgress.find(x=>x.id===ids[i]&&x.hasPhoto);const box=document.createElement('div');box.className='compare-photo';const label=document.createElement('h4');label.textContent=i===0?'Avant':'Après';box.append(label);if(entry){try{const blob=await getPhoto(entry.id);if(blob){const img=document.createElement('img');img.alt='Photo comparative '+label.textContent+' du '+displayDate(entry.date);img.src=makePhotoUrl(blob);box.append(img);const d=document.createElement('small');d.textContent=displayDate(entry.date);box.append(d)}else box.append('Photo absente du stockage : importe une sauvegarde complète.')}catch{box.append('Photo temporairement indisponible.')}}else box.append('Sélectionne une photo.');host.append(box)}}
+$('photoBefore').onchange=renderPhotoCompare;$('photoAfter').onchange=renderPhotoCompare;
+function blobToDataUrl(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(Error('Lecture photo impossible'));r.readAsDataURL(blob)})}
+function dataUrlToBlob(value){if(typeof value!=='string'||!/^data:image\/(jpeg|png|webp);base64,/.test(value)||value.length>5*1024*1024)throw Error('Photo sauvegardée invalide.');const parts=value.split(','),bin=atob(parts[1]),arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:parts[0].slice(5).split(';')[0]})}
+async function exportFullBackup(){const button=$('export');button.disabled=true;button.textContent='Préparation de la sauvegarde…';try{const photoBackup={};for(const x of data.bodyProgress||[]){if(!x.hasPhoto)continue;const blob=await getPhoto(x.id);if(!blob)throw Error('Une photo du '+displayDate(x.date)+' est introuvable : sauvegarde complète impossible.');photoBackup[x.id]=await blobToDataUrl(blob)}const backup={...data,photoBackup,exportedAt:new Date().toISOString(),formatVersion:10};const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='hybrid-fit-sauvegarde-complete.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(err){alert('Sauvegarde incomplète : '+err.message)}finally{button.disabled=false;button.textContent='Exporter mes données (photos incluses)'}}
+async function restoreBackupPhotos(photoBackup,entries){const done=[];for(const entry of entries){if(!entry.hasPhoto)continue;if(!photoBackup||typeof photoBackup[entry.id]!=='string')continue;try{await putPhoto(entry.id,dataUrlToBlob(photoBackup[entry.id]));done.push(entry.id)}catch(e){alert('Certaines photos n’ont pas pu être importées : '+e.message);break}}return done}
+// V0.8 — Nutrition: all values stay local, never paid APIs.
+const STARTER_FOODS=[
+ ['Riz blanc cuit',130,2.7,28,0.3],['Poulet cuit sans peau',165,31,0,3.6],
+ ['Flocons d’avoine',379,13.2,67.7,6.5],['Banane',89,1.1,22.8,0.3],
+ ['Œuf entier',143,12.6,0.7,9.5],['Lentilles cuites',116,9,20,0.4],
+ ['Pâtes cuites',157,5.8,30.9,0.9],['Saumon cuit',206,22.1,0,12.4],
+ ['Pomme',52,0.3,13.8,0.2],['Yaourt nature',61,3.5,4.7,3.3],
+ ['Pain complet',247,13,41,4.2]];
+function cleanNutritionImport(v){if(!v||typeof v!=='object')return{};const entries=Array.isArray(v.entries)?v.entries.filter(x=>x&&typeof x.id==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&typeof x.name==='string'&&x.name.length<=90).slice(-5000):[];const water=Array.isArray(v.water)?v.water.filter(x=>x&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&Number.isFinite(Number(x.ml))&&Number(x.ml)>=10&&Number(x.ml)<=2000).slice(-20000):[];const weights=Array.isArray(v.weights)?v.weights.filter(x=>x&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&Number(x.weight)>=20&&Number(x.weight)<=350).slice(-2000):[];const notes=Array.isArray(v.notes)?v.notes.filter(x=>x&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&typeof x.text==='string').slice(-2000):[];const meals=Array.isArray(v.meals)?v.meals.filter(x=>x&&typeof x.id==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&typeof x.slot==='string'&&typeof x.name==='string').map(x=>({id:x.id.slice(0,80),date:x.date,slot:x.slot.slice(0,35),name:x.name.slice(0,180),detail:String(x.detail||'').slice(0,300),createdAt:String(x.createdAt||'').slice(0,35)})).slice(-6000):[];return {meals,mode:v.mode==='complet'?'complet':'simple',entries,water,weights,notes,height:Number(v.height)||null,targets:v.targets&&typeof v.targets==='object'?v.targets:{}}}
+function normalizeNutrition(){const n=data.nutrition;if(!Array.isArray(n.entries))n.entries=[];if(!Array.isArray(n.water))n.water=[];if(!Array.isArray(n.weights))n.weights=[];if(!Array.isArray(n.notes))n.notes=[];if(!Array.isArray(n.meals))n.meals=[];if(n.mode!=='complet')n.mode='simple';if(!n.targets||typeof n.targets!=='object')n.targets={};if(!Number.isFinite(Number(n.height)))n.height=null}
+function formNum(id,min,max,required=true){const raw=$(id).value.trim();if(!raw){if(required)throw Error('Renseigne '+$(id).previousElementSibling?.textContent+'.');return null}const n=Number(raw);if(!Number.isFinite(n)||n<min||n>max)throw Error('Valeur hors limites pour '+id+'.');return n}
+function nutDay(){return $('nutDate').value||localToday()}
+function nutMsg(id,msg,good=true){$(id).textContent=msg;$(id).className=good?'notice text-good':'notice text-error'}
+function setNutMode(mode){data.nutrition.mode=mode==='complet'?'complet':'simple';save();renderNutrition()}
+$('nutSimple').onclick=()=>setNutMode('simple');$('nutComplete').onclick=()=>setNutMode('complet');
+$('nutDate').value=localToday();$('nutDate').max=localToday();$('nutDate').onchange=()=>{resetQuickMeal();renderNutrition()};
+function dayEntries(){return data.nutrition.entries.filter(x=>x.date===nutDay())}
+function dayWater(){return data.nutrition.water.filter(x=>x.date===nutDay())}
+function putWater(ml){if(nutDay()>localToday())return nutMsg('waterMessage','Impossible d’enregistrer une date future.',false);data.nutrition.water.push({id:id(),date:nutDay(),ml,when:new Date().toISOString()});if(data.nutrition.water.length>20000)data.nutrition.water.shift();save();renderNutrition();nutMsg('waterMessage','✓ Eau enregistrée.');}
+$('water250').onclick=()=>putWater(250);$('water500').onclick=()=>putWater(500);
+$('waterAddCustom').onclick=()=>{try{putWater(formNum('waterCustom',10,2000));$('waterCustom').value=''}catch(e){nutMsg('waterMessage',e.message,false)}};
+$('waterUndo').onclick=()=>{const w=dayWater();if(!w.length)return;data.nutrition.water=data.nutrition.water.filter(x=>x.id!==w.at(-1).id);save();renderNutrition()};
+$('saveNutWeight').onclick=()=>{try{const height=formNum('nutHeight',100,240,false),weight=formNum('nutWeight',20,350,false);if(height===null&&weight===null)throw Error('Renseigne au moins une mesure.');if(height!==null)data.nutrition.height=height;if(weight!==null){const arr=data.nutrition.weights;data.nutrition.weights=arr.filter(x=>x.date!==nutDay());data.nutrition.weights.push({date:nutDay(),weight});if(data.nutrition.weights.length>2000)data.nutrition.weights.shift()}save();renderNutrition();nutMsg('weightMessage','✓ Mesures sauvegardées.')}catch(e){nutMsg('weightMessage',e.message,false)}};
+$('saveFoodNote').onclick=()=>{const text=$('simpleFoodNote').value.trim();data.nutrition.notes=data.nutrition.notes.filter(x=>x.date!==nutDay());if(text)data.nutrition.notes.push({date:nutDay(),text:text.slice(0,600)});save();nutMsg('weightMessage','✓ Note enregistrée.')};
+function presetFood(){const i=$('foodSelect').value;if(i==='custom'){['foodName','foodKcal','foodP','foodC','foodF'].forEach(k=>$(k).value='');return}const f=STARTER_FOODS[Number(i)];if(!f)return;for(const [key,val] of [['foodName',f[0]],['foodKcal',f[1]],['foodP',f[2]],['foodC',f[3]],['foodF',f[4]]])$(key).value=val}
+$('foodSelect').onchange=presetFood;
+$('clearFoodForm').onclick=()=>{$('foodSelect').value='custom';presetFood();$('foodGrams').value=100};
+$('addFood').onclick=()=>{try{const name=$('foodName').value.trim();if(!name||name.length>90)throw Error('Donne un nom à cet aliment.');const grams=formNum('foodGrams',1,5000),kcal=formNum('foodKcal',0,1000),p=formNum('foodP',0,100),c=formNum('foodC',0,100),f=formNum('foodF',0,100);if(p+c+f>105)throw Error('Vérifie les macros pour 100 g : leur somme semble trop élevée.');data.nutrition.entries.push({id:id(),date:nutDay(),meal:$('foodMeal').value,name,grams,kcal,p,c,f});if(data.nutrition.entries.length>5000)data.nutrition.entries.shift();save();renderNutrition();nutMsg('foodMessage','✓ Aliment ajouté.')}catch(e){nutMsg('foodMessage',e.message,false)}};
+$('saveNutGoals').onclick=()=>{try{const g={};for(const [key,min,max] of [['goalKcal',500,8000],['goalProtein',0,500],['goalCarbs',0,1200],['goalFat',0,350]]){const n=formNum(key,min,max,false);g[key]=n}data.nutrition.targets=g;save();nutMsg('foodMessage','✓ Tes repères ont été enregistrés.')}catch(e){nutMsg('foodMessage',e.message,false)}renderNutrition()};
+function mealSuggestions(){const p=data.profile,goal=p?.goalMuscu,run=p?.mode==='running'||p?.mode==='hybride',purpose=p?.runPurpose;
+ let foods=goal==='Prise de masse'?[['Petit-déjeuner','Porridge à l’avoine, lait ou boisson végétale, banane et oléagineux'],['Repas principal','Riz ou pâtes, poulet ou tofu, légumes et huile d’olive'],['Collation','Yaourt, fruit et tartine selon l’appétit']]:goal==='Sèche'||purpose==='poids'?[['Petit-déjeuner','Fromage blanc ou alternative végétale, fruits et flocons d’avoine'],['Repas principal','Lentilles, légumes, œufs ou tofu, avec une portion de féculents'],['Collation','Fruit, yaourt ou poignée de noix selon la faim']]:[['Petit-déjeuner','Tartines, œufs ou yaourt et fruit'],['Repas principal','Quinoa ou riz, légumes et source de protéines'],['Collation','Compote et yaourt ou autre collation au choix']];
+ if(run)foods.push(['Autour de la course','Pour les séances longues, prévoir une collation et une boisson adaptées à la durée, à la météo et à la tolérance digestive.']);
+ const host=$('mealIdeas');host.replaceChildren();foods.forEach(([title,desc])=>{const item=document.createElement('div');item.className='meal-item';const h=document.createElement('h4');h.textContent=title;const d=document.createElement('p');d.textContent=desc;item.append(h,d);host.append(item)})}
+
+
+// V0.8.2 — repas enregistrés, éditions et rappels, fonctionnement hors ligne.
+const MEAL_SLOTS=[['Petit-déjeuner','☕'],['Déjeuner','🍲'],['Collation','🍎'],['Dîner','🍽️'],['Autre','🥣']];
+let editingQuickMeal=null;
+function mealForDay(){return data.nutrition.meals.filter(m=>m.date===nutDay())}
+function drawMealLog(spot,entry,isMacro){
+ const item=document.createElement('div');item.className='meal-log';
+ const title=document.createElement('div');title.className='meal-log-title';title.textContent=isMacro?`${entry.name} · ${entry.grams} g`:entry.name;
+ const detail=document.createElement('div');detail.className='meal-log-detail';
+ detail.textContent=isMacro?`${Math.round(entry.kcal*entry.grams/100)} kcal · P ${(entry.p*entry.grams/100).toFixed(1)} g · G ${(entry.c*entry.grams/100).toFixed(1)} g · L ${(entry.f*entry.grams/100).toFixed(1)} g`:entry.detail||'';
+ const actions=document.createElement('div');actions.className='meal-log-actions';
+ if(!isMacro){const edit=document.createElement('button');edit.textContent='Modifier';edit.onclick=()=>{editingQuickMeal=entry.id;$('quickMealSlot').value=entry.slot;$('quickMealName').value=entry.name;$('quickMealDetail').value=entry.detail||'';$('quickMealTitle').textContent='✏️ Modifier mon repas';$('saveQuickMeal').textContent='Enregistrer les modifications';$('cancelQuickMeal').classList.remove('hidden');$('quickMealMessage').textContent='';$('quickMealForm').scrollIntoView({behavior:'smooth',block:'center'})};actions.append(edit)}
+ const erase=document.createElement('button');erase.className='danger';erase.textContent='Supprimer';erase.onclick=()=>{if(!confirm('Supprimer cet élément du journal ?'))return;if(isMacro)data.nutrition.entries=data.nutrition.entries.filter(x=>x.id!==entry.id);else data.nutrition.meals=data.nutrition.meals.filter(x=>x.id!==entry.id);if(editingQuickMeal===entry.id)resetQuickMeal();save();renderNutrition()};actions.append(erase);
+ item.append(title,detail,actions);spot.append(item);
+}
+function renderMealJournal(){
+ const meals=mealForDay(),foods=dayEntries(),host=$('mealDayCards');host.replaceChildren();
+ const slotsFilled=MEAL_SLOTS.slice(0,4).filter(([slot])=>meals.some(m=>m.slot===slot)||foods.some(f=>f.meal===slot)).length;
+ $('mealDayCount').textContent=`${slotsFilled} / 4 moments renseignés`;
+ $('mealDayProgress').style.width=(slotsFilled/4*100)+'%';
+ $('mealTip').textContent=slotsFilled===0?'Commence par un repas : une simple description suffit. Tu peux ajouter les quantités plus tard.':`Tu as renseigné ${slotsFilled} moment${slotsFilled>1?'s':''} aujourd'hui. Le journal reste facultatif : il sert à observer tes habitudes, pas à noter la qualité de tes repas.`;
+ for(const [slot,emoji] of MEAL_SLOTS){
+  const matches=meals.filter(x=>x.slot===slot),macro=foods.filter(x=>x.meal===slot);
+  const card=document.createElement('section');card.className='meal-slot'+(matches.length||macro.length?' has-meal':'');
+  const top=document.createElement('div');top.className='meal-slot-header';const h=document.createElement('strong');h.textContent=`${emoji} ${slot}`;const badge=document.createElement('span');badge.className='meal-slot-count';const count=matches.length+macro.length;badge.textContent=count?`${count} élément${count>1?'s':''}`:'À renseigner';top.append(h,badge);card.append(top);
+  const body=document.createElement('div');body.className='meal-slot-items';if(!count){const empty=document.createElement('div');empty.className='meal-slot-empty';empty.textContent='Aucun repas saisi pour cette date.';body.append(empty)}
+  matches.forEach(m=>drawMealLog(body,m,false));macro.forEach(f=>drawMealLog(body,f,true));card.append(body);
+  const b=document.createElement('button');b.className='meal-slot-new';b.textContent='+ Ajouter';b.onclick=()=>{resetQuickMeal();$('quickMealSlot').value=slot;$('quickMealForm').scrollIntoView({behavior:'smooth',block:'center'});$('quickMealName').focus()};card.append(b);host.append(card)
+ }
+ updateQuickMealRepeat();
+}
+function resetQuickMeal(){editingQuickMeal=null;$('quickMealTitle').textContent='➕ Ajouter un repas';$('saveQuickMeal').textContent='✓ Enregistrer ce repas';$('quickMealName').value='';$('quickMealDetail').value='';$('cancelQuickMeal').classList.add('hidden')}
+function recentMeal(){const slot=$('quickMealSlot').value;return data.nutrition.meals.filter(x=>x.slot===slot&&x.date<nutDay()).sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||''))[0]||null}
+function updateQuickMealRepeat(){const last=recentMeal();$('repeatQuickMeal').disabled=!last;$('repeatQuickMealHint').textContent=last?`Dernier ${$('quickMealSlot').value.toLowerCase()} : ${last.date.split('-').reverse().join('/')} — ${last.name}`:'Aucun repas précédent pour cette catégorie. Enregistre-en un aujourd’hui pour pouvoir le reprendre plus tard.'}
+$('quickMealSlot').addEventListener('change',updateQuickMealRepeat);
+$('cancelQuickMeal').onclick=()=>{resetQuickMeal();$('quickMealMessage').textContent='Modification annulée.'};
+$('repeatQuickMeal').onclick=()=>{if(editingQuickMeal)return nutMsg('quickMealMessage','Annule d’abord la modification en cours.',false);const prior=recentMeal();if(!prior)return;const copy={id:id(),date:nutDay(),slot:prior.slot,name:prior.name,detail:prior.detail,createdAt:new Date().toISOString()};data.nutrition.meals.push(copy);if(data.nutrition.meals.length>6000)data.nutrition.meals.shift();save();renderNutrition();nutMsg('quickMealMessage','✓ Repas précédent repris pour cette journée.')};
+$('saveQuickMeal').onclick=()=>{try{
+ if(nutDay()>localToday())throw Error('Impossible d’enregistrer un jour futur.');
+ const name=$('quickMealName').value.trim(),detail=$('quickMealDetail').value.trim(),slot=$('quickMealSlot').value;
+ if(!MEAL_SLOTS.some(([s])=>s===slot))throw Error('Choisis un moment du repas.');
+ if(!name||name.length>180)throw Error('Décris ce que tu as mangé (180 caractères maximum).');
+ if(detail.length>300)throw Error('Les précisions sont trop longues.');
+ if(editingQuickMeal){const old=data.nutrition.meals.find(m=>m.id===editingQuickMeal);if(!old)throw Error('Ce repas n’existe plus.');Object.assign(old,{slot,name,detail});}
+ else{data.nutrition.meals.push({id:id(),date:nutDay(),slot,name,detail,createdAt:new Date().toISOString()});if(data.nutrition.meals.length>6000)data.nutrition.meals.shift()}
+ const wasEdit=!!editingQuickMeal;resetQuickMeal();save();renderNutrition();nutMsg('quickMealMessage',wasEdit?'✓ Repas modifié.':'✓ Repas enregistré dans ton journal.')
+ }catch(e){nutMsg('quickMealMessage',e.message,false)}};
+
+// V0.8.1 - jauge visuelle indicative pour les adultes.
+const BMI_ZONES=[{min:15,max:18.5,color:'#65b6ef',label:'En dessous de 18,5'},{min:18.5,max:25,color:'#70d6a0',label:'18,5 à 24,9'},{min:25,max:30,color:'#f0ba68',label:'25 à 29,9'},{min:30,max:40,color:'#ec817d',label:'30 et plus'}];
+function bmiPoint(v,r){const fraction=(Math.max(15,Math.min(40,v))-15)/25,angle=Math.PI*(1-fraction);return [150+r*Math.cos(angle),135-r*Math.sin(angle)]}
+function bmiGaugeInit(){const ns='http://www.w3.org/2000/svg',root=$('bmiGaugeBands');root.replaceChildren();for(const z of BMI_ZONES){const start=bmiPoint(z.min,111),end=bmiPoint(z.max,111),path=document.createElementNS(ns,'path');path.setAttribute('d',`M ${start[0]} ${start[1]} A 111 111 0 0 1 ${end[0]} ${end[1]}`);path.setAttribute('fill','none');path.setAttribute('stroke',z.color);path.setAttribute('stroke-width','22');root.append(path)}}
+function updateBmiGauge(){const height=Number($('nutHeight').value),weight=Number($('nutWeight').value);const valid=Number.isFinite(height)&&Number.isFinite(weight)&&height>=100&&height<=240&&weight>=20&&weight<=350;const bmi=valid?weight/(height/100)**2:null;const needle=$('bmiNeedle');needle.setAttribute('visibility',bmi===null?'hidden':'visible');$('bmiGaugeValue').textContent=bmi===null?'—':bmi.toFixed(1).replace('.',',');$('bmiOutput').textContent=bmi===null?'IMC : —':'IMC : '+bmi.toFixed(1).replace('.',',');
+ if(bmi===null){$('bmiStatus').textContent='Saisis ta taille et ton poids pour voir ta position.';$('bmiStatus').style.color='var(--muted)';$('bmiGauge').setAttribute('aria-label','Jauge IMC : aucune mesure valide');return}
+ const point=bmiPoint(bmi,111),inner=bmiPoint(bmi,32);$('bmiNeedleLine').setAttribute('x1',inner[0]);$('bmiNeedleLine').setAttribute('y1',inner[1]);$('bmiNeedleLine').setAttribute('x2',point[0]);$('bmiNeedleLine').setAttribute('y2',point[1]);$('bmiNeedleTip').setAttribute('cx',point[0]);$('bmiNeedleTip').setAttribute('cy',point[1]);
+ const zone=bmi<18.5?BMI_ZONES[0]:bmi<25?BMI_ZONES[1]:bmi<30?BMI_ZONES[2]:BMI_ZONES[3];const label=bmi<18.5?'IMC inférieur à la plage de référence':bmi<25?'IMC dans la plage de référence':bmi<30?'IMC au-dessus de la plage de référence':'IMC élevé';$('bmiStatus').textContent=label;$('bmiStatus').style.color=zone.color;$('bmiGauge').setAttribute('aria-label','IMC '+bmi.toFixed(1).replace('.',',')+' — '+label+'. Échelle 15 à 40, repères indicatifs pour adultes.')
+}
+bmiGaugeInit();for(const id of ['nutHeight','nutWeight'])$(id).addEventListener('input',updateBmiGauge);
+
+function renderNutrition(){const n=data.nutrition;normalizeNutrition();const complete=n.mode==='complet';$('nutSimple').classList.toggle('primary',!complete);$('nutComplete').classList.toggle('primary',complete);$('simpleNutrition').classList.toggle('hidden',complete);$('fullNutrition').classList.toggle('hidden',!complete);
+ const p=data.profile;$('nutGoalCaption').textContent=p?`Objectif sportif : ${p.mode==='running'?(p.runPurpose==='poids'?'course pour accompagner un objectif de poids':p.runPurpose==='forme'?'remise en forme':p.runTerrain==='trail'?'Trail':'Running'):p.mode==='muscu'?p.goalMuscu:'Hybride · '+p.goalMuscu}. Les conseils restent indicatifs.`:'Crée ton profil sportif pour personnaliser les idées de repas. Le suivi reste disponible sans profil.';
+ const total=dayWater().reduce((s,x)=>s+Number(x.ml||0),0);$('waterToday').textContent=total.toLocaleString('fr-FR')+' ml';$('waterFill').style.width=Math.min(100,total/2500*100)+'%';$('waterFill').title='Barre de référence visuelle (2,5 L), non une prescription individuelle.';
+ const entryWeight=n.weights.find(x=>x.date===nutDay());$('nutHeight').value=n.height||'';$('nutWeight').value=entryWeight?.weight??'';const h=Number(n.height)/100,w=Number(entryWeight?.weight),bmi=h>0&&w>0?w/(h*h):null;updateBmiGauge();const recentW=n.weights.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);$('weightMiniHistory').textContent=recentW.length?'Derniers poids : '+recentW.map(x=>x.date.split('-').reverse().join('/')+' · '+x.weight+' kg').join(' | '):'Aucun poids enregistré.';
+ $('simpleFoodNote').value=n.notes.find(x=>x.date===nutDay())?.text||'';mealSuggestions();renderMealJournal();if(!complete)return;
+ for(const key of ['goalKcal','goalProtein','goalCarbs','goalFat'])$(key).value=n.targets[key]??'';
+ const foods=dayEntries(),tot=foods.reduce((a,f)=>{const scale=Number(f.grams)/100;for(const k of ['kcal','p','c','f'])a[k]+=Number(f[k])*scale;return a},{kcal:0,p:0,c:0,f:0});const host=$('macroStats');host.replaceChildren();[['Énergie','kcal','kcal','goalKcal'],['Protéines','p','g','goalProtein'],['Glucides','c','g','goalCarbs'],['Lipides','f','g','goalFat']].forEach(([name,k,unit,target])=>{const el=document.createElement('div');el.className='nut-figure';const title=document.createElement('small');title.textContent=name;const val=document.createElement('strong');val.textContent=Math.round(tot[k]).toLocaleString('fr-FR')+' '+unit;const info=document.createElement('small');info.textContent=n.targets[target]!==null&&n.targets[target]!==undefined?'Repère choisi : '+n.targets[target]+' '+unit:'Aucun repère imposé';el.append(title,val,info);host.append(el)});
+ const history=$('foodHistory');history.replaceChildren();if(!foods.length){history.textContent='Aucun aliment enregistré pour cette date.';return}for(const entry of foods){const el=document.createElement('div');el.className='food-entry';const detail=document.createElement('div');const strong=document.createElement('strong');strong.textContent=entry.name+' · '+entry.grams+' g';const label=document.createElement('span');label.textContent=entry.meal+' · '+Math.round(entry.kcal*entry.grams/100)+' kcal · P '+(entry.p*entry.grams/100).toFixed(1)+' g · G '+(entry.c*entry.grams/100).toFixed(1)+' g · L '+(entry.f*entry.grams/100).toFixed(1)+' g';detail.append(strong,label);const b=document.createElement('button');b.className='danger';b.textContent='Supprimer';b.onclick=()=>{if(!confirm('Supprimer cet aliment de ton journal ?'))return;data.nutrition.entries=n.entries.filter(x=>x.id!==entry.id);save();renderNutrition()};el.append(detail,b);history.append(el)}
+}
+STARTER_FOODS.forEach((f,i)=>$('foodSelect').add(new Option(f[0]+' (valeurs indicatives)',String(i))));
+$('bodyDate').value=localToday();
+hydrate();toggleMode();toggleRecent();toggleTrail();toggleRunPurpose();$('customDistanceWrap').classList.toggle('hidden',$('runDistance').value!=='other');updateCounts();pacePreview();renderAll();
+
+// V0.9 — Offline, consent-based GPS import. Does not connect to Garmin or Strava APIs.
+let gpsDraft=null;
+function cleanGpsImport(list){return Array.isArray(list)?list.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&Number.isFinite(+x.km)&&+x.km>=0&&Number.isFinite(+x.minutes)&&+x.minutes>0).slice(-3000).map(x=>({id:x.id.slice(0,90),name:x.name.slice(0,100),source:String(x.source||'Fichier GPS').slice(0,40),fileName:String(x.fileName||'').slice(0,200),date:String(x.date||'').slice(0,40),km:Number(x.km),minutes:Number(x.minutes),dplus:x.dplus===null||x.dplus===''?null:Number(x.dplus),hr:x.hr===null||x.hr===''?null:Number(x.hr),hash:String(x.hash||'').slice(0,100),historyId:String(x.historyId||''),sessionId:x.sessionId?String(x.sessionId):null,track:cleanGpsTrack(x.track)})):[]}
+function gpsMsg(msg,ok=false){const e=$('gpsMessage');e.className='hint '+(ok?'ok':'warn');e.textContent=msg}
+function rad(x){return x*Math.PI/180}
+function gpsDistance(lat1,lon1,lat2,lon2){const a=Math.sin(rad(lat2-lat1)/2)**2+Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(rad(lon2-lon1)/2)**2;return 6371000*2*Math.asin(Math.min(1,Math.sqrt(a)))}
+// Retain downsampled time / distance / altitude / HR only, never GPS coordinates.
+function cleanGpsTrack(track){
+ if(!Array.isArray(track))return [];
+ return track.slice(0,160).filter(p=>p&&Number.isFinite(Number(p.d))&&Number(p.d)>=0&&Number.isFinite(Number(p.m))&&Number(p.m)>=0).map(p=>({
+ d:Math.round(Number(p.d)*1000)/1000,m:Math.round(Number(p.m)*100)/100,
+ alt:p.alt===null||p.alt===undefined||!Number.isFinite(Number(p.alt))?null:Math.round(Number(p.alt)*10)/10,
+ hr:p.hr===null||p.hr===undefined||!Number.isFinite(Number(p.hr))||Number(p.hr)<35||Number(p.hr)>240?null:Math.round(Number(p.hr))
+ }));
+}
+function gpsBuildTrack(points){
+ const n=points.length;if(n<2)return [];
+ const sampled=[],start=points.find(p=>Number.isFinite(p.t))?.t||null;
+ let cumulative=0,previous=null,firstDist=null;
+ const stride=Math.max(1,Math.ceil(n/155));
+ for(let i=0;i<n;i++){
+  const p=points[i];
+  if(Number.isFinite(p.dist)){
+   if(firstDist===null)firstDist=p.dist;
+   cumulative=Math.max(cumulative,Math.max(0,p.dist-firstDist));
+  }else if(previous&&Number.isFinite(p.lat)&&Number.isFinite(p.lon)&&Number.isFinite(previous.lat)&&Number.isFinite(previous.lon)){
+   const meters=gpsDistance(previous.lat,previous.lon,p.lat,p.lon);
+   if(meters>=0&&meters<5000)cumulative+=meters;
+  }
+  if(Number.isFinite(p.lat)&&Number.isFinite(p.lon))previous=p;
+  if(i%stride!==0&&i!==n-1)continue;
+  const elapsed=start!==null&&Number.isFinite(p.t)?Math.max(0,(p.t-start)/60000):null;
+  if(elapsed===null)continue;
+  sampled.push({d:cumulative/1000,m:elapsed,alt:Number.isFinite(p.alt)?p.alt:null,hr:Number.isFinite(p.hr)?p.hr:null});
+ }
+ return cleanGpsTrack(sampled);
+}
+function gpsSummarize(points){const coords=points.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));let meters=0,asc=0,baseAlt=null;for(let i=1;i<coords.length;i++){const a=coords[i-1],b=coords[i],d=gpsDistance(a.lat,a.lon,b.lat,b.lon);if(d>0&&d<5000)meters+=d}for(const p of points){if(!Number.isFinite(p.alt))continue;if(baseAlt===null){baseAlt=p.alt;continue}if(p.alt-baseAlt>=3){asc+=p.alt-baseAlt;baseAlt=p.alt}else if(baseAlt-p.alt>=3){baseAlt=p.alt}}
+ const times=points.map(x=>x.t).filter(x=>Number.isFinite(x));let start=null,end=null;for(const t of times){if(start===null||t<start)start=t;if(end===null||t>end)end=t}const hr=points.map(x=>x.hr).filter(x=>Number.isFinite(x)&&x>=35&&x<=240);return {km:meters/1000,minutes:start!==null&&end>start?(end-start)/60000:0,dplus:asc,hr:hr.length?hr.reduce((a,b)=>a+b,0)/hr.length:null,date:start?new Date(start).toISOString():null}}
+function gpxParse(xml){const doc=new DOMParser().parseFromString(xml,'application/xml');if(doc.querySelector('parsererror'))throw Error('Fichier GPX XML illisible.');if(doc.documentElement.localName!=='gpx')throw Error('Le fichier n’est pas un GPX valide.');const nodes=[...doc.getElementsByTagName('*')].filter(x=>x.localName==='trkpt');if(!nodes.length)throw Error('Le GPX ne contient pas de points de trace (trkpt).');if(nodes.length>200000)throw Error('Trace GPX trop longue.');const direct=(parent,key)=>[...parent.children].find(x=>x.localName===key)?.textContent||'';const all=(parent,key)=>[...parent.getElementsByTagName('*')].find(x=>x.localName.toLowerCase()===key.toLowerCase())?.textContent||'';
+ const pts=nodes.map(n=>({lat:Number(n.getAttribute('lat')),lon:Number(n.getAttribute('lon')),alt:direct(n,'ele')!==''?Number(direct(n,'ele')):null,t:direct(n,'time')?Date.parse(direct(n,'time')):null,hr:all(n,'hr')?Number(all(n,'hr')):null}));return {...gpsSummarize(pts),track:gpsBuildTrack(pts),name:all(doc,'name')||'Sortie GPX'}}
+function tcxParse(xml){const doc=new DOMParser().parseFromString(xml,'application/xml');if(doc.querySelector('parsererror'))throw Error('Fichier TCX XML illisible.');if(doc.documentElement.localName!=='TrainingCenterDatabase')throw Error('Le fichier n’est pas un TCX valide.');const nodes=[...doc.getElementsByTagName('*')].filter(x=>x.localName==='Trackpoint');if(nodes.length>200000)throw Error('Trace TCX trop longue.');const child=(e,key)=>[...e.children].find(x=>x.localName===key);const nested=(e,key)=>[...e.getElementsByTagName('*')].find(x=>x.localName===key);const val=(e,key)=>nested(e,key)?.textContent||'';
+ const pts=nodes.map(n=>({lat:val(n,'LatitudeDegrees')?Number(val(n,'LatitudeDegrees')):null,lon:val(n,'LongitudeDegrees')?Number(val(n,'LongitudeDegrees')):null,alt:val(n,'AltitudeMeters')?Number(val(n,'AltitudeMeters')):null,t:val(n,'Time')?Date.parse(val(n,'Time')):null,hr:val(n,'HeartRateBpm')?Number(val(n,'Value')):null,dist:val(n,'DistanceMeters')?Number(val(n,'DistanceMeters')):null}));const stats=gpsSummarize(pts);const laps=[...doc.getElementsByTagName('*')].filter(x=>x.localName==='Lap');if(laps.length){const sum=(key)=>laps.reduce((acc,n)=>acc+(Number(child(n,key)?.textContent)||0),0);const dist=sum('DistanceMeters'),seconds=sum('TotalTimeSeconds');if(dist>0)stats.km=dist/1000;if(seconds>0)stats.minutes=seconds/60}
+ if(!(stats.km>0)){const ds=pts.map(x=>x.dist).filter(Number.isFinite);if(ds.length>=2)stats.km=Math.max(0,(ds.at(-1)-ds[0])/1000)}const activity=[...doc.getElementsByTagName('*')].find(x=>x.localName==='Activity');stats.name=(activity?.getAttribute('Sport')||'Running')+' (TCX)';if(!stats.date){const time=activity?val(activity,'Id'):null;if(time&&!Number.isNaN(Date.parse(time)))stats.date=new Date(time).toISOString()}
+ stats.track=gpsBuildTrack(pts);return stats}
+// FIT parser: supports the standard record (20), session (18) and lap (19) fields.
+function fitParse(buffer){const dv=new DataView(buffer),u8=new Uint8Array(buffer);if(u8.length<14)throw Error('Fichier FIT incomplet.');const header=u8[0],len=dv.getUint32(4,true);if(header<12||header>20||String.fromCharCode(...u8.slice(8,12))!=='.FIT'||header+len+2>u8.length)throw Error('En-tête FIT invalide.');const end=header+len,defs={},pts=[];let offset=header,summary={},laps={dist:0,secs:0,asc:0},recordCount=0;const fitEpoch=Date.UTC(1989,11,31),get=(at,size,typ,little)=>{const type=typ&31;try{if(type===0||type===2||type===10||type===13)return dv.getUint8(at);if(type===1)return dv.getInt8(at);if(type===3)return dv.getInt16(at,little);if(type===4||type===11)return dv.getUint16(at,little);if(type===5)return dv.getInt32(at,little);if(type===6||type===12)return dv.getUint32(at,little);if(type===8)return dv.getFloat32(at,little);if(type===9)return dv.getFloat64(at,little)}catch{}return null};const invalid=(typ,v)=>v===null||v===undefined||!Number.isFinite(v)||((typ&31)===2&&v===255)||((typ&31)===4&&v===65535)||((typ&31)===6&&v===0xffffffff)||((typ&31)===5&&v===2147483647);
+ const positive=(v)=>typeof v==='number'&&Number.isFinite(v)&&v>0;
+ while(offset<end){const h=u8[offset++],definition=(h&0x80)===0&&(h&0x40)!==0,local=(h&0x80)?((h>>5)&3):(h&15);if(definition){if(offset+5>end)throw Error('Définition FIT tronquée.');offset++;const little=u8[offset++]===0,global=dv.getUint16(offset,little);offset+=2;const n=u8[offset++];if(n>100||offset+n*3>end)throw Error('Définition FIT invalide.');const fields=[];for(let i=0;i<n;i++){fields.push({num:u8[offset],size:u8[offset+1],type:u8[offset+2]});offset+=3}if(h&0x20){if(offset>=end)throw Error('Données FIT incomplètes.');const devCount=u8[offset++];if(offset+devCount*3>end)throw Error('Champs FIT invalides.');for(let i=0;i<devCount;i++){fields.push({num:-1,size:u8[offset+1],type:13});offset+=3}}defs[local]={global,little,fields};continue}
+ const def=defs[local];if(!def)throw Error('Enregistrement FIT sans définition.');const values={};for(const f of def.fields){if(offset+f.size>end)throw Error('Enregistrement FIT tronqué.');if(f.num>=0){const v=get(offset,f.size,f.type,def.little);if(!invalid(f.type,v))values[f.num]=v}offset+=f.size}
+ if(def.global===20){recordCount++;if(recordCount>200000)throw Error('Fichier FIT trop long.');const lat=values[0],lon=values[1],rawAlt=values[78]!==undefined?values[78]:values[2],alt=rawAlt!==undefined?(rawAlt/5-500):null;pts.push({lat:lat!==undefined?lat*180/2147483648:null,lon:lon!==undefined?lon*180/2147483648:null,alt,t:values[253]!==undefined?fitEpoch+values[253]*1000:null,hr:values[3]||null,dist:values[5]!==undefined?values[5]/100:null})}
+ if(def.global===18){const next={};if(values[2]!==undefined)next.date=new Date(fitEpoch+values[2]*1000).toISOString();if(values[253]!==undefined)next.endDate=new Date(fitEpoch+values[253]*1000).toISOString();if(values[9]!==undefined)next.km=values[9]/100000;if(values[8]!==undefined)next.minutes=values[8]/60000;if(values[22]!==undefined)next.dplus=values[22];if(values[16]!==undefined)next.hr=values[16];summary=next}
+ if(def.global===19){if(positive(values[9]))laps.dist+=values[9]/100000;if(positive(values[8]))laps.secs+=values[8]/60000;if(positive(values[21]))laps.asc+=values[21]}
+ }
+ const derived=gpsSummarize(pts);const recDists=pts.map(x=>x.dist).filter(Number.isFinite);if(!(derived.km>0)&&recDists.length>1)derived.km=Math.max(0,(recDists.at(-1)-recDists[0])/1000);
+ return {name:'Activité Garmin (FIT)',km:positive(summary.km)?summary.km:positive(laps.dist)?laps.dist:derived.km,minutes:positive(summary.minutes)?summary.minutes:positive(laps.secs)?laps.secs:derived.minutes,dplus:summary.dplus!==undefined?summary.dplus:laps.asc>0?laps.asc:derived.dplus,hr:positive(summary.hr)?summary.hr:derived.hr,date:summary.date||derived.date||summary.endDate||null,track:gpsBuildTrack(pts)}}
+function localGpsDate(iso){const d=new Date(iso||Date.now());if(!Number.isFinite(d.getTime()))return '';const pad=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`}
+function gpsDateToIso(v){const d=new Date(v);return Number.isFinite(d.getTime())?d.toISOString():null}
+function gpsPace(a){
+ const km=Number(a.km),minutes=Number(a.minutes);
+ if(!(Number.isFinite(km)&&km>0&&Number.isFinite(minutes)&&minutes>0))return '—';
+ const seconds=Math.round(minutes*60/km),m=Math.floor(seconds/60),s=seconds%60;
+ return `${m}'${String(s).padStart(2,'0')} /km`;
+}
+function gpsSpeed(a){
+ const km=Number(a.km),minutes=Number(a.minutes);
+ if(!(Number.isFinite(km)&&km>0&&Number.isFinite(minutes)&&minutes>0))return '—';
+ return (km*60/minutes).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})+' km/h';
+}
+function gpsTime(a){
+ const seconds=Math.round(Number(a.minutes)*60);
+ if(!(Number.isFinite(seconds)&&seconds>0))return '—';
+ const hh=Math.floor(seconds/3600),mm=Math.floor(seconds%3600/60),ss=seconds%60;
+ return (hh?hh+' h ':'')+String(mm).padStart(hh?2:1,'0')+' min '+String(ss).padStart(2,'0')+' s';
+}
+function gpsMetric(label,value){
+ const wrapper=document.createElement('div');wrapper.className='gps-metric';
+ const small=document.createElement('small');small.textContent=label;
+ const strong=document.createElement('strong');strong.textContent=value;
+ wrapper.append(small,strong);return wrapper;
+}
+function gpsDetailMetric(label,value){
+ const wrapper=document.createElement('div');wrapper.className='gps-detail-card';
+ const small=document.createElement('small');small.textContent=label;
+ const strong=document.createElement('strong');strong.textContent=value;
+ wrapper.append(small,strong);return wrapper;
+}
+function gpsDateLabel(iso){
+ const d=new Date(iso);
+ return Number.isFinite(d.getTime())?d.toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'}):'Date inconnue';
+}
+
+// Local SVG charts: no external library or network request.
+const CHART_COLORS={mint:'#84efb4',blue:'#86baff',amber:'#ffd08c',pink:'#f1a4cc'};
+const SVG_NS='http://www.w3.org/2000/svg';
+function svgNode(tag,attrs={},txt){const el=document.createElementNS(SVG_NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(txt!==undefined)el.textContent=txt;return el}
+function chartPanel(title,caption,wide=false){const el=document.createElement('article');el.className='chart-panel'+(wide?' chart-wide':'');const h=document.createElement('h4');h.textContent=title;const p=document.createElement('p');p.textContent=caption;el.append(h,p);return el}
+function chartEmpty(parent,msg){const div=document.createElement('div');div.className='chart-empty';div.textContent=msg;parent.append(div)}
+function chartAxis(svg,left,top,right,bottom,w,h,min,max,yFormat){
+ const plotHeight=h-top-bottom;
+ for(let i=0;i<=3;i++){
+  const yy=top+i*plotHeight/3,val=max-i*(max-min)/3;
+  svg.append(svgNode('line',{x1:left,y1:yy,x2:w-right,y2:yy,stroke:'#344960','stroke-width':1}));
+  svg.append(svgNode('text',{x:left-6,y:yy+4,fill:'#b3c3d7','font-size':10,'text-anchor':'end'},yFormat(val)));
+ }
+}
+function lineChart(parent,entries,opts={}){
+ const pts=entries.filter(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)).sort((a,b)=>a.x-b.x);
+ if(!pts.length){chartEmpty(parent,opts.empty||'Aucune mesure disponible pour ce graphique.');return}
+ const w=560,h=208,left=53,right=16,top=20,bottom=34;
+ const svg=svgNode('svg',{viewBox:`0 0 ${w} ${h}`,role:'img','aria-label':opts.accessibility||'Graphique des mesures'});
+ const minX=Math.min(...pts.map(p=>p.x)),maxX=Math.max(...pts.map(p=>p.x));
+ const actualMin=Math.min(...pts.map(p=>p.y)),actualMax=Math.max(...pts.map(p=>p.y));
+ const spread=Math.max(1,actualMax-actualMin),margin=spread*.12;
+ const minY=opts.zeroBaseline?0:Math.max(0,actualMin-margin),maxY=actualMax+margin;
+ chartAxis(svg,left,top,right,bottom,w,h,minY,maxY,opts.yFormat||((v)=>v.toFixed(0)));
+ const projectX=v=>left+(maxX===minX?(w-left-right)/2:(v-minX)/(maxX-minX)*(w-left-right));
+ const projectY=v=>h-bottom-(v-minY)/Math.max(.00001,maxY-minY)*(h-top-bottom);
+ const path=pts.map((p,i)=>(i?'L':'M')+projectX(p.x).toFixed(2)+' '+projectY(p.y).toFixed(2)).join(' ');
+ svg.append(svgNode('path',{d:path,fill:'none',stroke:opts.color||CHART_COLORS.mint,'stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round'}));
+ for(const p of pts){const dot=svgNode('circle',{cx:projectX(p.x),cy:projectY(p.y),r:pts.length>80?2.5:4,fill:opts.color||CHART_COLORS.mint,stroke:'#102238','stroke-width':1});dot.append(svgNode('title',{},(p.label||'Mesure')+' : '+(opts.tooltipFormat?opts.tooltipFormat(p.y):p.y)));svg.append(dot)}
+ const fmtX=opts.xFormat||((v)=>String(Number(v).toFixed(1)));
+ const xStart=svgNode('text',{x:left,y:h-9,fill:'#b3c3d7','font-size':10},fmtX(minX));
+ const xEnd=svgNode('text',{x:w-right,y:h-9,'text-anchor':'end',fill:'#b3c3d7','font-size':10},fmtX(maxX));
+ svg.append(xStart,xEnd);parent.append(svg);
+}
+function barsChart(parent,entries,opts={}){
+ if(!entries.length){chartEmpty(parent,'Aucune donnée dans la période sélectionnée.');return}
+ const w=560,h=205,left=45,right=14,top=17,bottom=35;
+ const svg=svgNode('svg',{viewBox:`0 0 ${w} ${h}`,role:'img','aria-label':opts.accessibility||'Graphique hebdomadaire'});
+ const mx=Math.max(1,...entries.map(x=>Number(x.value)||0)),maxY=mx*1.15;
+ chartAxis(svg,left,top,right,bottom,w,h,0,maxY,x=>opts.yFormat?opts.yFormat(x):Math.round(x).toString());
+ const available=w-left-right,slot=available/entries.length,bw=Math.min(36,slot*.62);
+ entries.forEach((p,i)=>{
+  const value=Math.max(0,Number(p.value)||0),barHeight=(value/maxY)*(h-top-bottom),x=left+slot*(i+.5)-bw/2,y=h-bottom-barHeight;
+  const bar=svgNode('rect',{x,y,width:bw,height:Math.max(0,barHeight),rx:Math.min(4,barHeight),fill:opts.color||CHART_COLORS.mint});
+  bar.append(svgNode('title',{},`${p.label} : ${opts.tooltipFormat?opts.tooltipFormat(value):value}`));svg.append(bar);
+  if(entries.length<=14||i%Math.ceil(entries.length/12)===0)svg.append(svgNode('text',{x:left+slot*(i+.5),y:h-9,'text-anchor':'middle','font-size':10,fill:'#b3c3d7'},p.short||p.label));
+ });parent.append(svg);
+}
+function minutesPace(v){if(!(v>0))return '—';const secs=Math.round(v*60);return `${Math.floor(secs/60)}'${String(secs%60).padStart(2,'0')}`}
+function renderGpsDetailCharts(a){
+ const host=$('gpsDetailCharts');host.replaceChildren();
+ const heading=document.createElement('h3');heading.textContent='📉 Graphiques de cette sortie';host.append(heading);
+ const grid=document.createElement('div');grid.className='gps-charts-grid';host.append(grid);
+ const track=cleanGpsTrack(a.track);
+ if(track.length<2){const p=chartPanel('Graphiques point par point','Garmin / Strava');p.classList.add('chart-wide');chartEmpty(p,'Cette activité possède seulement des chiffres récapitulatifs. Réimporte le fichier original FIT, GPX ou TCX pour obtenir les courbes de la sortie. Les anciens imports restent utilisables dans les tendances.');grid.append(p);return}
+ const useDistance=track.some(p=>p.d>0);const xFor=p=>useDistance?p.d:p.m;
+ const xLabel=useDistance?'Distance (km)':'Durée (min)';
+ const xFmt=x=>useDistance?x.toFixed(1)+' km':Math.round(x)+' min';
+ const pacePoints=[];
+ for(let i=1;i<track.length;i++){
+  // Compare data over successive downsampled segments; avoid pauses causing implausible values.
+  const dist=track[i].d-track[i-1].d,elapsed=track[i].m-track[i-1].m;
+  if(dist>.03&&elapsed>0){const pace=elapsed/dist;if(pace>=2&&pace<=18)pacePoints.push({x:xFor(track[i]),y:pace,label:xFmt(xFor(track[i]))})}
+ }
+ const pc=chartPanel('⏱️ Allure le long du parcours','Min/km approximatives entre points espacés, pauses possibles.');
+ lineChart(pc,pacePoints,{color:CHART_COLORS.mint,yFormat:minutesPace,tooltipFormat:v=>minutesPace(v)+'/km',xFormat:xFmt,accessibility:'Évolution de l’allure, une valeur plus basse est plus rapide',empty:'Le fichier ne donne pas suffisamment de mesures temporelles et de distance pour l’allure.'});grid.append(pc);
+ const hr=chartPanel('❤️ Fréquence cardiaque','Mesures enregistrées dans le fichier, en bpm.');
+ lineChart(hr,track.filter(p=>p.hr!==null).map(p=>({x:xFor(p),y:p.hr,label:xFmt(xFor(p))})),{color:CHART_COLORS.pink,yFormat:v=>Math.round(v)+'',tooltipFormat:v=>Math.round(v)+' bpm',xFormat:xFmt,empty:'Pas de courbe FC dans ce fichier. Essaie le FIT original de la montre.'});grid.append(hr);
+ const elev=chartPanel('⛰️ Profil altimétrique','Altitude observée, en mètres.');elev.classList.add('chart-wide');
+ lineChart(elev,track.filter(p=>p.alt!==null).map(p=>({x:xFor(p),y:p.alt,label:xFmt(xFor(p))})),{color:CHART_COLORS.amber,yFormat:v=>Math.round(v)+' m',tooltipFormat:v=>Math.round(v)+' m',xFormat:xFmt,empty:'Le fichier n’a pas de mesures d’altitude.'});grid.append(elev);
+ const note=document.createElement('p');note.className='notice';note.textContent='Courbes issues de mesures sous-échantillonnées, sans conserver ta position GPS. Pour une allure précise par intervalle et le temps en mouvement, Garmin Connect reste la référence.';host.append(note);
+}
+function isoMonday(date){const d=new Date(date);if(!Number.isFinite(d.getTime()))return null;d.setHours(0,0,0,0);d.setDate(d.getDate()-(d.getDay()+6)%7);return d}
+function coachPeriodStart(range){if(range==='all')return null;const n=Number(range)||8;const d=isoMonday(new Date());d.setDate(d.getDate()-(n-1)*7);return d}
+function renderCoachCharts(){
+ const host=$('gpsCoachCharts');if(!host)return;host.replaceChildren();
+ const range=$('gpsChartRange').value,start=coachPeriodStart(range);
+ const valid=(d)=>{const t=new Date(d);return Number.isFinite(t.getTime())&&(!start||t>=start)&&t<=new Date()};
+ const actualHistory=(data.history||[]).filter(h=>['run','muscu'].includes(h.type)&&valid(h.when));
+ const gps=(data.gpsActivities||[]).filter(a=>valid(a.date)).sort((a,b)=>new Date(a.date)-new Date(b.date));
+ const firstAll=[...actualHistory.map(h=>new Date(h.when)),...gps.map(a=>new Date(a.date))].filter(d=>Number.isFinite(d.getTime())).sort((a,b)=>a-b)[0];
+ const finalMonday=isoMonday(new Date());const firstMonday=start||isoMonday(firstAll||new Date());
+ const weeks=[];for(let d=new Date(firstMonday),i=0;d<=finalMonday&&i<130;d.setDate(d.getDate()+7),i++){
+  const end=new Date(d);end.setDate(d.getDate()+7);
+  const hh=actualHistory.filter(h=>{const t=new Date(h.when);return t>=d&&t<end});
+  const runs=hh.filter(h=>h.type==='run');
+  weeks.push({start:new Date(d),km:runs.reduce((s,h)=>s+(Number(h.km)||0),0),muscu:hh.filter(h=>h.type==='muscu').length,runCount:runs.length});
+ }
+ const fmtWeek=d=>(d.getDate()+'/'+(d.getMonth()+1));
+ const wdata=weeks.map(w=>({label:'Sem. du '+w.start.toLocaleDateString('fr-FR'),short:fmtWeek(w.start),value:w.km}));
+ const wk=chartPanel('🏃 Kilomètres par semaine','Sorties réellement enregistrées, manuelles et GPS, une seule fois chacune.');barsChart(wk,wdata,{color:CHART_COLORS.mint,yFormat:v=>v.toFixed(0),tooltipFormat:v=>v.toFixed(1)+' km'});host.append(wk);
+ const mdata=weeks.map(w=>({label:'Sem. du '+w.start.toLocaleDateString('fr-FR'),short:fmtWeek(w.start),value:w.muscu}));
+ const mus=chartPanel('💪 Musculation par semaine','Nombre de séances terminées et enregistrées.');barsChart(mus,mdata,{color:CHART_COLORS.blue,tooltipFormat:v=>v+' séance(s)'});host.append(mus);
+ const pace=chartPanel('⏱️ Allure moyenne — sorties GPS','Comparaison entre sorties : une séance facile n’est pas une séance rapide.');
+ if(gps.length<2)chartEmpty(pace,'Il faut au moins deux sorties GPS sur cette période pour visualiser une tendance.');
+ else lineChart(pace,gps.map((a,i)=>({x:new Date(a.date).getTime(),y:a.minutes/a.km,label:new Date(a.date).toLocaleDateString('fr-FR')})).filter(p=>p.y>2&&p.y<30),{color:CHART_COLORS.amber,yFormat:minutesPace,xFormat:x=>new Date(x).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'}),tooltipFormat:v=>minutesPace(v)+'/km',empty:'Pas de données d’allure suffisamment valides.'});host.append(pace);
+ const cardiac=chartPanel('❤️ FC moyenne — sorties GPS','Comparer à effort, distance et terrain comparables.');
+ const heartrate=gps.filter(a=>Number.isFinite(a.hr)&&a.hr>=35&&a.hr<=240);
+ if(heartrate.length<2)chartEmpty(cardiac,'Il faut au moins deux sorties avec une FC moyenne pour afficher une tendance.');
+ else lineChart(cardiac,heartrate.map(a=>({x:new Date(a.date).getTime(),y:a.hr,label:new Date(a.date).toLocaleDateString('fr-FR')})),{color:CHART_COLORS.pink,yFormat:v=>Math.round(v)+'',tooltipFormat:v=>Math.round(v)+' bpm',xFormat:x=>new Date(x).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'})});host.append(cardiac);
+ const cycle=chartPanel('🎯 Cycle actif — prévu vs réalisé','Séances planifiées et terminées, par semaine de ton cycle.');cycle.classList.add('chart-wide');
+ const sessions=data.sessions||[];
+ if(!sessions.length)chartEmpty(cycle,'Crée un programme dans Mon profil pour afficher les séances prévues et réalisées du cycle.');
+ else{
+  const summary=document.createElement('div');summary.className='chart-summary';
+  const all=sessions.filter(s=>['muscu','run'].includes(s.type));const done=all.filter(s=>s.done);const runs=all.filter(s=>s.type==='run'),strength=all.filter(s=>s.type==='muscu');
+  summary.textContent=`Cycle ${data.cycleNumber||1} : ${done.length}/${all.length} séances terminées · CAP ${runs.filter(s=>s.done).length}/${runs.length} · MUSCU ${strength.filter(s=>s.done).length}/${strength.length}.`;
+  cycle.append(summary);
+  const n=Math.min(8,Math.max(1,data.weekCount||1));
+  const svg=svgNode('svg',{viewBox:'0 0 560 186',role:'img','aria-label':'Séances prévues et réalisées par semaine'});
+  const max=Math.max(1,...Array.from({length:n},(_,i)=>sessions.filter(s=>(s.week||1)===i+1).length));
+  const left=44,right=15,top=12,bottom=32,h=186,w=560;
+  chartAxis(svg,left,top,right,bottom,w,h,0,max*1.17,v=>Math.round(v)+'');
+  const slot=(w-left-right)/n;
+  for(let i=0;i<n;i++){
+   const ss=sessions.filter(s=>(s.week||1)===i+1),d=ss.filter(s=>s.done).length,tot=ss.length;
+   const x=left+(i+.5)*slot;const scale=(h-top-bottom)/(max*1.17);
+   for(const [v,c,shift,label] of [[tot,CHART_COLORS.blue,-10,'prévues'],[d,CHART_COLORS.mint,10,'réalisées']]){
+    const bw=Math.min(slot*.32,17);const rect=svgNode('rect',{x:x+shift-bw/2,y:h-bottom-v*scale,width:bw,height:v*scale,rx:3,fill:c});rect.append(svgNode('title',{},`Semaine ${i+1}: ${v} séances ${label}`));svg.append(rect)
+   }
+   svg.append(svgNode('text',{x,y:h-8,'text-anchor':'middle',fill:'#b3c3d7','font-size':11},'S'+(i+1)));
+  }
+  cycle.append(svg);
+  const legend=document.createElement('div');legend.className='chart-key';legend.innerHTML='<span style="--mint:#86baff">🟦 Prévues</span><span>🟩 Réalisées</span>';cycle.append(legend);
+ }
+ host.append(cycle);
+}
+$('gpsChartRange').addEventListener('change',renderCoachCharts);
+
+function openGpsDetail(activityId){
+ const a=(data.gpsActivities||[]).find(x=>x.id===activityId);if(!a)return;
+ $('gpsDetailTitle').textContent='🏃 '+a.name;
+ $('gpsDetailSub').textContent=gpsDateLabel(a.date)+' · '+a.source;
+ const body=$('gpsDetailMetrics');body.replaceChildren();
+ const number=(n,dec=2)=>Number(n).toLocaleString('fr-FR',{maximumFractionDigits:dec});
+ [ ['Distance',number(a.km)+' km'], ['Durée',gpsTime(a)], ['Allure moyenne',gpsPace(a)],
+ ['Vitesse moyenne',gpsSpeed(a)], ['FC moyenne',a.hr===null?'Non disponible':Math.round(a.hr)+' bpm'],
+ ['Dénivelé positif',a.dplus===null?'Non disponible':Math.round(a.dplus)+' m']
+ ].forEach(([label,value])=>body.append(gpsDetailMetric(label,value)));
+ $('gpsDetailMeta').replaceChildren();
+ const lines=[a.sessionId?'✅ Associée à une séance du planning':'📋 Importée uniquement dans l’historique',
+ 'Source : '+a.source,a.fileName?'Fichier : '+a.fileName:'',
+ 'Les valeurs absentes du fichier ne sont pas estimées.'];
+ for(const line of lines.filter(Boolean)){const p=document.createElement('div');p.textContent=line;$('gpsDetailMeta').append(p)}
+ renderGpsDetailCharts(a);
+ $('gpsDetailDialog').showModal();
+}
+$('gpsCloseDetail').onclick=()=>$('gpsDetailDialog').close();
+function gpsLivePreview(){
+ const km=Number($('gpsKm').value),minutes=Number($('gpsMinutes').value),e=$('gpsLive');
+ if(!(km>0&&minutes>0)){e.textContent='Renseigne une distance et une durée pour afficher l’allure et la vitesse.';return}
+ e.textContent='⏱️ Allure calculée : '+gpsPace({km,minutes})+'  ·  🚀 Vitesse calculée : '+gpsSpeed({km,minutes});
+}
+$('gpsKm').addEventListener('input',gpsLivePreview);
+$('gpsMinutes').addEventListener('input',gpsLivePreview);
+function renderGps(){
+ const all=data.gpsActivities||[],host=$('gpsActivities');
+ $('gpsCount').textContent=all.length;
+ $('gpsTotalKm').textContent=all.reduce((n,a)=>n+a.km,0).toLocaleString('fr-FR',{maximumFractionDigits:1});
+ $('gpsTotalDplus').textContent=Math.round(all.reduce((n,a)=>n+(Number(a.dplus)||0),0)).toLocaleString('fr-FR');
+ host.replaceChildren();
+ if(!all.length){const e=document.createElement('p');e.className='muted';e.textContent='Aucune sortie importée. Commence avec une activité de ta Garmin Fenix 7 !';host.append(e);renderCoachCharts();return}
+ for(const a of all.slice().reverse()){
+  const row=document.createElement('article');row.className='gps-item';
+  const top=document.createElement('div');top.className='gps-activity-top';
+  const detail=document.createElement('div');const title=document.createElement('strong');title.textContent='🏃 '+a.name;
+  const note=document.createElement('small');note.textContent=gpsDateLabel(a.date)+' · '+a.source+(a.sessionId?' · ✓ Liée au planning':'');
+  detail.append(title,note);
+  const actions=document.createElement('div');actions.className='gps-activity-actions';
+  const view=document.createElement('button');view.type='button';view.className='primary';view.textContent='Voir la fiche ↗';view.setAttribute('aria-label','Voir les détails de '+a.name);view.onclick=()=>openGpsDetail(a.id);
+  const del=document.createElement('button');del.type='button';del.className='danger';del.textContent='Retirer';del.onclick=()=>{
+   if(!confirm('Supprimer cette importation et sa performance liée ?'))return;
+   data.gpsActivities=data.gpsActivities.filter(x=>x.id!==a.id);
+   data.history=data.history.filter(h=>h.id!==a.historyId);
+   if(a.sessionId){const s=data.sessions.find(x=>x.id===a.sessionId);if(s&&!data.history.some(h=>h.sessionId===a.sessionId))s.done=false}
+   save();renderAll();renderGps();
+  };
+  actions.append(view,del);top.append(detail,actions);
+  const metrics=document.createElement('div');metrics.className='gps-metrics';
+  const distance=Number(a.km).toLocaleString('fr-FR',{maximumFractionDigits:2})+' km';
+  [['Distance',distance],['Allure',gpsPace(a)],['Durée',gpsTime(a)],['FC moyenne',a.hr===null?'—':Math.round(a.hr)+' bpm'],['D+',a.dplus===null?'—':Math.round(a.dplus)+' m']]
+   .forEach(([label,value])=>metrics.append(gpsMetric(label,value)));
+  row.append(top,metrics);host.append(row);
+ }
+ renderCoachCharts();
+}
+function gpsSessionChoices(){const sel=$('gpsLink');sel.replaceChildren();sel.add(new Option('Aucune — ajouter à mon historique seulement',''));for(const s of visibleSessions().filter(s=>s.type==='run'&&!s.done&&!data.history.some(h=>h.sessionId===s.id)))sel.add(new Option('Semaine '+currentWeek+' · '+DAYS[s.day]+' · '+s.name,s.id))}
+async function gpsDigest(buffer){if(window.crypto?.subtle){const dig=await crypto.subtle.digest('SHA-256',buffer);return [...new Uint8Array(dig)].map(x=>x.toString(16).padStart(2,'0')).join('')}let a=2166136261,b=0x9e3779b9;for(const x of new Uint8Array(buffer)){a=Math.imul(a^x,16777619);b=Math.imul(b^x,2246822519)}return 'local-'+(a>>>0).toString(16)+'-'+(b>>>0).toString(16)}
+$('gpsFile').addEventListener('change',async e=>{gpsDraft=null;$('gpsPreview').classList.add('hidden');const file=e.target.files?.[0];if(!file)return;try{if(file.size>25*1024*1024)throw Error('25 Mo maximum.');const ext=file.name.split('.').pop().toLowerCase();if(!['gpx','tcx','fit'].includes(ext))throw Error('Choisis un fichier FIT, TCX ou GPX (pas de ZIP).');const buf=await file.arrayBuffer();const stats=ext==='fit'?fitParse(buf):ext==='gpx'?gpxParse(new TextDecoder().decode(buf)):tcxParse(new TextDecoder().decode(buf));const digest=await gpsDigest(buf);if(digest&&data.gpsActivities.some(a=>a.hash===digest))throw Error('Ce fichier a déjà été importé.');if(!(stats.km>0)&&!(stats.minutes>0))throw Error('Impossible de lire les mesures. Essaie un export FIT ou TCX.');gpsDraft={...stats,hash:digest,fileName:file.name};$('gpsTitle').value=stats.name||file.name.replace(/\.[^.]+$/,'');$('gpsDate').value=localGpsDate(stats.date);$('gpsKm').value=stats.km>0?stats.km.toFixed(2):'';$('gpsMinutes').value=stats.minutes>0?stats.minutes.toFixed(1):'';$('gpsDplus').value=Number.isFinite(stats.dplus)?Math.round(stats.dplus):'';$('gpsHR').value=Number.isFinite(stats.hr)?Math.round(stats.hr):'';gpsLivePreview();gpsSessionChoices();$('gpsPreview').classList.remove('hidden');gpsMsg('✓ Fichier lu sur cet appareil. Vérifie les valeurs, puis valide.',true)}catch(err){gpsMsg('Import non prêt : '+err.message,false)}});
+$('gpsCancel').onclick=()=>{gpsDraft=null;$('gpsFile').value='';$('gpsPreview').classList.add('hidden');gpsMsg('Import annulé : aucune donnée ajoutée.',true)};
+$('gpsConfirm').onclick=()=>{if(!gpsDraft)return;const name=$('gpsTitle').value.trim(),date=gpsDateToIso($('gpsDate').value),km=Number($('gpsKm').value),minutes=Number($('gpsMinutes').value);const dRaw=$('gpsDplus').value.trim(),hRaw=$('gpsHR').value.trim(),dplus=dRaw===''?null:Number(dRaw),hr=hRaw===''?null:Number(hRaw),sessionId=$('gpsLink').value||null;
+ if(!name||!date||!Number.isFinite(km)||km<=0||km>1000||!Number.isFinite(minutes)||minutes<=0||minutes>20000||dplus!==null&&(!Number.isFinite(dplus)||dplus<0||dplus>50000)||hr!==null&&(!Number.isFinite(hr)||hr<35||hr>240)){gpsMsg('Renseigne un nom, une date, une distance et une durée valides.',false);return}
+ const originalMs=Date.parse(gpsDraft.date||'');const whenMs=Date.parse(date);if(data.gpsActivities.some(a=>a.hash&&a.hash===gpsDraft.hash)||data.gpsActivities.some(a=>Math.abs(Date.parse(a.date)-whenMs)<5*60*1000&&Math.abs(a.km-km)<Math.max(.15,km*.015)&&Math.abs(a.minutes-minutes)<Math.max(2,minutes*.04))){gpsMsg('Cette sortie ressemble à une activité déjà importée (Garmin/Strava). Vérifie avant de l’importer deux fois.',false);return}
+ const s=sessionId?data.sessions.find(s=>s.id===sessionId&&!s.done&&s.type==='run'):null;if(sessionId&&!s){gpsMsg('La séance prévue choisie n’est plus disponible.',false);return}
+ const activityId=id(),historyId=id();const item={id:activityId,name,source:$('gpsSource').value,fileName:gpsDraft.fileName,date,km,minutes,dplus,hr,hash:gpsDraft.hash,historyId,sessionId,track:cleanGpsTrack(gpsDraft.track)};const hist={id:historyId,sessionId:s?.id||'gps-'+activityId,type:'run',name,day:new Date(date).getDay()===0?6:new Date(date).getDay()-1,when:date,km,minutes,dplus,feel:'Import GPS',gpsActivityId:activityId,avgHr:hr,source:item.source};data.gpsActivities.push(item);data.history.push(hist);if(s)s.done=true;if(!save()){data.gpsActivities.pop();data.history.pop();if(s)s.done=false;return}gpsDraft=null;$('gpsPreview').classList.add('hidden');$('gpsFile').value='';renderAll();renderGps();gpsMsg('✓ Sortie enregistrée dans Progression'+(s?' et liée à la séance du planning':'')+'.',true)};
+renderGps();
+
+
+// V1.0 — routes are obtained from a real routing service, never synthesized as valid streets.
+let hpRoute=null;
+function hpFormat(sec){return `${Math.floor(sec/60)}'${String(Math.round(sec%60)).padStart(2,'0')}`}
+function hpValues(){const m=Number($('hpDuration').value),a=/^(\d{1,2}):(\d{2})$/.exec($('hpPace').value.trim());if(!a||Number(a[2])>=60)throw Error('Allure attendue au format mm:ss (ex. 5:00).');const pace=Number(a[1])*60+Number(a[2]),tol=Number($('hpTolerance').value);if(!(m>=5&&m<=300&&pace>=150&&pace<=900&&tol>=5&&tol<=90))throw Error('Vérifie la durée, l’allure et la tolérance.');return {m,pace,tol,km:m*60/pace}}
+function hpModeValue(){return document.querySelector('input[name="hpMode"]:checked').value}
+function hpRaceSeconds(raw){const parts=raw.trim().split(':').map(Number);if(parts.length<2||parts.length>3||parts.some(n=>!Number.isInteger(n)||n<0))throw Error('Chrono attendu au format mm:ss ou hh:mm:ss.');if(parts.length===2&&parts[1]>=60||parts.length===3&&(parts[1]>=60||parts[2]>=60))throw Error('Chrono invalide.');const sec=parts.reduce((acc,n)=>acc*60+n,0);if(sec<60||sec>24*3600)throw Error('Chrono hors limites.');return sec}
+function hpPlannedSessions(){return visibleSessions().filter(s=>s.type==='run'&&!s.done)}
+function hpPlannedSelection(){return hpPlannedSessions().find(s=>String(s.id)===$('hpPlannedSelect').value)||null}
+function hpPlannedSync(){
+ const sel=$('hpPlannedSelect'),previous=sel.value,items=hpPlannedSessions();sel.replaceChildren();
+ if(!items.length)sel.add(new Option('Aucune séance Running prévue cette semaine',''));
+ else for(const ses of items)sel.add(new Option(`${DAYS[ses.day]} · ${ses.name}`,String(ses.id)));
+ if(items.some(s=>String(s.id)===previous))sel.value=previous;
+ hpPlannedRender();
+}
+function hpPhaseInfo(){
+ const ses=hpPlannedSelection();
+ if(!ses)return null;
+ const plan=ses.runPlan||runPlanFor(ses.name,data.profile),steps=plan.steps||[];
+ const elapsed=typeof hpLive!=='undefined'&&hpLive.active?hpLiveClock():0;
+ let start=0;
+ for(let i=0;i<steps.length;i++){
+  const duration=Math.max(0,Number(steps[i].minutes)||0)*60,end=start+duration;
+  if(elapsed<end)return {step:steps[i],index:i,remaining:Math.ceil(end-elapsed),total:steps.length,finished:false};
+  start=end;
+ }
+ return {step:null,index:steps.length,remaining:0,total:steps.length,finished:true};
+}
+function hpClockText(sec){const v=Math.max(0,Math.ceil(sec));return String(Math.floor(v/60)).padStart(2,'0')+':'+String(v%60).padStart(2,'0')}
+function hpPlannedRender(){
+ const el=$('hpPlannedSteps'),ses=hpPlannedSelection();
+ if(!ses){el.textContent='Crée un planning Running ou Hybride, puis sélectionne une séance non terminée.';return}
+ const plan=ses.runPlan||runPlanFor(ses.name,data.profile),steps=plan.steps||[];
+ const total=steps.reduce((n,x)=>n+(Number(x.minutes)||0),0);
+ const elapsed=typeof hpLive!=='undefined'&&hpLive.active?hpLiveClock():0;
+ let used=0,activeIndex=steps.findIndex(st=>{used+=Number(st.minutes||0)*60;return elapsed<used});
+ if(activeIndex<0&&steps.length)activeIndex=steps.length-1;
+ el.replaceChildren();
+ const phase=hpPhaseInfo();
+ if(phase&&typeof hpLive!=='undefined'&&hpLive.active){
+  const panel=document.createElement('div');
+  panel.style.cssText='padding:15px;margin:12px 0;border:1px solid var(--mint);border-radius:12px;text-align:center';
+  const label=document.createElement('div');
+  label.style.cssText='font-size:18px;font-weight:800';
+  label.textContent=phase.finished?'🏁 Séance prévue terminée':'🎯 '+phase.step.title;
+  const countdown=document.createElement('div');
+  countdown.style.cssText='font-size:38px;font-weight:900;color:var(--mint);margin:8px 0';
+  countdown.textContent=phase.finished?'00:00':hpClockText(phase.remaining);
+  const detail=document.createElement('div');detail.className='notice';
+  detail.textContent=phase.finished?'Tu peux arrêter la sortie GPS lorsque tu as terminé.':(phase.step.details||'Adapte ton effort au ressenti');
+  panel.append(label,countdown,detail);el.append(panel);
+ }
+ const heading=document.createElement('strong');heading.textContent=`${plan.goal||ses.name} · ${total} min prévues`;el.append(heading);
+ steps.forEach((st,i)=>{const div=document.createElement('div');div.style.cssText='padding:9px 0;border-bottom:1px solid var(--line)';const label=document.createElement('strong');label.textContent=`${i===activeIndex?'▶ ':''}${st.title} · ${st.minutes} min`;if(i===activeIndex)label.style.color='var(--mint)';const detail=document.createElement('div');detail.className='notice';detail.textContent=st.details||'À l’effort et au ressenti';div.append(label,detail);el.append(div)});
+ const note=document.createElement('p');note.className='notice';note.textContent='⚠️ Les allures chiffrées ne sont pas inventées : ce planning donne actuellement des consignes d’effort, pas une vitesse précise par fraction.';el.append(note);
+}
+function hpRefresh(){
+ const mode=hpModeValue(),free=mode==='free',chrono=mode==='chrono';
+ $('hpChronoFields').classList.toggle('hidden',!chrono);
+ $('hpPlannedBox').classList.toggle('hidden',mode!=='session');
+ $('hpActualWrap').classList.add('hidden');
+ $('hpActual').disabled=free;
+ try{
+  const v=hpValues();
+  $('hpEstimate').textContent=`🎯 ${v.m} min à ${hpFormat(v.pace)}/km ≈ ${v.km.toFixed(2).replace('.',',')} km`+(mode==='session'?` · zone ${hpFormat(v.pace-v.tol)} à ${hpFormat(v.pace+v.tol)}/km`:'');
+  if(free){$('hpCoach').textContent='🏃 Course libre : aucune consigne d’allure. Profite de ta sortie.';return}
+  const a=Number($('hpActual').value);
+  if(!chrono){$('hpCoach').textContent='🎯 Suis les phases de ta séance ci-dessus. Les consignes du planning privilégient le ressenti.';hpPlannedRender();return}
+  const km=Number($('hpRaceKm').value),target=hpRaceSeconds($('hpRaceTime').value);
+  if(!(km>=0.5&&km<=200))throw Error('Vérifie la distance de course.');
+  const goalPace=target/km;
+  $('hpCoach').innerHTML=`<div style="text-align:center;padding:12px 4px"><div style="color:var(--muted);font-size:13px">🏁 ${km.toLocaleString('fr-FR')} km · objectif ${$('hpRaceTime').value}</div><div style="font-weight:800;margin-top:12px;color:var(--muted)">🎯 ALLURE À TENIR</div><div style="font-size:clamp(36px,6vw,52px);font-weight:900;color:var(--mint)">${hpFormat(goalPace)}<span style="font-size:18px">/km</span></div><div style="color:var(--muted);font-size:13px">Garde une allure régulière</div></div>`;
+ }catch(e){$('hpCoach').textContent='⚠️ '+e.message}
+}
+function hpStatus(msg,error=false){const el=$('hpMessage');el.classList.remove('hidden');el.className='hint '+(error?'warn':'ok');el.textContent=msg}
+function hpReset(){hpRoute=null;$('hpExport').disabled=true;$('hpRouteDetails').replaceChildren()}
+['hpDuration','hpPace','hpTolerance','hpActual','hpRaceKm','hpRaceTime'].forEach(id=>$(id).addEventListener('input',()=>{hpRefresh();if(['hpDuration','hpPace','hpTolerance'].includes(id))hpReset()}));
+document.querySelectorAll('input[name="hpMode"]').forEach(el=>el.addEventListener('change',hpRefresh));
+$('hpPlannedSelect').addEventListener('change',()=>{if(typeof hpLive!=='undefined')hpLive.phaseKey=null;hpPlannedRender()});
+document.querySelector('[data-tab="routes"]').addEventListener('click',()=>setTimeout(hpPlannedSync,0));
+['hpType','hpSeed'].forEach(id=>$(id).addEventListener('change',hpReset));
+$('hpAddress').addEventListener('input',()=>{$('hpLat').value='';$('hpLon').value='';$('hpStartStatus').textContent='Recherche nécessaire pour valider ce départ';hpReset()});
+function hpSetStart(lat,lon,label){$('hpLat').value=lat;$('hpLon').value=lon;$('hpStartStatus').textContent='✅ Départ : '+label;hpReset()}
+$('hpFindAddress').onclick=async()=>{const q=$('hpAddress').value.trim();if(q.length<3){hpStatus('Saisis au moins trois caractères pour rechercher un départ.',true);return}const b=$('hpFindAddress');b.disabled=true;$('hpStartStatus').textContent='Recherche du lieu…';try{const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q='+encodeURIComponent(q),{headers:{'Accept':'application/json'}});if(!r.ok)throw Error('Service de recherche indisponible');const results=await r.json();if(!results.length)throw Error('Lieu introuvable. Précise la ville ou l’adresse.');hpSetStart(results[0].lat,results[0].lon,results[0].display_name);hpStatus('Départ trouvé. Tu peux maintenant calculer une boucle.')}catch(e){$('hpStartStatus').textContent='Départ non sélectionné';hpStatus('Recherche impossible : '+e.message,true)}finally{b.disabled=false}};
+$('hpLocate').onclick=()=>{if(!navigator.geolocation){hpStatus('Géolocalisation non disponible dans ce navigateur.',true);return}$('hpStartStatus').textContent='Demande de localisation…';navigator.geolocation.getCurrentPosition(p=>{hpSetStart(p.coords.latitude,p.coords.longitude,'position actuelle');$('hpAddress').value='Ma position actuelle';hpStatus('Position récupérée avec ton autorisation.')},e=>{hpStatus('Localisation impossible ou refusée. Essaie la recherche par adresse. (Sur un fichier local, le navigateur peut bloquer cette fonction.)',true);$('hpStartStatus').textContent='Départ non sélectionné'},{enableHighAccuracy:false,timeout:12000,maximumAge:60000})};
+$('hpGenerate').onclick=async()=>{hpReset();let v;try{v=hpValues()}catch(e){hpStatus(e.message,true);return}const lat=Number($('hpLat').value),lon=Number($('hpLon').value),key=$('hpKey').value.trim();if(!$('hpLat').value||!$('hpLon').value||!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180){hpStatus('Choisis d’abord ton départ avec « Rechercher » ou « Ma position ».',true);return}if(!key){hpStatus('Ajoute une clé openrouteservice pour calculer un parcours réel.',true);return}const btn=$('hpGenerate');btn.disabled=true;hpStatus('Calcul de la boucle en cours…');try{const profile=$('hpType').value;const url=`https://api.openrouteservice.org/v2/directions/${profile}/geojson`;const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Authorization':key},body:JSON.stringify({coordinates:[[lon,lat]],options:{round_trip:{length:Math.round(v.km*1000),points:5,seed:Number($('hpSeed').value)}},instructions:false})});const json=await res.json();if(!res.ok)throw Error(json.error?.message||`Erreur du service (${res.status})`);const feature=json.features?.[0],coords=feature?.geometry?.coordinates;if(!Array.isArray(coords)||coords.length<2)throw Error('Aucun tracé exploitable renvoyé.');const actualKm=(feature.properties?.summary?.distance||0)/1000;hpRoute={coords,actualKm};$('hpExport').disabled=false;const detail=$('hpRouteDetails');detail.replaceChildren();const h=document.createElement('p');h.textContent=`✅ Boucle calculée : ${actualKm.toFixed(2).replace('.',',')} km (cible ${v.km.toFixed(2).replace('.',',')} km). Vérifie le tracé et les passages avant de partir.`;detail.append(h);const osm=document.createElement('a');osm.href=`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=13/${lat}/${lon}`;osm.target='_blank';osm.rel='noopener noreferrer';osm.textContent='Voir le secteur de départ sur OpenStreetMap ↗';detail.append(osm);hpStatus('Parcours reçu du service. Export GPX disponible. Le tracé n’est pas affiché sur une carte dans cette version.')}catch(e){hpStatus('Calcul impossible : '+e.message,true)}finally{btn.disabled=false}};
+$('hpExport').onclick=()=>{if(!hpRoute)return;const coords=hpRoute.coords;const xml='<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="HYBRID FIT" xmlns="http://www.topografix.com/GPX/1/1"><trk><name>HYBRID FIT - Parcours</name><trkseg>'+coords.map(c=>`<trkpt lat="${Number(c[1]).toFixed(7)}" lon="${Number(c[0]).toFixed(7)}">${Number.isFinite(Number(c[2]))&&c.length>2?`<ele>${Number(c[2]).toFixed(1)}</ele>`:''}</trkpt>`).join('')+'</trkseg></trk></gpx>';const blob=new Blob([xml],{type:'application/gpx+xml'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='HYBRID_FIT_parcours.gpx';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000)};
+hpPlannedSync();
+hpRefresh();
+
+
+// V1.0.4: GPS live tracking, foreground only. No automatic persistence of location.
+const hpLive={active:false,paused:false,watch:null,started:0,elapsed:0,last:null,km:0,points:0,phaseKey:null};
+function hpLiveClock(){return hpLive.elapsed+(hpLive.active&&!hpLive.paused?(Date.now()-hpLive.started)/1000:0)}
+function hpLiveHaversine(a,b){const R=6371000,rad=Math.PI/180,dlat=(b.latitude-a.latitude)*rad,dlon=(b.longitude-a.longitude)*rad,x=Math.sin(dlat/2)**2+Math.cos(a.latitude*rad)*Math.cos(b.latitude*rad)*Math.sin(dlon/2)**2;return 2*R*Math.asin(Math.min(1,Math.sqrt(x)))}
+function hpDashboardRender(){
+ const mode=hpModeValue(),running=hpLive.active,sec=hpLiveClock();
+ $('hpDashTime').textContent=hpClockText(sec);
+ const phase=$('hpDashPhase'),target=$('hpDashTarget'),targetLabel=$('hpDashTargetLabel'),remain=$('hpDashRemaining'),remainLabel=$('hpDashRemainingLabel'),hint=$('hpDashHint');
+ if(mode==='session'){
+  const info=hpPhaseInfo();
+  phase.textContent=info?(info.finished?'🏁 Séance prévue terminée':'🎯 '+info.step.title):'🎯 Choisis une séance';
+  target.textContent='Au ressenti';targetLabel.textContent='Allure prévue';
+  remain.textContent=info?(running?hpClockText(info.remaining):hpClockText(Math.max(0,(Number(info.step?.minutes)||0)*60))):'—';
+  remainLabel.textContent='Temps restant dans la phase';
+  hint.textContent=info?(info.finished?'Toutes les phases prévues sont terminées.':info.step.details||'Suis la consigne du programme.'):'Sélectionne une séance Running de ton planning.';
+ }else if(mode==='chrono'){
+  phase.textContent='🏁 Battre le chrono';remain.textContent=hpLive.km.toFixed(2).replace('.',',')+' km';remainLabel.textContent='Distance parcourue';
+  try{const km=Number($('hpRaceKm').value),secs=hpRaceSeconds($('hpRaceTime').value);if(!(km>0&&secs>0))throw Error();target.textContent=hpFormat(secs/km)+'/km';hint.textContent='Allure régulière à tenir pour '+km+' km.';}catch(e){target.textContent='—';hint.textContent='Renseigne une distance et un chrono valides.'}
+  targetLabel.textContent='Allure cible';
+ }else{
+  phase.textContent='🏃 Course libre';target.textContent=hpLive.km.toFixed(2).replace('.',',')+' km';targetLabel.textContent='Distance GPS';remain.textContent=$('hpLivePace').textContent;remainLabel.textContent='Allure moyenne';hint.textContent='Profite de ta sortie, sans consigne d’allure.';
+ }
+ if(running&&hpLive.paused)phase.textContent='⏸ En pause · '+phase.textContent;
+}
+function hpLiveRender(){const seconds=hpLiveClock(),mins=Math.floor(seconds/60),secs=Math.floor(seconds%60);$('hpLiveTime').textContent=`${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;$('hpLiveKm').textContent=hpLive.km.toFixed(2).replace('.',',')+' km';const pace=hpLive.km>.08?seconds/hpLive.km:null;$('hpLivePace').textContent=pace&&pace<1800?hpFormat(pace)+'/km':'—';hpDashboardRender();if(!hpLive.active)return;const mode=hpModeValue();let msg=`📡 ${hpLive.points} points GPS · précision variable. `;if(hpLive.paused){msg+='En pause.'}else if(mode==='free'){msg+='🏃 Course libre : profite de ta sortie.'}else if(!pace||hpLive.km<.15){msg+='Acquisition GPS et premières mesures…'}else if(mode==='session'){const ses=hpPlannedSelection();msg+=ses?'🎯 Suis la phase en cours du planning et adapte ton effort au ressenti.':'🎯 Sélectionne une séance Running dans ton planning.'}else{try{const goal=Number($('hpRaceKm').value),target=hpRaceSeconds($('hpRaceTime').value);if(!(goal>0))throw Error('Distance cible invalide');const diff=seconds-hpLive.km*target/goal;msg+=`🏁 Allure cible : ${hpFormat(target/goal)}/km · ${Math.abs(Math.round(diff))} s ${diff<=0?'d’avance':'de retard'} sur le rythme cible. ${Math.abs(diff)<5?'Dans le rythme !':diff<0?'Garde une allure régulière.':'Reviens progressivement vers la cible si tu te sens bien.'}`;}catch(e){msg+=e.message}}$('hpLiveStatus').textContent=msg;if(mode==='session'){
+  const phase=hpPhaseInfo();
+  if(phase&&hpLive.active&&!hpLive.paused){
+   const key=$('hpPlannedSelect').value+':'+phase.index;
+   if(hpLive.phaseKey!==key){
+    if(hpLive.phaseKey!==null&&navigator.vibrate)navigator.vibrate([180,100,180]);
+    hpLive.phaseKey=key;
+   }
+   msg+=' · '+(phase.finished?'🏁 Séance prévue terminée':`🎯 ${phase.step.title} · reste ${hpClockText(phase.remaining)}`);
+  }
+  $('hpLiveStatus').textContent=msg;
+  hpPlannedRender();
+ }
+}
+function hpLiveClearWatch(){if(hpLive.watch!==null){navigator.geolocation.clearWatch(hpLive.watch);hpLive.watch=null}}
+function hpLiveOnPosition(p){if(!hpLive.active||hpLive.paused)return;const c=p.coords,now=p.timestamp||Date.now();if(!Number.isFinite(c.latitude)||!Number.isFinite(c.longitude)||c.accuracy>60)return;const current={latitude:c.latitude,longitude:c.longitude,time:now};if(hpLive.last){const d=hpLiveHaversine(hpLive.last,current),dt=(now-hpLive.last.time)/1000;if(dt>0&&d>=3&&d<=Math.max(12,dt*7)){hpLive.km+=d/1000;hpLive.last=current}else if(dt>25){hpLive.last=current}}else hpLive.last=current;hpLive.points++;hpLiveRender()}
+function hpLiveWatch(){hpLiveClearWatch();hpLive.watch=navigator.geolocation.watchPosition(hpLiveOnPosition,e=>{$('hpLiveStatus').textContent='⚠️ GPS : '+e.message+'. Vérifie les autorisations de localisation.'},{enableHighAccuracy:true,maximumAge:1000,timeout:15000})}
+$('hpLiveStart').onclick=()=>{if(!navigator.geolocation||!window.isSecureContext){$('hpLiveStatus').textContent='⚠️ GPS disponible uniquement en HTTPS ou sur localhost, avec un navigateur compatible.';return}if(!hpLive.active){Object.assign(hpLive,{active:true,paused:false,watch:null,started:Date.now(),elapsed:0,last:null,km:0,points:0,phaseKey:null})}else{hpLive.paused=false;hpLive.started=Date.now();hpLive.last=null}hpLiveWatch();$('hpLiveStart').disabled=true;$('hpLivePause').disabled=false;$('hpLiveStop').disabled=false;hpLiveRender()};
+$('hpLivePause').onclick=()=>{hpLive.elapsed=hpLiveClock();hpLive.paused=true;hpLive.last=null;hpLiveClearWatch();$('hpLiveStart').disabled=false;$('hpLiveStart').textContent='▶ Reprendre';$('hpLivePause').disabled=true;hpLiveRender()};
+$('hpLiveStop').onclick=()=>{hpLive.elapsed=hpLiveClock();hpLive.active=false;hpLive.paused=false;hpLiveClearWatch();$('hpLiveStart').disabled=false;$('hpLiveStart').textContent='▶ Nouvelle sortie';$('hpLivePause').disabled=true;$('hpLiveStop').disabled=true;hpLiveRender();$('hpLiveStatus').textContent='🏁 Sortie terminée : '+hpLive.km.toFixed(2).replace('.',',')+' km. Données non sauvegardées.'};
+setInterval(()=>{if(hpLive.active)hpLiveRender()},1000);
+document.querySelectorAll('input[name="hpMode"]').forEach(el=>el.addEventListener('change',hpLiveRender));
+$('hpPlannedSelect').addEventListener('change',hpDashboardRender);$('hpRaceKm').addEventListener('input',hpDashboardRender);$('hpRaceTime').addEventListener('input',hpDashboardRender);hpDashboardRender();
+
+</script></body></html>
