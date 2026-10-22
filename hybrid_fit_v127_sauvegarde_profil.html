@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1221"><title>HYBRID FIT — v1.2.7</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1221;--card:#172338;--line:#31425e;--text:#f5f8ff;--muted:#a7b6ce;--mint:#84efb4;--blue:#86baff;--amber:#ffd08c;--red:#ff9d9d;font:15px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif}*{box-sizing:border-box}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 25% -15%,#1a3b40,transparent 50%),var(--bg)}.shell{max-width:1190px;margin:0 auto;padding:22px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:23px;font-weight:900;letter-spacing:.08em}.brand span,.accent{color:var(--mint)}.tag{border:1px solid #41647a;border-radius:30px;padding:5px 10px;color:var(--muted);font-size:12px}.hero{padding:26px 0 12px}.hero h1{font-size:clamp(27px,4vw,44px);margin:7px 0}.muted,small{color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}.tab,button{border:1px solid var(--line);background:#1c2b43;color:var(--text);font:inherit;font-weight:650;cursor:pointer;padding:10px 15px;border-radius:11px;transition:background .15s}.tab.active,.primary{background:var(--mint);color:#071d17;border-color:var(--mint)}button:hover{filter:brightness(1.12)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.panel{display:none}.panel.active{display:block}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}.card h2{margin:7px 0}.card p{color:var(--muted)}.card button{margin-top:9px}.section{margin:22px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px;margin:0 0 14px}.field>label,.label{font-size:14px;color:#d6dfec;font-weight:620}input,select,textarea{width:100%;font:inherit;background:#0c182a;border:1px solid #52617a;color:white;border-radius:10px;padding:11px}input[type=checkbox]{width:auto;accent-color:var(--mint)}.day-picks{display:flex;flex-wrap:wrap;gap:7px}.day-picks label{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:9px;background:#101d30;padding:8px 9px;cursor:pointer;font-size:13px}.day-picks label:has(input:checked){border-color:var(--mint);background:#214539}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.spaced{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.hint{padding:14px;border:1px solid #4b6077;background:#1b2c43;border-radius:12px;margin:13px 0;line-height:1.5}.hint.ok{border-color:#488566}.hint.warn{border-color:#b48a53}.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.day{min-height:120px;background:#132138;border:1px solid var(--line);border-radius:12px;padding:9px;min-width:0}.day h3{margin:1px 0 11px;font-size:13px}.session{padding:9px;margin-bottom:7px;background:#263c57;border-left:3px solid var(--mint);border-radius:9px;overflow-wrap:anywhere}.session.run{border-color:var(--blue)}.session strong{display:block;font-size:12px}.session small{display:block;font-size:11px;margin:4px 0}.session.done{opacity:.64}.session button{padding:6px;font-size:11px;width:100%;margin-top:5px}.mini{font-size:12px}.empty{color:var(--muted);font-size:12px}.statrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}.stat{background:#101d30;border:1px solid var(--line);border-radius:12px;padding:11px}.stat strong{display:block;font-size:25px}.stat small{display:block}.progress-list{display:grid;gap:9px}.progress-line{display:flex;justify-content:space-between;gap:10px;padding:12px;background:#101d30;border-radius:10px}dialog{border:1px solid #58708b;background:#142338;color:#fff;border-radius:19px;max-width:min(620px,95vw);width:100%;max-height:90vh;overflow:auto;padding:22px;box-shadow:0 25px 100px #000a}dialog::backdrop{background:#030914bf}dialog h2{margin-top:0}.notice{font-size:13px;color:var(--muted)}.sets{width:100%;border-collapse:collapse;margin:10px 0}.sets td,.sets th{padding:5px;text-align:left}.sets input{padding:9px;min-width:0}.sets th{font-size:12px;color:var(--muted)}.set-entry{margin:16px 0;padding:13px;border-radius:12px;border:1px solid var(--line)}.pill{font-size:11px;border:1px solid var(--line);padding:4px 8px;border-radius:15px;color:var(--muted)}.foot{margin:32px 0;color:var(--muted);font-size:12px}.hidden{display:none!important}.text-error{color:var(--red)}.text-good{color:var(--mint)}.danger{border-color:#99555a;color:#ffc3c4}.subtle{background:#0d1c2d}fieldset{border:none;padding:0;margin:0}fieldset legend{margin-bottom:8px;font-weight:700}.check{display:flex;gap:8px;align-items:center}.up{font-weight:800;color:var(--mint)}@media(max-width:920px){.week{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:720px){.shell{padding:14px}.cards,.grid{grid-template-columns:1fr}.week{grid-template-columns:repeat(2,minmax(0,1fr))}.statrow{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:20px}}@media(max-width:420px){.week{grid-template-columns:1fr}.statrow{grid-template-columns:1fr}}
+ .objective-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}.goal-box{display:flex;flex-direction:column;gap:7px;background:linear-gradient(140deg,#142e34,#16243a);padding:19px;border:1px solid #3d6475;border-radius:14px}.goal-box small{font-size:11px;font-weight:750;letter-spacing:.04em;color:var(--mint)}.goal-box strong{font-size:clamp(20px,2.3vw,29px)}.goal-box span{color:var(--muted);font-size:13px}.trail-header{display:flex;align-items:center;justify-content:space-between;gap:8px}.trail-header h4{margin:8px 0}.trail-header .pill{color:var(--mint);border-color:#427560}@media(max-width:720px){.objective-grid{grid-template-columns:1fr}}
+
+.workout-intro{background:linear-gradient(120deg,#153a35,#182844);border:1px solid #426d70;border-radius:14px;padding:16px;margin:14px 0 18px}.workout-intro strong{display:block;color:#a8ffd1;font-size:17px}.workout-intro p{margin:7px 0;color:var(--muted)}.workout-step{border:1px solid #3b4f6c;border-radius:12px;padding:13px 14px;margin:11px 0;background:#111d30}.workout-step .spaced{align-items:center}.workout-step input,.workout-step textarea{margin:5px 0}.step-num{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.07em}.step-grid{display:grid;grid-template-columns:120px 1fr;gap:10px}.step-grid label{color:var(--muted);font-size:12px}.superset-tag{color:var(--mint);font-size:14px;border-bottom:1px solid var(--line);padding:9px 0;margin:17px 0 9px}.set-entry .exercise-name{font-weight:700;font-size:16px}.target-box{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 12px}.target-box input{max-width:120px}.target-box label{font-size:13px;color:var(--muted)}.workout-hint{border-left:3px solid #64bba7;padding:8px 10px;color:var(--muted);background:#112c33;margin:12px 0;border-radius:5px}.import-label{border:1px solid var(--line);border-radius:11px;padding:11px 14px;font-weight:650;background:#1c2b43;cursor:pointer}.sr-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.exercise-link{color:#9bdfff;text-decoration:underline;font-size:12px}.plan-callout{background:#192c31;border:1px solid #355d53;border-radius:13px;padding:13px;margin:13px 0}.progress-detail{color:var(--muted);font-size:13px}
+@media(max-width:580px){.step-grid{grid-template-columns:1fr}.target-box input{width:100px}dialog{max-width:96vw;padding:14px}.sets input,.sets select{min-width:55px;padding:7px}}
+
+.cyclebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:14px 0;padding:12px 14px;background:#132b35;border:1px solid #426271;border-radius:14px}.cyclebar strong{font-size:15px}.cyclebar button{padding:8px 14px}.phase-note{background:linear-gradient(90deg,#14372f,#162338);border-left:3px solid #7de8af;margin:12px 0 16px;padding:12px 14px;border-radius:7px}.phase-note strong{color:#b9f7d0}.session small{display:block}.session .pill{font-size:11px}.cyclebar .dim{opacity:.35;pointer-events:none}.run-principle{font-size:13px;color:var(--muted);background:#121d30;border:1px solid var(--line);padding:10px;border-radius:10px}
+
+.cycle-actions{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin:12px 0 20px}.cycle-actions .notice{margin:0}.summary-stat{background:#101d30;border:1px solid #334b5d;border-radius:13px;padding:14px}.summary-stat strong{font-size:24px;display:block;color:#baf2d2}.summary-stat small{font-size:12px}.archive-item{background:#0f2132;padding:15px;border-radius:13px;border:1px solid #385468;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.archive-week{margin:14px 0;border-bottom:1px solid #3c5268;padding-bottom:9px}.archive-week p{margin:4px 0}.archive-week strong{color:#a7f4c7}
+
+/* V0.7: private physical progression */
+.body-stats{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}.body-stat{border:1px solid #3b5168;border-radius:12px;background:#102238;padding:12px}.body-stat strong{font-size:22px;display:block;margin:3px 0;color:#a5f1c4}.body-stat small{font-size:12px}.body-trend{margin:16px 0;display:flex;gap:5px;align-items:flex-end;height:128px;border-bottom:1px solid #5c7082}.trend-bar{flex:1;min-width:5px;max-width:43px;border:0;background:linear-gradient(#97f3c0,#4c9e8e);border-radius:5px 5px 0 0}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.compare-photo{border:1px solid var(--line);background:#0c1828;border-radius:13px;padding:11px;min-height:160px}.compare-photo img{width:100%;display:block;object-fit:contain;max-height:460px;border-radius:9px;background:#050d18}.compare-photo h4{margin:4px 0 10px}.body-history{display:grid;gap:12px}.body-entry{background:#101e31;border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;gap:15px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}.body-entry img{width:90px;height:90px;object-fit:cover;border-radius:9px}.body-entry p{white-space:pre-wrap;overflow-wrap:anywhere;max-width:580px}.body-entry .toolbar{align-self:center}@media(max-width:540px){.compare-grid{grid-template-columns:1fr}.body-stats{grid-template-columns:1fr}}
+
+/* V0.8 Nutrition */
+.big-value{font-size:27px;font-weight:850;color:var(--mint);margin:11px 0}.watertrack{height:13px;border-radius:99px;overflow:hidden;background:#0b1728;border:1px solid #35506a;margin-bottom:15px}.watertrack>div{background:linear-gradient(90deg,#549cce,#8af2c6);width:0;height:100%;transition:width .2s}.meal-item{padding:16px;border:1px solid #416077;background:#102437;border-radius:12px}.meal-item h4{margin:0 0 7px;color:#b6fbd2}.meal-item p{margin:0}.nut-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:19px 0}.nut-figure{padding:14px 9px;background:#102436;border:1px solid #385b6b;border-radius:12px}.nut-figure strong{display:block;color:#baf8d6;font-size:21px}.nut-figure small{font-size:11px}.hr{border:0;border-top:1px solid var(--line);margin:25px 0}.food-entry{border:1px solid #345166;border-radius:10px;padding:12px;background:#0f2031;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.food-entry span{display:block;color:var(--muted);font-size:12px}.food-entry button{font-size:12px;padding:7px 12px}@media(max-width:600px){.nut-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V0.8.1 - repère IMC en demi-cercle */
+.bmi-meter{margin:14px 0 18px;padding:15px 13px 10px;border:1px solid #365569;border-radius:15px;background:linear-gradient(140deg,#112238,#0d1e2f)}
+.bmi-meter-title{font-weight:750;font-size:15px;color:#e5f6ef;text-align:center}
+#bmiGauge{display:block;width:min(100%,380px);height:auto;margin:3px auto -4px;overflow:visible}
+.bmi-status{text-align:center;min-height:28px;font-weight:700;font-size:14px}
+.bmi-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin:13px 3px}
+.bmi-legend span{display:flex;align-items:center;gap:8px;font-size:12px;color:#dee8f4}
+.bmi-legend i{width:12px;height:12px;border-radius:4px;flex-shrink:0}
+.bmi-caution{margin:13px 0 0;font-size:12px;line-height:1.45}
+@media(max-width:520px){.bmi-legend{grid-template-columns:1fr}.bmi-meter{padding:13px 10px}}
+
+/* V0.8.2 — Journal de repas vivant, commun aux modes Simple et Complet */
+.mealjournal{background:linear-gradient(155deg,#162d3a,#142235);border:1px solid #456576}
+.meal-hero{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.meal-counter{background:#0b322c;color:#b3ffdb;border:1px solid #43846e;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:750}
+.meal-completion{margin:13px 0 17px;height:8px;background:#0b1b2a;border-radius:20px;overflow:hidden}
+.meal-completion>div{height:100%;width:0;background:linear-gradient(90deg,#77adfd,#8df0b7);transition:width .2s}
+.meal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:16px 0}
+.meal-slot{border:1px solid #365668;border-radius:14px;padding:14px;background:#0f2233;min-height:131px;display:flex;flex-direction:column;gap:10px}
+.meal-slot.has-meal{border-color:#52816f;background:#112b32}
+.meal-slot-header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.meal-slot-header strong{font-size:15px}
+.meal-slot-count{font-size:12px;color:#b4dccd}
+.meal-slot-items{display:flex;flex-direction:column;gap:8px;flex:1}
+.meal-log{padding:10px;border-radius:9px;background:#172e3d;border:1px solid #3e5c6d}
+.meal-log-title{font-size:13px;font-weight:750;overflow-wrap:anywhere}
+.meal-log-detail{font-size:12px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.meal-log-actions{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.meal-log-actions button{font-size:11px;padding:5px 10px}
+.meal-slot-empty{font-size:12px;color:var(--muted);flex:1}
+.meal-slot-new{align-self:flex-start;margin-top:auto;padding:7px 12px;font-size:12px}
+.meal-form{margin:18px 0 6px;padding:15px;background:#0d2131;border:1px solid #42657a;border-radius:13px}
+.meal-form h4{margin:0 0 12px;color:#b5f8ce}
+.meal-repeat-status{font-size:12px;color:var(--muted);margin:8px 0 0}
+.meal-coach{background:#102c34;border-left:3px solid #75c6b4;padding:12px;border-radius:8px;margin:14px 0;font-size:13px;color:#cceade}
+@media(max-width:650px){.meal-grid{grid-template-columns:1fr}.meal-hero{align-items:flex-start}}
+
+/* V0.9 — GPS imports */
+#gps a{color:#a6e7ff}#gpsPreview{background:#102a36;border:1px solid #487c85;padding:15px;border-radius:14px;margin-top:15px}#gpsPreview h3{margin-top:0}#gpsActivities .gps-item{background:#112238;border:1px solid var(--line);border-radius:11px;padding:12px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}#gpsActivities .gps-item small{display:block;margin-top:4px}#gpsActivities .gps-item .danger{font-size:12px;padding:7px 9px}#gpsPreview.hidden{display:none}
+
+/* V0.9.1 — Detailed GPS activity cards */
+#gpsActivities .gps-item{align-items:stretch;flex-direction:column;gap:12px}
+.gps-activity-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.gps-activity-top strong{font-size:16px}.gps-activity-top small{line-height:1.6}
+.gps-activity-actions{display:flex;gap:7px;flex-wrap:wrap}
+#gpsActivities .gps-item button{margin:0}
+.gps-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gps-metric{padding:10px;background:#0c1c2f;border:1px solid #2b4659;border-radius:10px;min-width:0}
+.gps-metric small{font-size:11px;color:var(--muted);display:block}
+.gps-metric strong{display:block;font-size:15px;color:#b6f5d4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gps-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.gps-detail-card{background:#0c1c2f;border:1px solid var(--line);border-radius:12px;padding:14px}
+.gps-detail-card small{display:block;color:var(--muted);margin-bottom:4px}
+.gps-detail-card strong{font-size:23px;color:#b7f4d3}
+#gpsDetailDialog{max-width:min(680px,96vw)}
+.gps-live{background:#0c2530;border-radius:11px;padding:12px;margin:10px 0;color:#b7f4d3}
+@media(max-width:780px){.gps-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:440px){.gps-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.gps-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V0.9.2 — offline data-driven charts */
+.gps-charts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:14px}
+.chart-panel{background:#101e31;border:1px solid #344c66;border-radius:14px;padding:14px;min-width:0}
+.chart-panel h4{margin:0 0 4px;color:#edf5ff;font-size:14px}
+.chart-panel p{margin:4px 0 10px;font-size:12px;color:var(--muted)}
+.chart-panel svg{width:100%;height:auto;min-height:135px;display:block}
+.chart-empty{border:1px dashed #405671;border-radius:10px;color:#afc3d8;font-size:13px;padding:16px;line-height:1.5;margin:10px 0}
+.chart-key{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:12px}
+.chart-key span:before{content:' ';width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;background:var(--mint)}
+.chart-key span:nth-child(2):before{background:var(--blue)}
+.chart-summary{background:#113039;border:1px solid #386477;border-radius:12px;padding:12px;margin:12px 0;font-size:13px}
+.chart-wide{grid-column:1/-1}
+.chart-panel text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+#gpsDetailDialog{max-width:min(940px,96vw)}
+#gpsDetailCharts{margin:14px 0}
+@media(max-width:670px){.gps-charts-grid{grid-template-columns:1fr}.chart-wide{grid-column:auto}.chart-panel{padding:10px}}
+.hp-mode{display:grid;grid-template-columns:20px minmax(0,1fr);align-items:start;gap:10px;margin:9px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#101d30;cursor:pointer}.hp-mode input[type="radio"]{width:18px;height:18px;margin:2px 0 0;accent-color:var(--mint)}.hp-mode span{min-width:0;line-height:1.5}.hp-mode:has(input:checked){border-color:var(--mint);background:#17392f}
+/* V1.0.7 — tableau de bord lisible pendant la course */
+.hp-dash{background:linear-gradient(160deg,#102f34,#101c30);border:1px solid #508477;border-radius:17px;padding:19px 15px;margin:14px 0;text-align:center}
+.hp-dash .hp-dash-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a6e5d1;font-weight:800}
+.hp-dash .hp-dash-time{font-size:clamp(56px,13vw,90px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.05em;color:#fff;margin:6px 0 12px}
+.hp-dash .hp-dash-phase{font-size:clamp(18px,5vw,26px);font-weight:850;color:#a4f1cc;margin:8px 0;overflow-wrap:anywhere}
+.hp-dash .hp-dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.hp-dash .hp-dash-tile{background:#14283a;border:1px solid #36596b;border-radius:12px;padding:12px 6px}
+.hp-dash .hp-dash-tile strong{display:block;font-size:clamp(24px,7vw,36px);font-variant-numeric:tabular-nums;color:white}
+.hp-dash .hp-dash-tile small{font-size:12px;color:#b6cbd6}
+.hp-dash .hp-dash-hint{font-size:13px;color:#c2d5dd;margin-top:12px;line-height:1.5}
+/* Accueil simplifié : actions immédiates, navigation inchangée */
+.home-start{background:linear-gradient(135deg,#193b3a,#172338);border:1px solid #477e71;border-radius:20px;padding:22px;margin:0 0 18px}
+.home-start h2{margin:0 0 7px;font-size:clamp(22px,3vw,30px)}
+.home-start p{color:#c3d8d4;margin:0 0 16px}
+.home-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.home-action{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;min-height:108px;background:#203747;border:1px solid #4c7277;border-radius:14px;padding:15px}
+.home-action strong{font-size:17px}.home-action small{font-size:12px;line-height:1.35}
+.home-action.primary{background:var(--mint);border-color:var(--mint);color:#071d17}
+.home-action.primary small{color:#1b493a}
+.home-secondary{margin:15px 0 8px;font-size:17px;color:var(--muted)}
+@media(max-width:700px){.home-actions{grid-template-columns:1fr}.home-action{min-height:0}.home-start{padding:16px}}
+
+/* Tableau de bord : uniquement données réellement enregistrées */
+.dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:15px 0}
+.dashboard-stat{background:#12273a;border:1px solid #36576a;border-radius:14px;padding:16px}
+.dashboard-stat strong{display:block;font-size:27px;color:#a5f1c4;margin:5px 0}
+.dashboard-stat small{color:#bed0da}.dashboard-next{background:#142b34;border:1px solid #427b71;border-radius:14px;padding:17px;margin:14px 0}
+.dashboard-next p{margin:7px 0}.dashboard-next button{margin-top:8px}
+@media(max-width:650px){.dashboard-grid{grid-template-columns:1fr 1fr}.dashboard-stat:last-child{grid-column:1/-1}}
+</style></head><body><main class="shell">
+<header><div class="brand">HYBRID <span>FIT</span></div><div class="tag">Prototype v1.2.1 · Interface simplifiée</div></header>
+<section class="hero"><div class="muted">MUSCULATION · RUNNING · HYBRIDE</div><h1>Ton entraînement s'adapte <span class="accent">à ta vraie vie.</span></h1><p class="muted">Des cycles progressifs de 8 semaines, un agenda souple et une progression qui se conserve.</p></section>
+<nav class="tabs" aria-label="Navigation"><button class="tab active" data-tab="home">Accueil</button><button class="tab" data-tab="profile">Mon profil</button><button class="tab" data-tab="planning">Mon planning</button><button class="tab" data-tab="progress">Progression</button><button class="tab" data-tab="evolution">📸 Évolution physique</button><button class="tab" data-tab="nutrition">🥗 Alimentation & Hydratation</button><button class="tab" data-tab="gps">⌚ Mes activités GPS</button><button class="tab" data-tab="routes">🗺️ Mon parcours</button><button class="tab" data-tab="live">🏃 Sortie en direct</button></nav>
+<section class="panel active" id="home">
+<div class="home-start" id="homeStart">
+ <h2 id="homeWelcome">👋 Prêt pour ta prochaine séance ?</h2>
+ <p id="homeStartIntro">Choisis ce que tu veux faire. Le reste est disponible quand tu en as besoin.</p>
+ <div class="home-actions">
+  <button type="button" class="home-action primary" id="homeMainAction" data-home-go="live"><strong>🏃 Démarrer une sortie</strong><small>GPS, séance, parcours et coach vocal</small></button>
+  <button type="button" class="home-action" data-home-go="planning"><strong>📅 Voir mon programme</strong><small>Mes entraînements de la semaine</small></button>
+  <button type="button" class="home-action" id="homeRouteAction" data-home-go="routes"><strong>🗺️ Créer un parcours</strong><small>Choisir un départ et une distance</small></button>
+ </div>
+</div>
+<h2 class="home-secondary" id="homeDiscoverTitle">Choisir ou modifier mon univers sportif</h2>
+<div class="cards" id="homeSportsCards">
+<article class="card"><div style="font-size:29px">💪</div><h2>Musculation</h2><p>Sèche, prise de masse, supersets et suivi des charges et répétitions.</p><button data-mode="muscu">Configurer Muscu →</button></article>
+<article class="card"><div style="font-size:29px">🏃</div><h2>Running</h2><p>Route ou Trail : objectifs, dénivelé, chronos et séances adaptables à ton agenda.</p><button data-mode="running">Configurer Running →</button></article>
+<article class="card"><div style="font-size:29px">🔥</div><h2>Hybride</h2><p>Musculation et course à pied dans un seul planning, sans empiler les efforts.</p><button class="primary" data-mode="hybride">Configurer Hybride →</button></article></div>
+<div id="homeDashboard" class="hidden" aria-live="polite">
+ <div class="dashboard-next"><h2>🎯 Ma prochaine séance à réaliser</h2><p id="dashNextName">Aucune séance prévue</p><small id="dashNextInfo"></small><div><button id="dashOpenNext" class="primary hidden" type="button">Ouvrir cette séance →</button></div></div>
+ <div class="dashboard-grid">
+  <div class="dashboard-stat"><small>✅ Séances enregistrées</small><strong id="dashDone">0</strong><small>Historique réel</small></div>
+  <div class="dashboard-stat"><small>📊 Ces 30 derniers jours</small><strong id="dashMonth">0</strong><small>Séances effectuées</small></div>
+  <div class="dashboard-stat"><small>🔥 Semaines consécutives</small><strong id="dashStreak">0</strong><small>Avec au moins une séance enregistrée</small></div>
+ </div>
+</div>
+<div class="section card" id="objectivesCard"><div class="spaced"><div><h2>🎯 Mes objectifs</h2><p class="muted" id="objectivesIntro">Ton cap, tes progrès, ta motivation.</p></div><button id="editGoals">Modifier mes objectifs →</button></div><div class="objective-grid" id="objectivesContent"><div class="goal-box"><small>À personnaliser</small><strong>Ton prochain défi commence ici.</strong><span>Renseigne ton profil pour voir tes objectifs.</span></div></div></div>
+<div class="section card" id="homeWeekCard"><div class="spaced"><div><h2>📅 Ma semaine en un coup d'œil</h2><p class="muted" id="homeCaption">Ton planning sera généré après configuration du profil.</p></div><button id="goPlanning">Voir mon planning →</button></div><div id="homeCycle" class="cyclebar hidden"></div><div class="week" id="homeWeek"></div><div id="homeAdvice" class="hint hidden"></div></div>
+</section>
+<section class="panel" id="profile"><div class="card"><h2>🎯 Construisons ton programme</h2><p class="muted">Ces données sont enregistrées uniquement dans ce navigateur. Aucune connexion Garmin ou compte en ligne dans cette version.</p>
+<form id="form"><div class="grid"><div class="field"><label for="mode">Univers sportif</label><select id="mode"><option value="hybride">Hybride</option><option value="muscu">Musculation</option><option value="running">Running</option></select><div class="notice" style="margin-top:8px"><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="devModeToggle" style="width:auto"> 🛠️ Mode développeur (tests locaux uniquement)</label><small>Autorise à changer d’univers pour nos essais. Ne protège pas les abonnements.</small></div><p id="sportLockInfo" class="notice hidden">🔒 Univers verrouillé après la première configuration. Pour changer de formule pendant la bêta, contacte l’administrateur.</p></div><div class="field"><label for="level">Ton niveau</label><select id="level"><option>Débutant</option><option selected>Intermédiaire</option><option>Confirmé</option></select></div></div>
+<div id="muscuPrefs" class="section"><h3>💪 Musculation</h3><div class="grid"><div class="field"><label for="goalMuscu">Objectif musculation</label><select id="goalMuscu"><option>Sèche</option><option>Prise de masse</option><option>Maintien</option></select></div><div class="field"><label for="duration">Durée habituelle d'une séance</label><input id="duration" type="number" inputmode="numeric" min="15" max="180" step="1" value="45" placeholder="Ex. 45"><small>Durée souhaitée, de 15 à 180 minutes.</small></div></div><fieldset><legend>Quels jours souhaites-tu faire de la musculation ?</legend><div id="muscuPicker" class="day-picks"></div></fieldset><p id="muscuCount" class="notice"></p></div>
+<div id="runPrefs" class="section"><h3>🏃 Running</h3><div class="grid">
+<div class="field"><label for="runPurpose">Pourquoi cours-tu ?</label><select id="runPurpose"><option value="performance">Améliorer un chrono / préparer une course</option><option value="endurance">Gagner en endurance / courir pour le plaisir</option><option value="forme">Reprise / remise en forme</option><option value="poids">Perte de poids (sans objectif chrono obligatoire)</option></select></div><div class="field"><label for="runTerrain">Discipline de course</label><select id="runTerrain"><option value="route">Course sur route</option><option value="trail">Trail</option></select></div>
+<div class="field"><label for="runGoalNote">Nom de ton objectif (facultatif)</label><input id="runGoalNote" maxlength="80" placeholder="Ex. Mon prochain 10 km ou Trail des Crêtes"></div><div class="field"><label for="runDistance">Distance objectif</label><select id="runDistance"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="21.0975">Semi-marathon (21,1 km)</option><option value="42.195">Marathon (42,195 km)</option><option value="other">Autre distance…</option></select></div><div class="field hidden" id="customDistanceWrap"><label for="customDistance">Distance personnalisée (km)</label><input type="number" id="customDistance" min="0.1" max="500" step="0.1" placeholder="Ex. 15"></div><div class="field" id="runTimeWrap"><label for="runTime">Chrono objectif sur route (hh:mm:ss ou mm:ss)</label><input id="runTime" placeholder="Ex. 37:00 pour 10 km" inputmode="numeric"><small>Facultatif, même en course sur route.</small></div><div class="field"><label for="source">Niveau running actuel</label><select id="source"><option>Aucun chrono récent</option><option>Chrono récent connu</option><option>Reprise progressive</option><option>Données Garmin à importer plus tard</option></select></div></div>
+<div class="grid section"><div class="field"><label for="runWeeklyKm">Volume moyen récent (km/semaine, facultatif)</label><input id="runWeeklyKm" type="number" min="0" max="250" step="1" placeholder="Ex. 25"><small>Moyenne des 4 dernières semaines, pas ton record historique.</small></div><div class="field"><label for="recentLongMin">Durée de ta dernière sortie longue (minutes, facultatif)</label><input id="recentLongMin" type="number" min="0" max="300" step="1" placeholder="Ex. 55"><small>Dernière sortie longue effectuée au cours des 4 dernières semaines, si tu en as fait une.</small></div></div><div id="recentRunWrap" class="hidden"><h4>⏱️ Ta dernière référence</h4><p class="notice">Indique un chrono réellement couru récemment, pas ton ancien record. Tu peux laisser ce choix désactivé si tu n'en as pas.</p><div class="grid"><div class="field"><label for="recentDistance">Distance de la référence (km)</label><input id="recentDistance" type="number" min="0.1" max="500" step="0.01" placeholder="Ex. 5"></div><div class="field"><label for="recentTime">Chrono réalisé (mm:ss ou hh:mm:ss)</label><input id="recentTime" inputmode="numeric" placeholder="Ex. 22:30"></div></div><p id="recentPreview" class="notice"></p></div>
+<div id="trailWrap" class="hidden"><div class="trail-header"><h4>🏔️ Mon objectif Trail</h4><span class="pill">Inclus dans Running</span></div><div class="grid"><div class="field"><label for="trailDplus">Dénivelé positif de l'objectif, D+ (m)</label><input id="trailDplus" type="number" min="0" step="10" placeholder="Ex. 850"></div><div class="field"><label for="trailTerrain">Technicité dominante</label><select id="trailTerrain"><option value="facile">Chemins faciles</option><option value="vallonne">Sentiers vallonnés</option><option value="technique">Terrain technique / montagne</option></select></div></div><p id="trailPreview" class="notice"></p><p class="notice">Aucun chrono cible exigé en trail : priorité à la distance, au D+, au terrain et à la gestion de l’effort. Nutrition et hydratation détaillées : version ultérieure.</p></div>
+<fieldset><legend>Quels jours souhaites-tu courir ?</legend><div id="runPicker" class="day-picks"></div></fieldset><p id="runCount" class="notice"></p><p id="pacePreview" class="notice"></p></div>
+<div id="profileMessage" aria-live="polite" class="hint hidden"></div><div class="toolbar"><button type="submit" class="primary">Générer un cycle de 8 semaines</button><button type="button" id="saveProfileOnly">Enregistrer sans régénérer</button></div><p class="notice">Générer un nouveau planning remplace les séances prévues, mais conserve tes performances déjà enregistrées. Aucun programme ici ne remplace un avis médical ou l'évaluation d'un entraîneur.</p></form></div>
+<div class="card section" id="profileBackupCard"><h2>💾 Sauvegarde de mes données</h2><p class="muted">Conserve ton profil, tes programmes, performances, nutrition, activités GPS importées, photos et parcours enregistrés. Le fichier reste sur ton appareil : aucun cloud.</p><div class="toolbar"><button type="button" class="primary" id="profileBackupExport">⬇️ Sauvegarder mes données</button><button type="button" id="profileBackupImport">⬆️ Restaurer mes données</button></div><p class="notice">La restauration remplace tes données locales. Garde une copie de ton fichier dans un endroit sûr : il peut contenir des photos et informations personnelles.</p></div></section>
+<section class="panel" id="planning"><div class="spaced"><div><h2>📅 Mon planning</h2><p id="planSubtitle" class="muted">Commence par créer ton profil.</p></div><div class="toolbar"><button id="editProfile">Modifier le profil</button><button id="resetPlan" class="danger">Effacer le planning</button></div></div><div id="planCycle" class="cyclebar hidden"></div><div class="cycle-actions"><button id="nextCycle" class="primary hidden">🏁 Clôturer ce cycle et préparer le suivant</button><p class="notice">Le cycle précédent sera archivé et ton historique de performances restera disponible. Tu peux consulter les anciens cycles dans Progression.</p></div><div id="weekPhase" class="phase-note hidden"></div><div class="week" id="week"></div><div id="advice" class="hint hidden"></div>
+<div class="card section"><h2>➕ Ajouter une séance</h2><div class="grid"><div class="field"><label for="newType">Sport</label><select id="newType"><option value="muscu">Musculation</option><option value="run">Running</option></select></div><div class="field"><label for="newDay">Jour</label><select id="newDay"></select></div><div class="field"><label for="newName">Nom de la séance</label><input id="newName" placeholder="Ex. Dos + biceps"></div></div><button id="add" class="primary">Ajouter</button><p class="notice" id="addMessage"></p></div></section>
+<section class="panel" id="progress"><div class="spaced"><div><h2>📈 Ma progression</h2><p class="muted">Tes performances enregistrées, et pas seulement celles prévues.</p></div><button id="export" title="Export local JSON">Exporter mes données (photos incluses)</button><label class="import-label" for="importFile">Importer une sauvegarde JSON</label><input type="file" id="importFile" accept=".json,application/json" class="sr-file"></div><div class="statrow"><div class="stat"><strong id="statTrainings">0</strong><small>Séances terminées</small></div><div class="stat"><strong id="statLogs">0</strong><small>Exercices suivis</small></div><div class="stat"><strong id="statVolume">0 kg</strong><small>Volume muscu enregistré</small></div></div><div class="card section"><div class="spaced"><h2>📊 Mon bilan — 30 derniers jours</h2><small>Données réellement enregistrées</small></div><div id="monthlySummary" class="statrow"></div><div id="monthlyComment" class="hint"></div></div><div class="card section"><div class="spaced"><h2>📚 Mes cycles archivés</h2><span id="cycleBadge" class="pill"></span></div><p class="notice">La clôture conserve le programme tel qu'il était et ses séances réalisées. Les anciennes performances restent consultables indépendamment de l'abonnement.</p><div id="cycleArchiveList" class="progress-list"></div></div><div class="card"><h2>Historique sportif</h2><div id="history" class="progress-list"><p class="muted">Aucune performance pour l'instant.</p></div></div></section>
+
+<section class="panel" id="gps">
+ <div class="spaced"><div><h2>⌚ Mes activités GPS</h2><p class="muted">Exporte tes séances Garmin Connect ou Strava, puis importe-les ici. Aucun compte connecté automatiquement.</p></div><span class="pill">100 % local</span></div>
+ <div class="hint ok"><strong>Garmin Fenix 7 / Strava — sans abonnement supplémentaire :</strong> sur <a href="https://connect.garmin.com/" target="_blank" rel="noopener noreferrer">Garmin Connect</a>, ouvre une activité → roue dentée → Exporter au format original (FIT), TCX ou GPX. Sur <a href="https://www.strava.com/athlete/training" target="_blank" rel="noopener noreferrer">Strava Web</a>, ouvre une activité → menu ⋯ → Exporter l’original ou GPX. Décompresse un éventuel ZIP avant l'import.</div>
+ <div class="grid section">
+  <div class="card"><h3>📥 Importer une sortie</h3><p class="notice">Formats FIT, TCX et GPX · fichier de 25 Mo maximum · lecture dans ton navigateur, sans transfert. La position GPS n’est pas conservée : seules les statistiques et jusqu’à 160 mesures simplifiées sans coordonnées sont sauvegardées pour les graphiques.</p>
+   <div class="field"><label for="gpsSource">Provenance du fichier</label><select id="gpsSource"><option value="Garmin Connect">Garmin Connect / Fenix 7</option><option value="Strava">Strava</option><option value="Autre fichier GPS">Autre export GPS</option></select></div>
+   <div class="field"><label for="gpsFile">Fichier d’activité (.fit, .tcx, .gpx)</label><input type="file" id="gpsFile" accept=".fit,.tcx,.gpx,application/gpx+xml,application/xml,text/xml"></div>
+   <div id="gpsMessage" class="hint hidden" role="status" aria-live="polite"></div>
+   <div id="gpsPreview" class="hidden">
+    <h3>🔍 Vérifie avant d’enregistrer</h3><p class="notice">Les distances, le dénivelé et la fréquence cardiaque dépendent du fichier. Tu peux les corriger.</p>
+    <div class="grid"><div class="field"><label for="gpsTitle">Nom de la séance</label><input id="gpsTitle" maxlength="100"></div><div class="field"><label for="gpsDate">Date et heure de départ</label><input type="datetime-local" id="gpsDate"></div>
+    <div class="field"><label for="gpsKm">Distance (km)</label><input type="number" id="gpsKm" min="0.01" max="1000" step="0.01"></div><div class="field"><label for="gpsMinutes">Durée (minutes)</label><input type="number" id="gpsMinutes" min="0.1" max="20000" step="0.1"></div>
+    <div class="field"><label for="gpsDplus">D+ (m, facultatif)</label><input type="number" id="gpsDplus" min="0" max="50000" step="1"></div><div class="field"><label for="gpsHR">Fréquence cardiaque moyenne (bpm, facultatif)</label><input type="number" id="gpsHR" min="35" max="240" step="1"></div></div>
+    <div id="gpsLive" class="gps-live" aria-live="polite">Allure et vitesse calculées dès que la distance et la durée sont indiquées.</div>
+    <div class="field"><label for="gpsLink">Associer au programme en cours (facultatif)</label><select id="gpsLink"><option value="">Aucune — ajouter à mon historique seulement</option></select><small>Seules les séances Running non terminées de la semaine sélectionnée sont proposées.</small></div>
+    <div class="toolbar"><button class="primary" id="gpsConfirm">✓ Valider l’import</button><button id="gpsCancel">Annuler</button></div>
+   </div>
+  </div>
+  <div class="card"><h3>📊 Mes sorties importées</h3><div class="statrow"><div class="stat"><strong id="gpsCount">0</strong><small>Sorties</small></div><div class="stat"><strong id="gpsTotalKm">0</strong><small>Kilomètres</small></div><div class="stat"><strong id="gpsTotalDplus">0</strong><small>Mètres D+</small></div></div><div id="gpsActivities" class="progress-list"></div><p class="notice">Clique sur « Voir la fiche » pour retrouver l’allure, la vitesse et toutes les mesures disponibles. Supprimer un import retire également sa performance liée. Sauvegarde exportable depuis Progression.</p></div>
+ </div>
+ <div class="card section"><div class="spaced"><div><h3>📈 Tendances & coach HYBRID FIT</h3><p class="muted">Tes sorties réellement enregistrées et tes séances Muscu — pas de chiffres inventés.</p></div><div class="field" style="min-width:175px;margin:0"><label for="gpsChartRange">Période</label><select id="gpsChartRange"><option value="8">8 dernières semaines</option><option value="12">12 dernières semaines</option><option value="all">Tout l'historique</option></select></div></div><div id="gpsCoachCharts" class="gps-charts-grid"></div><p class="notice">Ces graphiques servent à suivre tes habitudes, pas à diagnostiquer une fatigue, une condition médicale ou à prédire tes performances.</p></div>
+ <dialog id="gpsDetailDialog" aria-labelledby="gpsDetailTitle"><div class="spaced"><h2 id="gpsDetailTitle">🏃 Détail de ma sortie</h2><button id="gpsCloseDetail" type="button">Fermer ✕</button></div><p id="gpsDetailSub" class="muted"></p><div id="gpsDetailMetrics" class="gps-detail-grid"></div><div id="gpsDetailMeta" class="hint"></div><section id="gpsDetailCharts" aria-label="Courbes de la sortie"></section><p class="notice">L’allure et la vitesse sont calculées à partir de la distance et de la durée enregistrées. Selon le fichier, cette durée peut inclure les pauses ; ce n’est pas forcément le temps de déplacement Garmin.</p></dialog>
+ <div class="hint">🔒 HYBRID FIT n'accède pas à ton compte Garmin ou Strava. Pour la synchronisation automatique, il faudra plus tard un serveur sécurisé et des autorisations officielles. Le FIT est analysé localement ; les champs disponibles peuvent varier selon la montre ou l’export.</div>
+</section>
+<section class="panel" id="evolution">
+  <div class="spaced"><div><h2>📸 Mon évolution physique</h2><p class="muted">Photos comparatives, mensurations et notes personnelles. Aucun jugement automatique sur ton apparence.</p></div><span class="pill">Privé sur cet appareil</span></div>
+  <div class="hint warn" id="photoPrivacy">🔒 Les photos restent sur cet appareil dans le stockage du navigateur. Elles ne sont pas envoyées vers un serveur. <strong>Exporte régulièrement ta sauvegarde complète (photos incluses)</strong> : vider les données du navigateur peut les effacer. Évite un ordinateur partagé.</div>
+  <div class="hint hidden" id="evolutionModeInfo"></div>
+  <div class="grid section">
+    <form id="bodyForm" class="card" novalidate>
+      <h3>➕ Nouveau point de suivi</h3><p class="notice">Tout est facultatif, sauf la date et au moins une photo, une mensuration ou une note. Fais les photos dans des conditions similaires pour comparer.</p>
+      <div class="field"><label for="bodyDate">Date</label><input id="bodyDate" type="date" required></div>
+      <div class="grid">
+        <div class="field"><label for="bodyWeight">Poids (kg)</label><input id="bodyWeight" type="number" inputmode="decimal" min="20" max="350" step="0.1" placeholder="Ex. 73,0"></div>
+        <div class="field"><label for="bodyWaist">Tour de taille (cm)</label><input id="bodyWaist" type="number" min="30" max="250" step="0.1" placeholder="Ex. 78"></div>
+        <div class="field"><label for="bodyChest">Tour de poitrine (cm)</label><input id="bodyChest" type="number" min="30" max="250" step="0.1" placeholder="Ex. 101"></div>
+        <div class="field"><label for="bodyArms">Tour de bras (cm)</label><input id="bodyArms" type="number" min="10" max="100" step="0.1" placeholder="Ex. 35"></div>
+      </div>
+      <div class="field"><label for="bodyNotes">Notes personnelles</label><textarea id="bodyNotes" rows="3" maxlength="700" placeholder="Énergie, régularité, ressenti…"></textarea></div>
+      <div class="field"><label for="bodyPhoto">Photo (facultatif, JPG/PNG/WEBP)</label><input id="bodyPhoto" type="file" accept="image/jpeg,image/png,image/webp"><small>Image réduite sur ton appareil (jusqu’à 8 Mo en entrée). Ne photographie que toi-même et évite les éléments identifiants.</small></div>
+      <div class="toolbar"><button class="primary" type="submit">Enregistrer mon suivi</button><button type="reset">Effacer le formulaire</button></div>
+      <div id="bodyMessage" class="hint hidden" aria-live="polite"></div>
+    </form>
+    <div class="card"><h3>📊 Mes mensurations</h3><p class="notice">Évolution factuelle entre les relevés disponibles, sans estimation de masse grasse à partir des photos.</p><div id="bodyStats" class="body-stats"></div><div id="bodyTrend" class="body-trend"></div><p class="notice" id="bodyTrendNote"></p></div>
+  </div>
+  <div class="card section"><div class="spaced"><div><h3>🪞 Comparateur avant / après</h3><p class="notice">Choisis deux relevés avec photo pour les placer côte à côte.</p></div></div>
+  <div class="grid"><div class="field"><label for="photoBefore">Photo avant</label><select id="photoBefore"></select></div><div class="field"><label for="photoAfter">Photo après</label><select id="photoAfter"></select></div></div>
+  <div id="photoCompare" class="compare-grid"><div class="compare-photo empty">Ajoute deux photos pour commencer.</div></div>
+  <p class="notice">La lumière, la posture et l'angle peuvent modifier fortement l'apparence. Les photos ne permettent pas de diagnostiquer ni de mesurer précisément une composition corporelle.</p>
+  </div>
+  <div class="card section"><div class="spaced"><h3>🗓️ Mes relevés</h3><small>Supprimables à tout moment</small></div><div id="bodyHistory" class="body-history"></div></div>
+</section>
+<section class="panel" id="nutrition">
+  <div class="spaced"><div><h2>🥗 Alimentation & hydratation</h2><p class="muted">Ton alimentation, à ton rythme. Aucun comptage obligatoire.</p></div><span class="pill">Données privées sur cet appareil</span></div>
+  <div class="hint">Mode Simple et mode Complet partagent le même historique : tu peux changer d’avis à tout moment. Les calories et compositions d’aliments sont indicatives et peuvent varier selon les marques et la préparation.</div>
+  <div class="card section">
+    <div class="spaced"><h3>Choisis ton mode</h3><div class="toolbar"><button type="button" id="nutSimple" class="primary">🌱 Simple</button><button type="button" id="nutComplete">📊 Complet</button></div></div>
+    <div class="field"><label for="nutDate">Journée consultée</label><input type="date" id="nutDate"></div>
+    <div class="hint ok" id="nutGoalCaption"></div>
+  </div>
+  <div class="grid section">
+    <div class="card">
+      <h3>💧 Hydratation</h3><p class="notice">Enregistre ce que tu bois. Tes besoins varient selon la chaleur, la transpiration et l’effort ; ne te force pas à atteindre un chiffre fixe.</p>
+      <div class="big-value" id="waterToday">0 ml</div><div class="watertrack"><div id="waterFill"></div></div>
+      <div class="toolbar"><button id="water250" type="button">+ 250 ml</button><button id="water500" type="button">+ 500 ml</button><button id="waterUndo" type="button">Annuler le dernier ajout</button></div>
+      <div class="grid section"><div class="field"><label for="waterCustom">Autre volume (ml)</label><input id="waterCustom" type="number" min="10" max="2000" step="10" placeholder="Ex. 330"></div><div class="field" style="justify-content:end"><button id="waterAddCustom" type="button">Ajouter ce volume</button></div></div>
+      <small id="waterMessage" aria-live="polite"></small>
+    </div>
+    <div class="card"><h3>⚖️ Poids & IMC facultatif</h3><p class="notice">Disponible en Muscu, Running et Hybride. L’IMC chez l’adulte est un indicateur imparfait : il ne distingue pas muscle et graisse.</p>
+      <div class="grid"><div class="field"><label for="nutHeight">Taille (cm)</label><input type="number" min="100" max="240" step="0.1" id="nutHeight" placeholder="Ex. 183"></div><div class="field"><label for="nutWeight">Poids du jour (kg)</label><input type="number" min="20" max="350" step="0.1" id="nutWeight" placeholder="Ex. 73"></div></div>
+      <div class="bmi-meter" aria-label="Jauge de l'indice de masse corporelle pour adulte">
+        <div class="bmi-meter-title">Où se situe mon IMC ?</div>
+        <svg id="bmiGauge" viewBox="0 0 300 183" role="img" aria-label="Jauge IMC : aucune mesure renseignée" xmlns="http://www.w3.org/2000/svg">
+          <g id="bmiGaugeBands"></g>
+          <g id="bmiNeedle" visibility="hidden"><line id="bmiNeedleLine" x1="150" y1="135" x2="150" y2="54" stroke="#f9fcff" stroke-width="3.5" stroke-linecap="round"/><circle id="bmiNeedleTip" cx="150" cy="23" r="6" fill="#fff" stroke="#122035" stroke-width="2"/><circle cx="150" cy="135" r="6" fill="#fff"/></g>
+          <text id="bmiGaugeValue" x="150" y="105" fill="#f5f8ff" text-anchor="middle" font-size="30" font-weight="800">—</text>
+          <text x="150" y="120" fill="#a7b6ce" text-anchor="middle" font-size="10">IMC</text>
+          <text x="27" y="156" fill="#a7b6ce" font-size="10">15</text><text x="273" y="156" fill="#a7b6ce" text-anchor="end" font-size="10">40+</text>
+        </svg>
+        <div id="bmiStatus" class="bmi-status" aria-live="polite">Saisis ta taille et ton poids pour voir ta position.</div>
+        <div class="bmi-legend" aria-label="Catégories indicatives de l'IMC chez l'adulte">
+          <span><i style="background:#65b6ef"></i>En dessous de 18,5</span>
+          <span><i style="background:#70d6a0"></i>18,5 à 24,9</span>
+          <span><i style="background:#f0ba68"></i>25 à 29,9</span>
+          <span><i style="background:#ec817d"></i>30 et plus</span>
+        </div>
+        <p class="notice bmi-caution">Repères d'IMC pour adultes uniquement. L'IMC ne mesure pas la masse grasse ni la forme physique, notamment chez les personnes musclées. Les valeurs sous 15 ou au-dessus de 40 sont affichées aux extrémités de la jauge.</p>
+      </div>
+      <div class="spaced"><button id="saveNutWeight" type="button">Enregistrer mon poids</button><div id="bmiOutput" class="big-value">IMC : —</div></div><p id="weightMessage" class="notice" aria-live="polite"></p><div id="weightMiniHistory" class="notice"></div>
+    </div>
+  </div>
+
+  <div class="card section mealjournal" id="mealJournal">
+    <div class="meal-hero"><div><h3>🍽️ Mon journal des repas</h3><p class="muted">Ce que tu as réellement mangé, repas par repas. Pas besoin de compter les calories.</p></div><div class="meal-counter" id="mealDayCount" aria-live="polite">0 moment enregistré</div></div>
+    <div class="meal-completion" aria-hidden="true"><div id="mealDayProgress"></div></div>
+    <div class="meal-grid" id="mealDayCards"></div>
+    <div class="meal-coach" id="mealTip">Note tes repas à ton rythme ; les données servent à repérer tes habitudes, pas à te juger.</div>
+    <div class="meal-form" id="quickMealForm">
+      <h4 id="quickMealTitle">➕ Ajouter un repas</h4>
+      <div class="grid"><div class="field"><label for="quickMealSlot">Moment de la journée</label><select id="quickMealSlot"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Collation</option><option>Dîner</option><option>Autre</option></select></div><div class="field"><label for="quickMealName">Ce que j'ai mangé</label><input id="quickMealName" maxlength="180" placeholder="Ex. Poulet, riz et légumes"></div></div>
+      <div class="field"><label for="quickMealDetail">Précisions / portions (facultatif)</label><textarea id="quickMealDetail" maxlength="300" rows="2" placeholder="Ex. Une assiette, 150 g de riz ; faim et satiété si utile…"></textarea></div>
+      <div class="toolbar"><button id="saveQuickMeal" type="button" class="primary">✓ Enregistrer ce repas</button><button id="repeatQuickMeal" type="button">↺ Reprendre un repas précédent</button><button id="cancelQuickMeal" type="button" class="hidden">Annuler la modification</button></div>
+      <p id="repeatQuickMealHint" class="meal-repeat-status"></p><p id="quickMealMessage" class="notice" aria-live="polite"></p>
+    </div>
+    <p class="notice">Le mode Complet peut aussi détailler chaque aliment et ses macros. Les deux modes alimentent la même journée sans effacer les données.</p>
+  </div>
+  <div class="card section" id="simpleNutrition"><h3>🥙 Des repas adaptés à ton objectif</h3><p class="notice">Idées pratiques, à adapter à tes préférences et à tes éventuelles allergies. Aucune quantité imposée.</p>
+    <div class="grid" id="mealIdeas"></div><div class="field section"><label for="simpleFoodNote">Note du jour (facultatif)</label><textarea id="simpleFoodNote" maxlength="600" rows="2" placeholder="Ex. Bonne énergie, repas pris après l’entraînement…"></textarea></div><button id="saveFoodNote" type="button">Conserver ma note</button>
+  </div>
+  <div id="fullNutrition" class="hidden">
+    <div class="card section"><h3>📊 Mon journal alimentaire</h3><p class="notice">Renseigne tes objectifs uniquement si tu en as ; l’application ne t’impose aucun déficit calorique.</p>
+      <div class="grid macro-grid" id="nutTargetsFields">
+        <div class="field"><label for="goalKcal">Objectif kcal / jour (facultatif)</label><input id="goalKcal" type="number" min="500" max="8000" step="25" placeholder="Libre"></div>
+        <div class="field"><label for="goalProtein">Protéines cible (g, facultatif)</label><input id="goalProtein" type="number" min="0" max="500" step="1" placeholder="Libre"></div>
+        <div class="field"><label for="goalCarbs">Glucides cible (g, facultatif)</label><input id="goalCarbs" type="number" min="0" max="1200" step="1" placeholder="Libre"></div>
+        <div class="field"><label for="goalFat">Lipides cible (g, facultatif)</label><input id="goalFat" type="number" min="0" max="350" step="1" placeholder="Libre"></div>
+      </div>
+      <button id="saveNutGoals" type="button">Enregistrer mes repères personnels</button>
+      <div class="nut-kpi" id="macroStats"></div>
+      <hr class="hr"><h3>➕ Enregistrer un aliment</h3>
+      <div class="grid"><div class="field"><label for="foodSelect">Aliment de départ</label><select id="foodSelect"><option value="custom">Personnalisé / nouvelle recette</option></select><small>Valeurs moyennes indicatives, vérifie l’étiquette du produit.</small></div><div class="field"><label for="foodMeal">Repas</label><select id="foodMeal"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Collation</option><option>Dîner</option><option>Autre</option></select></div></div>
+      <div class="grid"><div class="field"><label for="foodName">Nom de l’aliment ou de la recette</label><input id="foodName" maxlength="90" placeholder="Ex. Riz cuit"></div><div class="field"><label for="foodGrams">Quantité consommée (g)</label><input id="foodGrams" type="number" min="1" max="5000" step="1" value="100"></div></div>
+      <p class="notice">Composition <strong>pour 100 g</strong> (modifiable, y compris pour les aliments proposés).</p>
+      <div class="grid macro-grid"><div class="field"><label for="foodKcal">kcal / 100 g</label><input id="foodKcal" type="number" min="0" max="1000" step="0.1"></div><div class="field"><label for="foodP">Protéines / 100 g</label><input id="foodP" type="number" min="0" max="100" step="0.1"></div><div class="field"><label for="foodC">Glucides / 100 g</label><input id="foodC" type="number" min="0" max="100" step="0.1"></div><div class="field"><label for="foodF">Lipides / 100 g</label><input id="foodF" type="number" min="0" max="100" step="0.1"></div></div>
+      <div class="toolbar"><button id="addFood" type="button" class="primary">Ajouter au journal</button><button id="clearFoodForm" type="button">Vider les champs</button></div><p id="foodMessage" class="notice" aria-live="polite"></p>
+      <h3>Mes aliments détaillés</h3><p class="notice">Ils apparaissent aussi dans le journal commun, regroupés par repas.</p><div id="foodHistory" class="progress-list"></div>
+    </div>
+  </div>
+  <div class="hint warn">ℹ️ Prototype d’organisation, pas un diagnostic ni un accompagnement diététique individualisé. Les besoins varient notamment avec l’âge, l’activité et l’état de santé. En cas de trouble alimentaire, de maladie ou de symptômes, demande conseil à un professionnel de santé.</div>
+</section>
+
+<section class="panel" id="routes">
+ <div class="card section"><h2>🗺️ Mon parcours du jour · HYBRID PACE</h2><p class="muted">Renseigne une distance, une durée, ou les deux. Si tu ne mets que la durée, la distance est estimée avec ton allure. Si tu renseignes les deux, la distance est prioritaire pour le tracé. Le GPX exporte le tracé, pas les alertes Garmin.</p>
+ <div class="grid"><div class="field"><label for="hpDirectKm">Distance souhaitée (km) — facultative</label><input id="hpDirectKm" type="number" min="0.5" max="200" step="0.5" placeholder="Ex. 10"><small class="muted">Si renseignée, cette distance remplace le calcul durée × allure.</small></div><div class="field"><label for="hpDuration">Durée (minutes) — facultative</label><input id="hpDuration" type="number" min="5" max="300" placeholder="Ex. 75"></div><div class="field"><label for="hpPace">Allure cible (mm:ss/km) — facultative</label><input id="hpPace" placeholder="Ex. 5:00"></div><div class="field"><label for="hpTolerance">Tolérance (secondes/km) — facultative</label><input id="hpTolerance" type="number" min="5" max="90" placeholder="Ex. 10"></div><div class="field"><label for="hpType">Type de parcours</label><select id="hpType"><option value="foot-walking">Chemins / marche-course</option><option value="foot-hiking">Trail / randonnée</option><option value="cycling-regular">Pistes cyclables (repérage uniquement)</option></select></div></div>
+ <div class="hint ok" id="hpEstimate" aria-live="polite"></div>
+ <h3>📍 Générer une vraie boucle</h3><p class="muted">1. Indique ta distance. 2. Saisis une adresse puis clique sur « Rechercher ». 3. Clique sur « Calculer la boucle ». Service public expérimental : résultat indicatif, disponibilité non garantie.</p>
+ <div class="grid"><div class="field"><label for="hpAddress">Ville, adresse ou lieu de départ</label><input id="hpAddress" type="text" placeholder="Ex. mairie d’Isbergues"><div class="toolbar"><button id="hpFindAddress" type="button">🔎 Rechercher</button><button id="hpLocate" type="button">📍 Ma position</button></div><small id="hpStartStatus" class="muted" role="status">Aucun départ sélectionné</small><input id="hpLat" type="hidden"><input id="hpLon" type="hidden"></div><div class="field"><label for="hpSeed">Variante du parcours</label><select id="hpSeed"><option value="3">Boucle A</option><option value="9">Boucle B</option><option value="17">Boucle C</option></select></div></div>
+ <div class="toolbar"><button class="primary" id="hpGenerate">🗺️ Calculer la boucle</button><button id="hpSaveRoute" type="button" disabled>💾 Enregistrer ce parcours</button><button id="hpExport" disabled>⬇️ Exporter GPX</button></div><div id="hpMessage" class="hint hidden" role="status"></div><div id="hpRouteDetails"></div>
+ <h3>⌚ HYBRID PACE</h3>
+ <fieldset><legend>Comment veux-tu courir ?</legend>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="session" checked><span>🎯 <strong>Suivre ma séance</strong> — respecter l’allure prévue, sans partir trop vite.</span></label>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="chrono"><span>🏁 <strong>Battre le chrono</strong> — suivre mon avance ou retard sur une distance.</span></label>
+ <label class="hp-mode"><input type="radio" name="hpMode" value="free"><span>🏃 <strong>Course libre</strong> — aucune consigne d’allure.</span></label>
+ </fieldset>
+ <div class="card section" style="border-color:#477b69"><h3>🗺️ Parcours (facultatif)</h3><div class="field"><label for="hpLiveRouteSelect">Parcours enregistré à associer à cette sortie</label><select id="hpLiveRouteSelect"><option value="">Sans parcours</option></select></div><p id="hpLiveRouteInfo" class="notice">Tu peux combiner une séance et un parcours. La navigation sur carte sera ajoutée après les premiers tests.</p></div>
+ <div id="hpPlannedBox" class="card section" style="border-color:#477b69"><h3>📅 Séance de mon planning</h3><p class="notice">Séances Running non terminées de la semaine affichée. Pendant le GPS, la phase active et son compte à rebours s'affichent automatiquement. Les intervalles internes ne sont pas encore découpés individuellement ; les allures restent guidées par le ressenti.</p><div class="field"><label for="hpPlannedSelect">Séance à suivre</label><select id="hpPlannedSelect"></select></div><div id="hpPlannedSteps" class="hint" aria-live="polite"></div></div>
+ <div class="grid" id="hpChronoFields"><div class="field"><label for="hpRaceKm">Distance de course (km)</label><input id="hpRaceKm" type="number" min="0.5" max="200" step="0.1" value="10"></div><div class="field"><label for="hpRaceTime">Chrono visé (hh:mm:ss ou mm:ss)</label><input id="hpRaceTime" value="37:00" placeholder="37:00"></div></div>
+ <div class="field" id="hpActualWrap"><label for="hpActual">Allure simulée (secondes/km) — test du mode séance</label><input id="hpActual" type="range" min="210" max="390" step="5" value="270"></div><div class="hint" id="hpCoach" aria-live="polite"></div>
+ <div class="card section" id="hpLiveBox" style="border-color:#477b69">
+ <h3>📡 Sortie GPS en direct <span class="pill">Bêta V1.0.7</span></h3>
+ <p class="notice">Sur téléphone, en HTTPS, autorise la localisation. Garde cette page ouverte pendant la sortie : le suivi en arrière-plan n’est pas garanti. Le GPS peut être imprécis, surtout au départ.</p>
+ <div class="hp-dash" aria-label="Tableau de bord de course">
+  <div class="hp-dash-label">⏱️ Chronomètre</div><div class="hp-dash-time" id="hpDashTime">00:00</div>
+  <div class="hp-dash-phase" id="hpDashPhase">🎯 Prêt pour la séance</div>
+  <div class="hp-dash-grid"><div class="hp-dash-tile"><strong id="hpDashTarget">—</strong><small id="hpDashTargetLabel">Consigne de séance</small></div><div class="hp-dash-tile"><strong id="hpDashRemaining">—</strong><small id="hpDashRemainingLabel">Temps restant dans la phase</small></div></div>
+  <div class="hp-dash-hint" id="hpDashHint">Sélectionne ta séance, puis démarre la sortie GPS.</div>
+ </div>
+ <div class="statrow"><div class="stat"><strong id="hpLiveTime">00:00</strong><small>Temps</small></div><div class="stat"><strong id="hpLiveKm">0,00 km</strong><small>Distance GPS</small></div><div class="stat"><strong id="hpLivePace">—</strong><small>Allure moyenne</small></div></div>
+ <div class="toolbar"><button type="button" class="primary" id="hpLiveStart">▶ Démarrer</button><button type="button" id="hpLivePause" disabled>⏸ Pause</button><button type="button" id="hpLiveStop" disabled>■ Terminer</button></div>
+ <div id="hpLiveStatus" class="hint" aria-live="polite">Prêt à démarrer une sortie GPS.</div>
+<div class="toolbar" style="margin-top:10px;align-items:center;flex-wrap:wrap">
+ <button type="button" id="hpVoiceToggle" aria-pressed="false">🔇 Activer le coach vocal</button>
+ <button type="button" id="hpVoiceTest">🔊 Tester la voix</button>
+</div>
+<p id="hpVoiceInfo" class="notice">Le coach annonce les phases de la séance et prévient 30 secondes avant le changement. Nécessite une voix française disponible sur l’appareil.</p>
+ <p class="notice">Les coordonnées restent en mémoire temporaire pendant la sortie et ne sont pas enregistrées dans l’historique. Ce module ne remplace pas une montre GPS dédiée.</p>
+ </div>
+ <p class="muted">Pour la Fenix 7 : transférer le GPX via Garmin Connect, puis régler séparément une alerte de plage d’allure ou un entraînement structuré. En endurance facile, privilégier aussi le ressenti et la fréquence cardiaque.</p>
+ </div>
+</section>
+<section class="panel" id="live"><div class="card section"><h2>🏃 Sortie GPS en direct</h2><p class="notice">Choisis ton mode et ta séance ici, active le coach vocal, puis démarre.</p><div id="hpLiveMount"></div><div class="toolbar"><button type="button" id="hpLiveBack">⚙️ Préparer ma séance</button></div></div></section>
+<footer class="foot">HYBRID FIT v1.1.9 · Parcours visible dans Sortie en direct · Prototype local, sans serveur, sans compte, sans collecte de données · Running et récupération : recommandations indicatives, à ajuster au niveau et au ressenti.</footer></main>
+<dialog id="archiveDialog"><h2 id="archiveTitle">Cycle archivé</h2><div id="archiveDetails"></div><div class="toolbar"><button id="closeArchive">Fermer</button></div></dialog><dialog id="moveDialog"><h2>📅 Déplacer une séance</h2><p id="moveInfo" class="muted"></p><div class="field"><label for="moveDay">Nouveau jour</label><select id="moveDay"></select></div><fieldset><legend>Que souhaites-tu faire ?</legend><label class="check"><input type="radio" name="moveKind" value="simple" checked> Déplacer uniquement cette séance</label><label class="check"><input type="radio" name="moveKind" value="optimize"> Optimiser le reste de la semaine</label></fieldset><div class="hint" id="movePreview" aria-live="polite"></div><div class="toolbar"><button class="primary" id="applyMove">Valider le déplacement</button><button id="cancelMove">Annuler</button></div></dialog>
+<dialog id="sessionDialog"><h2 id="sessionTitle">Séance</h2><p id="sessionSummary" class="muted"></p><div id="sessionContent"></div><div class="toolbar"><button id="savePlannedWorkout">💾 Garder mes changements (sans terminer)</button><button class="primary" id="saveWorkout">✓ Terminer et enregistrer</button><button id="cancelWorkout">Fermer</button></div><div class="hint hidden" id="workoutMessage"></div></dialog>
+</body></html>
